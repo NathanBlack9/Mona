@@ -1,0 +1,21 @@
+h2 {
+  font-size: 22px;
+  letter-spacing: 2.5px;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 100;
+  color: $black;
+
+  span {
+    color: $white;
+    font-weight: bold;
+  }
+}
+
+a {
+  font-weight: bold;
+  color: $white;
+  text-decoration: none;
+}

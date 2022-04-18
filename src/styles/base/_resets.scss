@@ -1,0 +1,57 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+// html, body {
+//   &::-webkit-scrollbar {
+//     // width: 4px;
+//     // background-color: $black;
+//     // box-shadow: inset -1px 0px 0px $white;
+//     width: 0;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     // background-color: $white;
+//     width: 0;
+//   }
+// }
+
+body {
+  font-family: 'VelaSans', sans-serif;
+  font-style: normal;
+  color: $black;
+  line-height: 16px;
+  letter-spacing: 0.03px;
+  font-weight: 300;
+  // background-color: $black;
+  position: relative;
+
+  &::selection {
+    background-color: $white;
+    color: $black;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  // cursor: none;
+}
+
+h1, h2, h3,
+h4, h5, h6 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+textarea {
+  font-family: inherit;
+  font-weight: inherit;
+}

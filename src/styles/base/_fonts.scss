@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'VelaSans';
+  src: url('../fonts/VelaSans-Light.woff2') format('woff2'),
+    url('../fonts/VelaSans-Light.woff') format('woff'),
+    url('../fonts/VelaSans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'VelaSans';
+  src: url('../fonts/VelaSans-Bold.woff2') format('woff2'),
+    url('../fonts/VelaSans-Bold.woff') format('woff'),
+    url('../fonts/VelaSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap
+}
+
+@font-face {
+  font-family: 'Steelfish';
+  src: url('../fonts/SteelfishRg-Bold.woff2') format('woff2'),
+    url('../fonts/SteelfishRg-Bold.woff') format('woff'),
+    url('../fonts/SteelfishRg-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap
+}
