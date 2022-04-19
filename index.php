@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="ru">
+<?php get_header() ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
-  <title>Mona</title>
-</head>
+<section class="intro">
+  <div class="wrapper">
+    <div class="intro__inner">
+      <h1 class="intro__title">Студия маникюра <span>Mona<span></h1>
+      <h2 class="intro__subtitle">маленький уголок заботы о себе</h2>
+      <a href="#" class="intro__btn btn">Наши услуги</a>
+    </div>
+  </div>
+</section>
 
-<body>
-  <div class="asd"></div>
-</body>
-
-</html>
+<?php get_footer() ?>
+  
+  

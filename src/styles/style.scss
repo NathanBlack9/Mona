@@ -2,6 +2,10 @@
 @import 'base/fonts';
 @import 'base/resets';
 @import 'base/typography';
+@import 'components/layout';
+@import 'components/mixins';
+@import 'components/buttons';
+@import 'components/menu';
 
 @import './header';
 @import './footer';

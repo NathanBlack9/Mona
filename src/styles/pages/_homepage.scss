@@ -1,0 +1,46 @@
+.intro {
+  width: 100%;
+  height: 100vh;
+  background: url('build/img/intro.jpg') no-repeat 50%/cover;
+
+  .wrapper {
+    height: 100%;
+  }
+
+  &__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 10em;
+    color: $white;
+
+    span {
+      font-family: 'Josefin';
+      font-weight: bold;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 5.5em;
+    color: $white;
+    line-height: 1.5rem;
+    margin-bottom: 115px;
+  }
+
+  &__btn {
+    position: absolute;
+    left: 0;
+    bottom: 150px;
+    font-weight: 700;
+    font-size: 25px;
+    padding: 13px 80px; 
+  }
+}

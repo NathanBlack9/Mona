@@ -1,5 +1,62 @@
-.asd  {
-  width: 100px;
-  height: 100px;
-  background-color: red;
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  width: 100%;
+  z-index: 99;
+
+  .header__logo {
+    background: url('build/img/logo.svg') no-repeat 50%;
+    width: 130px;
+    height: 55px;
+    margin-left: 35px;
+    display: block;
+  }
+
+  .header__inner {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .header__sign-btn {
+    margin-left: 50px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .header__messengers {
+    margin-left: 85px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+    $messengers: "wh", "vb", "tg";
+    $messengers-length: length($messengers);
+
+    @for $i from 1 through $messengers-length {
+      .header__messengers-#{nth($messengers, $i)} {
+        height: 25px;
+        width: 25px;
+        display: block;
+        margin-left: 15px;
+        transition: all 200ms ease;
+        background: url("build/img/#{nth($messengers, $i)}.svg") no-repeat 50%/contain;
+
+        &:hover {
+          filter: opacity(0.85);
+        }
+      }
+    }
+
+    .header__messengers-phone {
+      @include Underline;
+      font-weight: 700;
+      font-size: 16px;
+    }
+  }
+
 }
