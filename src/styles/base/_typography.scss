@@ -1,6 +1,15 @@
-h2 {
-  font-size: 22px;
-  letter-spacing: 2.5px;
+.h1 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 52px;
+  color: $black;
+  margin-bottom: 70px;
+}
+
+.h2 {
+  font-weight: 800;
+  font-size: 43px;
+  color: $black;
 }
 
 p {
