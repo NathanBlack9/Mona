@@ -3,19 +3,17 @@ html {
   scroll-behavior: smooth;
 }
 
-// html, body {
-//   &::-webkit-scrollbar {
-//     // width: 4px;
-//     // background-color: $black;
-//     // box-shadow: inset -1px 0px 0px $white;
-//     width: 0;
-//   }
+html, body {
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: $white;
+    box-shadow: inset -1px 0px 0px $white;
+  }
 
-//   &::-webkit-scrollbar-thumb {
-//     // background-color: $white;
-//     width: 0;
-//   }
-// }
+  &::-webkit-scrollbar-thumb {
+    background-color: $pink;
+  }
+}
 
 body {
   font-family: 'Overpass', sans-serif;
@@ -45,9 +43,8 @@ h4, h5, h6 {
 
 img {
   max-width: 100%;
-  width: 100%;
+  // width: 100%;
   height: 100%;
-  height: auto;
 }
 
 textarea {

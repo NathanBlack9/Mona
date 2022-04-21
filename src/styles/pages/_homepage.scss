@@ -50,6 +50,10 @@
     padding: 150px 0 90px;
   }
 
+  .services__title {
+    margin-bottom: 70px;
+  }
+
   .services__inner {
     display: grid;
     grid-template-columns: repeat(6,1fr);
@@ -150,5 +154,124 @@
       transition-delay: 600ms;
       opacity: 1;
     }
+  }
+}
+
+.about {
+  margin: 90px 0;
+
+  .about__inner {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .about__slider-block {
+    position: relative;
+    width: 50%;
+  }
+
+  .about__slider {
+    width: 100%;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 65px;
+      bottom: -15px;
+      background-color: transparent;
+      border: 3px solid $pink;
+      width: 80%;
+      height: 100%;
+    }
+
+    .slick-list {
+      width: 80%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    &-item {
+      height: 675px;
+      object-fit: cover;
+    }
+  }
+  
+  .about__slider-controls {
+    position: absolute;
+    bottom: 30px;
+    right: 105px;
+    z-index: 1050;
+    display: flex;
+    align-items: center;
+  }
+
+  .about__slider-counter {
+    font-weight: 600;
+    font-size: 20px;
+    color: $white;
+    margin: 0 20px;
+    min-width: 45px;
+  }
+
+  .about__content {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  .about__title {
+    margin-bottom: 20px;
+  }
+  
+  .about__text {
+
+    p {
+      font-weight: 400;
+      font-size: 22px;
+      color: $black;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .about__btn {
+    color: $black;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 2rem;
+    padding: 13px 60px;    
+  }
+}
+
+.certificates {
+  margin: 80px 0;
+  
+  .certificates__title {
+    margin-bottom: 30px;
+  }
+
+  .certificates__text {
+    font-weight: 400;
+    font-size: 22px;
+    margin-bottom: 60px;
+  }
+
+  .certificates__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .certificates__slider {
+    .slick-list {
+      overflow: hidden;
+      margin: 0 -15px;
+    }
+  }
+
+  .certificates__slider-item {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 15px;
   }
 }

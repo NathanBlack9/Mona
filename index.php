@@ -48,6 +48,58 @@
   </div>
 </section>
 
+<section class="about">
+  <div class="wrapper">
+    <div class="about__inner">
+      <div class="about__slider-block">
+        <div class="about__slider js-fade-slider">
+          <img src="<?php echo get_template_directory_uri(); ?>/build/img/Group_21.jpg" alt="" class="about__slider-item">
+          <img src="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" alt="" class="about__slider-item">
+          <img src="<?php echo get_template_directory_uri(); ?>/build/img/Group_21.jpg" alt="" class="about__slider-item">
+        </div>
+        <div class="about__slider-controls">
+          <div class="js-fade-slider-prev slick-prev"></div>
+          <div class="js-fade-slider-counter about__slider-counter"></div>
+          <div class="js-fade-slider-next slick-next"></div>
+        </div>
+      </div>
+      <div class="about__content">
+        <div class="about__title h1">О нас</div>
+        <div class="about__text">
+          <p>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</p>
+          <p>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</p>
+          <p>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. <a href="#">сертификаты наших мастеров</a></p>
+        </div>
+        <a href="#" class="about__btn btn pink--btn">Подрбонее о нас</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="certificates">
+  <div class="wrapper">
+    <div class="certificates__title h1">Сертификаты</div>
+    <div class="certificates__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</div>
+    <div class="certificates__inner">
+      <div class="certificates__slider js-slideshow">
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="certificates__slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
+          </a>
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="certificates__slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
+          </a>
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" data-fancybox="certificates" class="certificates__slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" alt="" >
+          </a>
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="certificates__slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
+          </a>
+      </div>
+      <a href="#" class="certificates__btn btn pink--btn">Смотреть все</a>
+    </div>
+  </div>
+</div>
+
 <?php get_footer() ?>
   
   

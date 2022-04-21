@@ -1,4 +1,4 @@
-$(window).on('mousewheel', function () {
+$(window).on('load mousewheel scroll', function () {
   const $introHeight = $('.intro').innerHeight();
   const $this = $(this);
   const $header = $('.header');

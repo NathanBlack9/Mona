@@ -16,7 +16,7 @@
     right: -3px;
     top: -3px;
     background-color: transparent;
-    transition: all 300ms ease;
+    transition: all 150ms ease;
   }
 
   &::before {
@@ -26,8 +26,20 @@
     bottom: -3px;
   }
 
+  &.pink--btn {
+    &::before,
+    &::after {
+      border-color: $pink;
+    }
+
+    &:hover {
+      color: $white;
+      box-shadow: inset 0 3em $pink;
+    }
+  }
+
   &:hover {
-    transition-delay: 300ms;
+    transition-delay: 150ms;
     box-shadow: inset 0 3em $white;
     color: $pink;
 

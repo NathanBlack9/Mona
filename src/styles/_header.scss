@@ -4,11 +4,15 @@
   left: 0;
   background-color: transparent;
   width: 100%;
-  z-index: 99;
+  z-index: 9999;
   transition: all 100ms ease;
 
   &.highlighted {
     background-color: $pink;
+
+    .header__inner {
+      padding: 15px 0 20px;
+    }
 
     .header__messengers {
       position: absolute;
