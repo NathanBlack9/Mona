@@ -100,6 +100,74 @@
   </div>
 </div>
 
+<section class="reviews">
+  <div class="wrapper">
+    <div class="reviews__title h1">Отзывы</div>
+    <div class="reviews__inner">
+      <div class="reviews__item js-reviews-rating" data-rating="5">
+        <div class="reviews__name">Лукянова Анна</div>
+        <div class="reviews__job">
+          <span>мастер</span>
+          Аракелян Анжела
+        </div>
+        <ul class="reviews__rating">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="reviews__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. </div>
+      </div>
+      <div class="reviews__item js-reviews-rating" data-rating="4">
+        <div class="reviews__name">Гирина Анастясия</div>
+        <div class="reviews__job">
+          <span>мастер</span>
+          Аракелян Анжела
+        </div>
+        <ul class="reviews__rating">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="reviews__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. </div>
+      </div>
+      <div class="reviews__item js-reviews-rating" data-rating="3">
+        <div class="reviews__name">Лукянова Анна</div>
+        <div class="reviews__job">
+          <span>мастер</span>
+          Аракелян Анжела
+        </div>
+        <ul class="reviews__rating">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <div class="reviews__item js-reviews-rating" data-rating="1">
+        <div class="reviews__name">Гирина Анастясия</div>
+        <div class="reviews__job">
+          <span>мастер</span>
+          Аракелян Анжела
+        </div>
+        <ul class="reviews__rating">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="reviews__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. </div>
+      </div>
+    </div>
+    <a href="#" class="reviews__btn btn pink--btn">Смотреть все</a>
+  </div>
+</section>
+
 <?php get_footer() ?>
   
   

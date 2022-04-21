@@ -245,7 +245,7 @@
 }
 
 .certificates {
-  margin: 80px 0;
+  margin: 200px 0 135px;
   
   .certificates__title {
     margin-bottom: 30px;
@@ -263,15 +263,45 @@
   }
 
   .certificates__slider {
+    position: relative;
+
     .slick-list {
       overflow: hidden;
       margin: 0 -15px;
     }
   }
 
+  .certificates__btn {
+    font-weight: 400;
+    font-size: 18px;
+    color: $black;
+    margin: 0 auto;
+    padding: 13px 60px;
+    margin-top: 2em;
+  }
+
   .certificates__slider-item {
     display: inline-block;
     text-decoration: none;
     margin: 0 15px;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    top: 50%;
+
+    &.slick-prev {
+      right: auto;
+      left: -25px;
+    }
+
+    &.slick-next {
+      left: auto;
+      right: -25px;
+    }
+    
+    &.slick-disabled {
+      display: none !important;
+    }
   }
 }
