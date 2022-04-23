@@ -9,6 +9,7 @@
 
   &.highlighted {
     background-color: $pink;
+    border-bottom: 1px solid $white;
 
     .header__inner {
       padding: 15px 0 20px;
@@ -49,9 +50,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    
-    $messengers: "wh", "vb", "tg";
-    $messengers-length: length($messengers);
 
     @for $i from 1 through $messengers-length {
       .header__messengers-#{nth($messengers, $i)} {

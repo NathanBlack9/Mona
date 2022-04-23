@@ -168,6 +168,20 @@
   </div>
 </section>
 
+<section class="subscribe">
+  <div class="wrapper">
+    <div class="subscribe__inner">
+      <div class="h1 subscribe__title">Подписаться</div>
+      <div class="subscribe__subtitle">Будьте в курсе всех самых свежих новостей и акций</div>
+      <form action="" class="subscription__form js-form">
+        <input type="text" class="subscribe__inp js-input-email required" placeholder="info@studiomona.ru">
+        <div class="form__error" style="display: none;">Поле должно содержать E-Mail в формате example@site.com</div>
+        <button type="submit" class="subscribe__submit btn black--btn">Подписаться</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <?php get_footer() ?>
   
   

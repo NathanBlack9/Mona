@@ -4,6 +4,18 @@ $dark        :#000;
 $red         :#E6313B;
 $pink        :#EDC9BD;
 
+
+/* Arrays for loop's */
+
+$messengers: "wh", "vb", "tg";
+$messengers-length: length($messengers);
+
+$socials: "inst", "vk";
+$socials-length: length($socials);
+
+$payments: "visa", "master", "cash";
+$payments-length: length($payments);
+
 /*media variables*/
 
 $notebook-and-less : 'only screen and (max-width: 1440px)';

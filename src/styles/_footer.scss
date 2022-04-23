@@ -1,0 +1,198 @@
+.footer {
+  background-color: $black;
+  color: $white;
+
+  .footer__inner {
+    padding: 35px 0 15px;
+    display: grid;
+    grid-template-columns: repeat(5,auto);
+    grid-template-rows: repeat(2,auto);
+    grid-column-gap: 3.5vw;
+    grid-row-gap: 50px;
+  }
+
+  .footer__logo {
+    background: url('build/img/logo.svg') no-repeat 50%;
+    background-size: contain;
+    width: 165px;
+    height: 55px;
+    display: block;
+    margin-bottom: 25px;
+  }
+
+  .footer__contact-address {
+    font-weight: 400;
+    font-size: 12px;
+    margin-bottom: 20px;
+
+    span {
+      font-weight: 900;
+    }
+  }
+
+  .footer__contact-time {
+    font-weight: 500;
+    font-size: 12px;
+    margin-bottom: 25px;
+  }
+
+  .footer__contact-info {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  .footer__contact-phone,
+  .footer__contact-email {
+    @include Underline;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 10px;
+    display: inline;
+  }
+
+  .footer__messengers {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: row;
+
+    @for $i from 1 through $messengers-length {
+      .footer__messengers-#{nth($messengers, $i)} {
+        height: 23px;
+        width: 23px;
+        display: block;
+        margin-right: 15px;
+        filter: opacity(0.75);
+        transition: all 200ms ease;
+        background: url("build/img/#{nth($messengers, $i)}.svg") no-repeat 50%/contain;
+
+        &:hover {
+          filter: opacity(1);
+        }
+      }
+    }
+  }
+
+  .footer__menu {
+
+    &.footer__menu-info,
+    & ~ .footer__right {
+      margin-top: 45px;
+    }
+    
+    .footer__menu-title {
+      font-weight: 400;
+      font-size: 20px;
+      opacity: 0.5;
+      margin-bottom: 1em;
+    }
+    
+    .footer__menu-list {
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+
+        a {
+          font-weight: 500;
+          font-size: 15px;
+          @include Underline;
+        }
+      }
+    }
+  }
+  
+  .footer__right {
+
+    .footer__socials, 
+    .footer__payment {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font-weight: 400;
+        font-size: 12px;
+        opacity: 0.5;
+        margin-bottom: 7px;
+      }
+
+      ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        margin-bottom: 25px;
+        list-style-type: none;
+
+        li {
+          @for $i from 1 through $socials-length {
+            .footer__socials-#{nth($socials, $i)} {
+              height: 23px;
+              width: 23px;
+              display: block;
+              margin-right: 5px;
+              filter: opacity(0.5);
+              transition: all 200ms ease;
+              background: url("build/img/#{nth($socials, $i)}.svg") no-repeat 50%/contain;
+      
+              &:hover {
+                filter: opacity(1);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .footer__payment {
+      ul {
+
+        span {
+          margin-bottom: 0;
+        }
+
+        @for $i from 1 through $payments-length {
+          .footer__payment-#{nth($payments, $i)} {
+            height: 22px;
+            display: block;
+            margin-right: 10px;
+            filter: opacity(0.5);
+            transition: all 200ms ease;
+            background: url("build/img/#{nth($payments, $i)}.svg") no-repeat 50%/contain;
+    
+            &:hover {
+              filter: opacity(1);
+            }
+          }
+        }
+
+        .footer__payment-cash {
+          margin-left: 25px;
+          font-weight: 400;
+          font-size: 12px;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            height: 2em;
+            left: -18px;
+            top: 0;
+            border-left: 1px solid rgba($white, 0.5);
+          }
+
+        }
+      }
+    }
+  }
+
+  .footer__copyright {
+    // grid-column: 1/5;
+    // grid-row: 2/2;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
