@@ -67,40 +67,6 @@
   }
 }
 
-.burger-menu__btn {
-  padding: 10px;
-  padding-left: 0;
-
-  span {
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    width: 11px;
-    height: 1px;
-    background-color: $white;
-  
-    &::before {
-      content: '';
-      position: absolute;
-      top: -4px;
-      left: 0;
-      width: 18px;
-      height: 1px;
-      background-color: $white;
-    }
-  
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 14px;
-      height: 1px;
-      background-color: $white;
-    }
-  }
-}
-
 .go-top__btn {
   opacity: 0;
   position: fixed;

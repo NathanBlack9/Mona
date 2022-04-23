@@ -9,8 +9,10 @@
 <header class="header">
   <div class="wrapper">
     <div class="header__inner">
-      <div class="burger-menu"></div>
-      <a href="#" class="burger-menu__btn"><span></span></a>
+      
+      <?php get_template_part( 'menu' ); ?>
+      
+      <a href="#" class="header__menu-btn js-menu-toggler"><span></span></a>
       <a href="/" class="header__logo"></a>
       <a href="/sign/" class="header__sign-btn btn">Записаться онлайн</a>
       <div class="header__messengers">

@@ -1,8 +1,137 @@
-.burger-menu {
-  position: absolute;
+.header__menu-btn {
+  padding: 10px;
+  padding-left: 0;
+
+  span {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 11px;
+    height: 2px;
+    background-color: $white;
+
+    .menu-is-opened & {
+      background-color: transparent;
+
+      &::before {
+        top: -2.5px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 2.5px;
+        transform: rotate(-45deg);
+        width: 18px;
+      }
+    }
+  
+    &::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background-color: $white;
+      transition: all 150ms ease;
+    }
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 14px;
+      height: 2px;
+      background-color: $white;
+      transition: all 150ms ease;
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
   opacity: 0;
-  transform: scaleX(0);
+  transform: translateX(-100%);
   transform-origin: 0 0;
-  width: 0;
-  transition: all 100ms ease;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  transition: all 0.7s cubic-bezier(.25,.25,0,1);
+  background-color: $pink;
+  z-index: -1;
+  padding-top: 180px;
+
+
+  .menu-is-opened & {
+    opacity: 1;
+    transform: translateX(0);
+    transform-origin: 0 0;
+  }
+
+  .menu__inner {
+    position: relative;
+
+    > ul {
+      padding: 0;
+      list-style-type: none;
+
+      &::before {
+        content: '';
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 75%;
+        border: 2px solid $white;
+      }
+
+      & > li {
+        max-width: 25%;
+
+        &:not(:last-child) {
+          margin-bottom: 40px;
+        }
+      }
+
+      & > li > a {
+        font-weight: 700;
+        font-size: 35px;
+      }
+
+      a {
+        @include Underline;
+      }
+    }
+  }
+}
+
+ul.dropdown {
+  z-index: -1;
+  padding: 0;
+  list-style-type: none;
+  position: absolute;
+  left: 30%;
+  top: 0;
+  opacity: 0;
+  transition: all 500ms cubic-bezier(.25,.25,0,1);
+  width: 30%;
+
+  .is-hovered & {
+    opacity: 1;
+    margin-left: auto;
+    z-index: 0;
+  }
+
+  li {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+
+  li a {
+    font-weight: 500;
+    font-size: 18px;
+  }
 }

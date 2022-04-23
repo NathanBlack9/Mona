@@ -4,10 +4,10 @@ $(window).on('load mousewheel scroll', function () {
   const $header = $('.header');
 
   if ($this.scrollTop() >= ($introHeight * 0.6)) {
-    $header.addClass('highlighted');
+    $header.addClass('fixed');
     $('.js-go-top-btn').addClass('active');
   } else {
-    $header.removeClass('highlighted');
+    $header.removeClass('fixed');
     $('.js-go-top-btn').removeClass('active');
   }
 });
@@ -29,7 +29,6 @@ $(function() {
     window.setTimeout(function() {
       $(window).scrollTop(0); 
     }, 0);
-    console.log(12);
   });
 });
 

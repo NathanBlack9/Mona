@@ -5,7 +5,8 @@ html {
 
 html, body {
   &::-webkit-scrollbar {
-    width: 6px;
+    // width: 6px;
+    width: 0;
     background-color: $white;
     box-shadow: inset -1px 0px 0px $white;
   }
@@ -22,6 +23,10 @@ body {
   letter-spacing: 0.01px;
   position: relative;
   font-size: 10px;
+
+  &.menu-is-opened {
+    overflow: hidden;
+  }
 
   *::selection{
 		background-color: $black;
