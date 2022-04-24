@@ -105,6 +105,38 @@
       }
     }
   }
+
+  .menu__socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    span {
+      transform: rotate(90deg) translateX(50%);
+      font-weight: 400;
+      font-size: 16px;
+      color: $white;
+    }
+
+    @for $i from 1 through $socials-length {
+      .menu__socials-#{nth($socials, $i)} {
+        height: 32px;
+        width: 32px;
+        display: block;
+        margin-bottom: 10px;
+        // filter: opacity(0.5);
+        // transition: all 200ms ease;
+        background: url("build/img/#{nth($socials, $i)}.svg") no-repeat 50%/contain;
+  
+        // &:hover {
+        //   filter: opacity(1);
+        // }
+      }
+    }
+  } 
 }
 
 ul.dropdown {

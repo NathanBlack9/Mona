@@ -1,3 +1,4 @@
+
 <?php get_header() ?>
 
 <section class="intro">
@@ -183,5 +184,4 @@
 </section>
 
 <?php get_footer() ?>
-  
   

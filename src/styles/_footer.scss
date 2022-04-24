@@ -9,6 +9,10 @@
     grid-template-rows: repeat(2,auto);
     grid-column-gap: 5vw;
     grid-row-gap: 50px;
+
+    @media #{$small-notebook} {
+      grid-column-gap: 4vw;
+    }
   }
 
   .footer__logo {

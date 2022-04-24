@@ -3,6 +3,10 @@
   height: 100vh;
   background: url('build/img/intro.jpg') no-repeat 50%/cover;
 
+  @media #{$mobile} {
+    background: url('build/img/intro-mobile.jpg') no-repeat 50%/cover;
+  }
+
   .wrapper {
     height: 100%;
   }
@@ -21,6 +25,10 @@
     font-size: 10em;
     color: $white;
 
+    @media #{$small-notebook} {
+      font-size: 7em;
+    }
+
     span {
       font-family: 'Josefin';
       font-weight: bold;
@@ -33,6 +41,11 @@
     color: $white;
     line-height: 1.5rem;
     margin-bottom: 115px;
+
+    @media #{$small-notebook} {
+      font-size: 3.85em;
+      line-height: 0.5rem;
+    }
   }
 
   &__btn {
@@ -42,16 +55,32 @@
     font-weight: 700;
     font-size: 25px;
     padding: 13px 80px; 
+
+    @media #{$small-notebook} {
+      bottom: 95px;
+    }
   }
 }
 
 .services {
   .homepage & { 
     padding: 150px 0 90px;
+
+    @media #{$notebook-and-less} {
+      padding: 90px 0;
+    }
+
+    @media #{$handheld} {
+      padding: 50px 0 90px;
+    }
   }
 
   .services__title {
     margin-bottom: 70px;
+
+    @media #{$notebook-and-less} {
+      margin-bottom: 45px;
+    }
   }
 
   .services__inner {
@@ -64,6 +93,10 @@
   .services__item {
     grid-column-end: span 2;
     position: relative;
+
+    @media #{$handheld} {
+      grid-column-end: span 3;
+    }
 
     &::before {
       content: '';
@@ -92,10 +125,17 @@
     img {
       width: 100%;
       height: 100%;
+
+      @media #{$notebook-and-less} {
+        object-fit: contain;
+      }
     }
 
     &:nth-child(4) {
-      grid-column-start: 2;
+
+      @media #{$only-desktop} {
+        grid-column-start: 2;
+      }
     }
 
     i.icon,
@@ -111,6 +151,12 @@
       top: 65px;
       width: 126px;
       height: 126px;
+
+      @media #{$notebook-and-less} {
+        top: 45px;
+        width: 30%;
+        height: 30%;
+      }
     }
 
     .services__btn {
@@ -168,6 +214,10 @@
   .about__slider-block {
     position: relative;
     width: 50%;
+
+    @media #{$handheld} {
+      width: 50%;
+    }
   }
 
   .about__slider {
@@ -183,17 +233,37 @@
       border: 3px solid $pink;
       width: 80%;
       height: 100%;
+
+      @media #{$small-notebook} {
+        left: 45px;
+      }
+
+      @media #{$handheld} {
+        left: -10px;
+        bottom: -10px;
+        width: 100%;
+      }
     }
 
     .slick-list {
       width: 80%;
       margin: 0 auto;
       overflow: hidden;
+
+      @media #{$handheld} {
+        width: 100%;
+        margin: 0;
+        margin-right: auto;
+      }
     }
 
     &-item {
       height: 675px;
       object-fit: cover;
+
+      @media #{$handheld} {
+        height: 500px;
+      }
     }
   }
   
@@ -219,6 +289,11 @@
     flex-direction: column;
     align-items: baseline;
     justify-content: center;
+
+    @media #{$handheld} {
+      width: 45%;
+      margin-left: auto;
+    }
   }
 
   .about__title {
@@ -232,6 +307,15 @@
       font-size: 22px;
       color: $black;
       margin-bottom: 1rem;
+
+      @media #{$handheld} {
+        font-size: 16px;
+      }
+    }
+
+    a {
+      color: $pink;
+      font-weight: normal;
     }
   }
 
@@ -241,6 +325,11 @@
     font-size: 18px;
     margin-top: 2rem;
     padding: 13px 60px;    
+
+    @media #{$handheld} {
+      font-size: 16px;
+      padding: 13px 35px;
+    }
   }
 }
 

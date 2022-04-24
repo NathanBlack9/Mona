@@ -30,7 +30,11 @@
           <a href="">Контакты</a>
         </li>
       </ul>
-      <div class="menu__socials"></div>
+      <div class="menu__socials">
+        <a href="#" class="menu__socials-inst"></a>
+        <a href="#" class="menu__socials-vk"></a>
+        <span>Следите за нами</span>
+      </div>
     </div>
   </div>
 </menu>

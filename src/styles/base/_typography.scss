@@ -4,6 +4,10 @@
   font-size: 52px;
   color: $black;
   // margin-bottom: 70px;
+
+  @media #{$handheld} {
+    font-size: 38px;
+  }
 }
 
 .h2 {

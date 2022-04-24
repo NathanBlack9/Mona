@@ -21,19 +21,17 @@ $('.js-fade-slider').each(function() {
     fade: true,
     cssEase: 'ease',
     responsive: [
-      {
-        breakpoint: 1024 + 1,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          dots: true
-        }
-      },
+      // {
+      //   breakpoint: 1024 + 1,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 1,
+      //     dots: true
+      //   }
+      // },
       {
         breakpoint: 480 + 1,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
           dots: true,
         }
       },
