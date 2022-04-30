@@ -15,5 +15,6 @@
 
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/fancybox.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/animate.css">
   <title>Mona</title>
 </head>

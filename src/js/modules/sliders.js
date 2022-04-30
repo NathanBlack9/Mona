@@ -21,20 +21,23 @@ $('.js-fade-slider').each(function() {
     fade: true,
     cssEase: 'ease',
     responsive: [
-      // {
-      //   breakpoint: 1024 + 1,
-      //   settings: {
-      //     slidesToShow: 2,
-      //     slidesToScroll: 1,
-      //     dots: true
-      //   }
-      // },
       {
-        breakpoint: 480 + 1,
+        breakpoint: 700 + 1,
         settings: {
           dots: true,
+          arrows: false,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          speed: 1000,
         }
       },
+      // {
+      //   breakpoint: 480 + 1,
+      //   settings: {
+      //     dots: true,
+      //     arrows: false
+      //   }
+      // },
     ]
   })
 });
@@ -52,10 +55,18 @@ $(".js-slideshow").each(function () {
     arrows: true,
     responsive: [
       {
-        breakpoint: 480 + 1,
+        breakpoint: 1024 + 1,
         settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 700 + 1,
+        settings: {
+          slidesToShow: 1.5,
           arrows: false,
           dots: true,
+          adaptiveHeight: true,
         },
       },
     ],

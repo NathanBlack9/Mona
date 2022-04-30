@@ -17,3 +17,15 @@
   }
 }
 
+.only-mobile {
+  @media #{$not-mobile} {
+    display: none !important;
+  }
+}
+
+.not-mobile {
+  @media #{$mobile} {
+    display: none !important;
+  }
+}
+

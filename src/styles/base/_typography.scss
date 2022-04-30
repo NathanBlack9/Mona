@@ -8,6 +8,10 @@
   @media #{$handheld} {
     font-size: 38px;
   }
+
+  @media #{$mobile} {
+    font-size: 28px;
+  }
 }
 
 .h2 {
