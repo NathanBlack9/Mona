@@ -2,9 +2,10 @@
   <div class="wrapper">
     <div class="menu__inner">
       <ul>
-        <li class="has-dropdown is-hovered">
+        <li class="has-dropdown">
           <a href="">Наши услуги</a>
           <ul class="dropdown">
+            <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
             <li><a href="">Маникюр</a></li>
             <li><a href="">Педикюр</a></li>
             <li><a href="">Шугаринг</a></li>
@@ -15,6 +16,7 @@
         <li class="has-dropdown">
           <a href="">О нас</a>
           <ul class="dropdown">
+            <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
             <li><a href="">Цены и оплата</a></li>
             <li><a href="">Фотогалерея наших работ</a></li>
             <li><a href="">Акции</a></li>
@@ -35,6 +37,7 @@
         <a href="#" class="menu__socials-vk"></a>
         <span>Следите за нами</span>
       </div>
+      <a href="/sign/" class="menu__sign-btn btn not-desktop">Записаться онлайн</a>
     </div>
   </div>
 </menu>

@@ -29,3 +29,15 @@
   }
 }
 
+.only-desktop {
+  @media #{$handheld} {
+    display: none !important;
+  }
+}
+
+.not-desktop {
+  @media #{$only-desktop} {
+    display: none !important;
+  }
+}
+

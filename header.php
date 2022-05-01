@@ -17,7 +17,7 @@
           
           <a href="#" class="header__menu-btn js-menu-toggler"><span></span></a>
           <a href="/" class="header__logo"></a>
-          <a href="/sign/" class="header__sign-btn btn">Записаться онлайн</a>
+          <a href="/sign/" class="header__sign-btn btn only-desktop">Записаться онлайн</a>
           <div class="header__messengers">
             <a href="tel:+79509150858" class="header__messengers-phone">+7 (950) 915 08 58</a>
             <a href="" class="header__messengers-wh"></a>
