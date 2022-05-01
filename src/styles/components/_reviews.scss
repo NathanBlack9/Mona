@@ -3,6 +3,10 @@
   .homepage & {
     margin-bottom: 150px;
 
+    @media #{$small-mobile} {
+      margin-bottom: 60px;
+    }
+
     .wrapper {
       display: flex;
       flex-direction: column;
@@ -46,12 +50,20 @@
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 5px;
+
+    @media #{$small-mobile} {
+      font-size: 14px;
+    }
   }
 
   .reviews__job {
     font-weight: 400;
     font-size: 14px;
     margin-bottom: 10px;
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+    }
 
     span {
       font-weight: 700;
@@ -65,6 +77,12 @@
     padding: 13px 60px;
     margin: 0 auto;
     margin-top: 2em;
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+      padding: 10px 35px;
+      margin-top: 40px;
+    }
   }
 
   .reviews__rating {
@@ -109,6 +127,10 @@
 
     @media #{$mobile} {
       max-width: 100%;
+    }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
     }
 
     &::before {

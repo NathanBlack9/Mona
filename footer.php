@@ -15,9 +15,9 @@
             <a href="" class="footer__messengers-tg"></a>
           </div>
         </div>
-        <div class="footer__menu js-spoiler">
-          <div class="footer__menu-title footer__menu-toggler js-spoiler-toggler">Посетителям</div>
-          <ul class="footer__menu-list footer__menu-body js-spoiler-body">
+        <div class="footer__menu js-mobile-spoiler is-expanded">
+          <div class="footer__menu-title footer__menu-toggler js-spoiler-toggler is-expanded">Посетителям</div>
+          <ul class="footer__menu-list footer__menu-body js-spoiler-body is-expanded">
             <li><a href="#">О нас</a></li>
             <li><a href="#">Цены и оплата</a></li>
             <li><a href="#">Сертификаты</a></li>
@@ -27,7 +27,7 @@
             <li><a href="#">Контакты</a></li>
           </ul>
         </div>
-        <div class="footer__menu js-spoiler">
+        <div class="footer__menu js-mobile-spoiler">
           <div class="footer__menu-title footer__menu-toggler js-spoiler-toggler" >Наши услуги</div>
           <ul class="footer__menu-list footer__menu-body js-spoiler-body">
             <li><a href="#">Маникюр</a></li>

@@ -12,6 +12,10 @@
   @media #{$mobile} {
     font-size: 28px;
   }
+
+  @media #{$small-mobile} {
+    font-size: 18px;
+  }
 }
 
 .h2 {

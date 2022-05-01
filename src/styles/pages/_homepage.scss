@@ -8,6 +8,10 @@
     height: 70vh;
   }
 
+  @media #{$small-mobile} {
+    height: 50vh
+  }
+
   .wrapper {
     height: 100%;
   }
@@ -81,6 +85,10 @@
       font-size: 15px;
       padding: 13px 50px;
     }
+
+    @media #{$small-mobile} {
+      bottom: 40px;
+    }
   }
 }
 
@@ -95,6 +103,10 @@
     @media #{$handheld} {
       padding: 50px 0 90px;
     }
+
+    @media #{$small-mobile} {
+      padding: 30px 0 60px;
+    }
   }
 
   .services__title {
@@ -102,6 +114,10 @@
 
     @media #{$notebook-and-less} {
       margin-bottom: 45px;
+    }
+
+    @media #{$small-mobile} {
+      margin-bottom: 20px;
     }
   }
 
@@ -222,6 +238,12 @@
         width: 80px;
         height: 80px;
       }
+
+      @media #{$small-mobile} {
+        width: 36px;
+        height: 36px;
+        left: 15%;
+      }
     }
 
     .services__btn {
@@ -263,6 +285,15 @@
         background-color: transparent;
         border: 1px solid $white;
         bottom: 30%;
+      }
+
+      @media #{$small-mobile} {
+        padding: 5px 17px;
+        min-width: 0;
+        white-space: nowrap;
+        bottom: 35%;
+        left: 25%;
+        transform: none; 
       }
     }
   }
@@ -389,6 +420,10 @@
       @media #{$mobile} {
         height: 370px;
       }
+
+      @media #{$small-mobile} {
+        height: 225px;
+      }
     }
   }
 
@@ -453,6 +488,10 @@
       @media #{$handheld} {
         font-size: 16px;
       }
+
+      @media #{$small-mobile} {
+        font-size: 12px;
+      }
     }
 
     a {
@@ -471,6 +510,12 @@
     @media #{$handheld} {
       font-size: 16px;
       padding: 13px 35px;
+    }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+      padding: 10px 25px;
+      margin-top: 30px;
     }
   }
 }
@@ -492,8 +537,17 @@
     }
   }
 
+  @media #{$small-mobile} {
+    margin-top: 75px;
+    margin-bottom: 155px;
+  }
+
   .certificates__title {
     margin-bottom: 30px;
+
+    @media #{$small-mobile} {
+      margin-bottom: 20px;
+    }
   }
 
   .certificates__text {
@@ -505,6 +559,10 @@
       order: 1;
       margin-bottom: 0;
       margin-top: 35px;
+    }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
     }
   }
 
@@ -547,6 +605,13 @@
       left: 50%;
       transform: translateX(-50%);
     }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+      padding: 10px 35px;
+      margin-top: 0;
+      bottom: -15%;
+    }
   }
 
   .certificates__slider-item {
@@ -556,6 +621,10 @@
 
     @media #{$mobile} {
       margin-left: 0;
+    }
+
+    @media #{$small-mobile} {
+      margin: 0;
     }
   }
 
@@ -587,10 +656,19 @@
     flex-direction: column;
     align-items: center;
     padding: 55px 0;
+
+    @media #{$small-mobile} {
+      align-items: flex-start;
+      padding: 30px 0 50px;
+    }
   }
 
   .subscribe__title {
     margin-bottom: 22px;
+
+    @media #{$small-mobile} {
+      margin-bottom: 15px;
+    }
   }
 
   .subscribe__subtitle {
@@ -602,6 +680,11 @@
       font-size: 16px;
       margin-bottom: 20px;
     }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
   }
 
   .subscription__form {
@@ -611,6 +694,10 @@
 
     @media #{$mobile} {
       width: 350px;
+    }
+
+    @media #{$small-mobile} {
+      width: 100%;
     }
 
     &.error .form__error{
@@ -630,6 +717,11 @@
     color: $black;
     margin-bottom: 30px;
 
+    @media #{$small-mobile} {
+      font-size: 12px;
+      height: 30px;
+    }
+
     &.error {
       margin-bottom: 10px;
     }
@@ -647,6 +739,11 @@
     @media #{$mobile} {
       font-size: 14px;
       padding: 13px 50px;
+    }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+      padding: 10px 35px;
     }
   }
 }

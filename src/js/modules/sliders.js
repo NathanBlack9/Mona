@@ -69,6 +69,15 @@ $(".js-slideshow").each(function () {
           adaptiveHeight: true,
         },
       },
+      {
+        breakpoint: 480 + 1,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+          dots: true,
+          adaptiveHeight: true,
+        },
+      },
     ],
   });
 });

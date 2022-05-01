@@ -17,6 +17,11 @@
     top: -3px;
     background-color: transparent;
     transition: all 150ms ease;
+
+    @media #{$small-mobile} {
+      right: -2px;
+      top: -2px;
+    }
   }
 
   &::before {
@@ -24,6 +29,11 @@
     top: auto;
     left: -3px;
     bottom: -3px;
+
+    @media #{$small-mobile} {
+      left: -1px;
+      bottom: -1px;
+    }
   }
 
   &.pink--btn {
