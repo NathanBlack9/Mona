@@ -1,12 +1,11 @@
-
-<?php get_header() ?>
+<?php get_template_part( 'header__lite' ); ?>
 
   <section class="intro">
     <div class="wrapper">
       <div class="intro__inner">
         <h1 class="intro__title">Студия маникюра <span>Mona<span></h1>
         <h2 class="intro__subtitle">маленький уголок заботы о себе</h2>
-        <a href="#" class="intro__btn btn">Наши услуги</a>
+        <a href="<?php echo home_url(); ?>/uslugi/" class="intro__btn btn">Наши услуги</a>
       </div>
     </div>
   </section>

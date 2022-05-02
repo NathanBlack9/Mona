@@ -5,11 +5,11 @@
   get_template_part( 'head' );
 ?>
 
-<body>
+<body <?php body_class() ?>>
 
   <section class="global-container">
 
-    <header class="header header-main">
+    <header class="header">
       <div class="wrapper">
         <div class="header__inner">
           

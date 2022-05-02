@@ -8,8 +8,11 @@
 @import 'components/menu';
 @import 'components/reviews';
 @import 'components/forms';
+@import 'components/breadcrumbs';
 @import './overrides';
 
 @import './header';
 @import './footer';
 @import 'pages/homepage';
+@import 'pages/error';
+@import 'pages/privacy';
