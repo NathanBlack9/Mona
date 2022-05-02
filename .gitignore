@@ -6,6 +6,7 @@ yarn-error.log
 package-lock.json
 .jshintrc
 desktop.ini
+templates_navigation.php
 
 # Editor directories and files
 .idea

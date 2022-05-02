@@ -1,0 +1,38 @@
+.sorting {
+  margin: 30px 0 50px;
+
+  .sorting__subtitle {
+    font-weight: 400;
+    font-size: 18px;
+  }
+
+  .sorting__controls {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .sorting__btn {
+    display: block;
+    padding: 10px 30px;
+    border: 2px solid $pink;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1;
+    color: $black;
+    transition: all 150ms ease;
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    &:hover {
+      background-color: rgba($pink, 0.7);
+    }
+
+    &.active {
+      background-color: $pink;
+      color: $white;
+    }
+  }
+}

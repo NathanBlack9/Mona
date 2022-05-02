@@ -277,6 +277,12 @@
               transition: all 200ms ease;
               background: url("build/img/#{nth($socials, $i)}.svg") no-repeat 50%/contain;
 
+              @media #{$small-mobile} {
+                height: 31px;
+                width: 31px;
+                margin-right: 10px;
+              }
+
               &:hover {
                 filter: opacity(1);
               }

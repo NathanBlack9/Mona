@@ -23,7 +23,7 @@
 
 add_filter( 'body_class', function( $classes ) {  
   
-  $classes = array_diff( $classes, ['blog', 'home'] );
+  $classes = array_diff( $classes, ['blog', 'home', 'logged-in', 'admin-bar', 'no-customize-support'] );
   if ( is_front_page() ) {   
     $classes[] = 'homepage';
   }

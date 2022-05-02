@@ -1,9 +1,9 @@
 $(window).on('load mousewheel scroll', function () {
-  const $introHeight = $('.intro').innerHeight();
+  // const $introHeight = $('.intro').innerHeight();
   const $this = $(this);
   const $header = $('.header');
 
-  if ($this.scrollTop() >= ($introHeight * 0.6)) {
+  if ($this.scrollTop() >= 400) {
     $header.addClass('fixed');
     $('.js-go-top-btn').addClass('active');
   } else {

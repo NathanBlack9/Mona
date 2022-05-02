@@ -1,3 +1,6 @@
+/* -------------------------- */
+/* Slick */
+
 .slick-arrow {
   bottom: 0;
   right: 0;
@@ -69,5 +72,25 @@
     &.slick-active button {
       background-color: $pink;
     }
+  }
+}
+
+/* -------------------------- */
+/* Selectric */
+
+.selectric {
+  border: 1px solid $pink !important;
+  box-shadow: 6px 8px 4px rgba(237, 201, 189, 0.25);
+
+  .label {
+    font-weight: 400;
+    font-size: 14px !important;
+    color: $black !important;
+  }
+
+  .button::after {
+    top: 5px !important;
+    border: 6px solid transparent !important;
+    border-top: 8px solid $black !important;
   }
 }

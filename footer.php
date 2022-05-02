@@ -15,9 +15,9 @@
             <a href="" class="footer__messengers-tg"></a>
           </div>
         </div>
-        <div class="footer__menu js-mobile-spoiler is-expanded">
-          <div class="footer__menu-title footer__menu-toggler js-spoiler-toggler is-expanded">Посетителям</div>
-          <ul class="footer__menu-list footer__menu-body js-spoiler-body is-expanded">
+        <div class="footer__menu js-mobile-spoiler">
+          <div class="footer__menu-title footer__menu-toggler js-spoiler-toggler">Посетителям</div>
+          <ul class="footer__menu-list footer__menu-body js-spoiler-body">
             <li><a href="#">О нас</a></li>
             <li><a href="#">Цены и оплата</a></li>
             <li><a href="#">Сертификаты</a></li>
@@ -68,6 +68,8 @@
   </footer>
 
   <div class="go-top__btn js-go-top-btn"></div>
+  
+  <?php get_template_part( 'templates_navigation' ); ?>
   
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery-3.6.0.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery.selectric.min.js"></script>
