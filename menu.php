@@ -3,7 +3,7 @@
     <div class="menu__inner">
       <ul>
         <li class="has-dropdown">
-          <a href="">Наши услуги</a>
+          <a href="<?php echo home_url(); ?>/uslugi/">Наши услуги</a>
           <ul class="dropdown">
             <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
             <li><a href="">Маникюр</a></li>
@@ -18,12 +18,12 @@
           <ul class="dropdown">
             <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
             <li><a href="">Цены и оплата</a></li>
-            <li><a href="">Фотогалерея наших работ</a></li>
+            <li><a href="<?php echo home_url(); ?>/gallery/">Фотогалерея наших работ</a></li>
             <li><a href="">Акции</a></li>
           </ul>
         </li>
         <li>
-          <a href="">Сертификаты</a>
+          <a href="<?php echo home_url(); ?>/certificates/">Сертификаты</a>
         </li>
         <li>
           <a href="">Отзывы</a>

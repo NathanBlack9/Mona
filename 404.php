@@ -11,7 +11,7 @@ Template Name: 404
   global $wpdb; 
   $newtable = $wpdb->get_results( "SELECT * FROM wp_yoast_migrations" );
 
-  print_r($newtable[0]->version); 
+  print_r($newtable[0]->version);  // object.value
 ?>
 <section class="error-page error-404">
   <div class="wrapper">

@@ -9,7 +9,8 @@
   .sorting__controls {
     display: flex;
     flex-direction: row;
-    
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
   .sorting__btn {

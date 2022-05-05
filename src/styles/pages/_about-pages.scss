@@ -1,4 +1,5 @@
-.certificates-page {
+.certificates-page,
+.gallery-page {
   margin-bottom: 190px;
 
   @media #{$small-mobile} {
@@ -16,17 +17,62 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
+    @media #{$portrait-tablet} {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media #{$small-mobile} {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
     a {
       max-height: 300px;
+      position: relative;
 
-      @media #{$mobile} {
-        max-height: 130px;
+      > .gallery__author {
+        transform: scaleY(0);
+        transform-origin: 100% 100%;
+        opacity: 0;
+        height: 0;
+        transition: all 100ms ease;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        font-weight: 700;
+        font-size: 16px;
+        color: $white;
+        background-color: rgba($pink, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       img {
         width: 100%;
         object-fit: cover;
       }
+      
+      &:hover {
+        > .gallery__author {
+          transform: scaleY(1);
+          transform-origin: 100% 100%;
+          opacity: 1;
+          height: 45px;
+        }
+      }
+    }
+  }
+
+  .certificates__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 10px 0 30px;
+
+    @media #{$mobile} {
+      font-weight: 400;
+      font-size: 12px;
     }
   }
 }

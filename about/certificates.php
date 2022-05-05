@@ -14,7 +14,7 @@ Template Name: certificates
         yoast_breadcrumb( '<div id="breadcrumbs" class="breadcrumbs">','</div>' );
       }
     ?>
-    <div class="certificates__title h1"><?php the_title(); ?></div>
+    <div class="h1"><?php the_title(); ?></div>
     <div class="sorting">
       <div class="sorting__controls js-sorting not-mobile">
         <a href="#" class="sorting__btn active" data-sort="all">Все</a>
