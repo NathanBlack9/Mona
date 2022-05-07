@@ -22,6 +22,18 @@
   font-weight: 800;
   font-size: 43px;
   color: $black;
+
+  @media #{$handheld} {
+    font-size: 28px;
+  }
+
+  @media #{$mobile} {
+    font-size: 18px;
+  }
+
+  @media #{$small-mobile} {
+    font-size: 16px;
+  }
 }
 
 p {
@@ -47,6 +59,14 @@ a {
     font-size: 18px;
     color: $black;
     margin-bottom: 0.3rem;
+
+    @media #{$small-handheld} {
+      font-size: 14px;
+    }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+    }
   }
 
   a,
@@ -56,11 +76,21 @@ a {
     font-weight: 400;
   }
 
-  ol {
+  ol,
+  ul {
     padding-left: 50px;
     margin-bottom: 1em;
     font-weight: 400;
     font-size: 18px;
+
+    @media #{$small-handheld} {
+      font-size: 14px;
+    }
+
+    @media #{$small-mobile} {
+      padding-left: 30px;
+      font-size: 12px;
+    }
     
     li::marker {
       color: $pink;

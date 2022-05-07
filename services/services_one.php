@@ -10,7 +10,7 @@ Template Name: services_one
   <div class="wrapper">
     <?php
       if ( function_exists('yoast_breadcrumb') ) {
-        yoast_breadcrumb( '<div id="breadcrumbs" class="breadcrumbs">','</div>' );
+        yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumbs"><li>','</li></ul>');
       }
     ?>
     <div class="service__inner">
