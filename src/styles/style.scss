@@ -12,10 +12,13 @@
 @import 'components/sorting';
 @import './overrides';
 
+@import '/node_modules/tippy.js/dist/tippy.css';
+
 @import './header';
 @import './footer';
 @import 'pages/homepage';
 @import 'pages/about-pages';
 @import 'pages/service';
+@import 'pages/price';
 @import 'pages/error';
 @import 'pages/privacy';

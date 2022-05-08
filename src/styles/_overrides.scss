@@ -94,3 +94,23 @@
     border-top: 8px solid $black !important;
   }
 }
+
+/* -------------------------- */
+/* Tippy */
+
+.tippy-arrow {
+  left: -15px !important;
+}
+
+.tippy-content {
+  min-width: 170px;
+  font-weight: 400;
+  font-size: 11px;
+  text-align: center;
+  padding: 11px 8px;
+
+  a {
+    color: $pink;
+    text-decoration: underline;
+  }
+} 

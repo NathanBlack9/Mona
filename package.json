@@ -8,7 +8,8 @@
   "author": "Suren",
   "license": "ISC",
   "dependencies": {
-    "core-js": "^3.6.5"
+    "core-js": "^3.6.5",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "css-loader": "^0.28.7",
