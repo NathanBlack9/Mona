@@ -76,6 +76,9 @@
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/slick.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/fancybox.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/tippy.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/gsap.min.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/ScrollMagic.min.js"></script>
+  <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/debug.addIndicators.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/common-min.js"></script>
 
 </section> <?php // global-container ?>
