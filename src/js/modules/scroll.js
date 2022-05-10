@@ -62,13 +62,13 @@ new ScrollMagic.Scene({ triggerElement: "#sugaring" })
   .offset(150)
   .addTo(controller);
 
-new ScrollMagic.Scene({ triggerElement: "#lashes" })
+new ScrollMagic.Scene({ triggerElement: "#brows" })
   .setClassToggle("#nav4", "active")
   // .addIndicators()
   .offset(150)
   .addTo(controller);
 
-new ScrollMagic.Scene({ triggerElement: "#brows" })
+new ScrollMagic.Scene({ triggerElement: "#lashes" })
   .setClassToggle("#nav5", "active")
   // .addIndicators()
   .offset(150)
