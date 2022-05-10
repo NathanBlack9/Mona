@@ -83,19 +83,19 @@
       <div class="certificates__title h1">Сертификаты</div>
       <div class="certificates__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</div>
       <div class="certificates__inner">
-        <div class="certificates__slider js-slideshow">
-            <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="certificates__slider-item">
-              <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
-            </a>
-            <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="certificates__slider-item">
-              <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
-            </a>
-            <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" data-fancybox="certificates" class="certificates__slider-item">
-              <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" alt="" >
-            </a>
-            <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="certificates__slider-item">
-              <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
-            </a>
+        <div class="certificates__slider js-slideshow slider">
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
+          </a>
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
+          </a>
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" data-fancybox="certificates" class="slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" alt="" >
+          </a>
+          <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="slider-item">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
+          </a>
         </div>
         <a href="#" class="certificates__btn btn pink--btn">Смотреть все</a>
       </div>
