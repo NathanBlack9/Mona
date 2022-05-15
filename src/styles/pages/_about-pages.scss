@@ -159,10 +159,23 @@
 .about-page {
   .about__content {
     max-width: 50%;
+    margin-top: 15px;
+
+    @media #{$handheld} {
+      max-width: 75%;
+    }
+
+    @media #{$small-mobile} {
+      max-width: 100%;
+    }
   }
 
   .about__inner {
     margin: 45px 0 100px;
+
+    @media #{$small-mobile} {
+      margin-top: 20px;
+    }
   }
 
   .about-page__slider {

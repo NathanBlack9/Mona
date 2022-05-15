@@ -33,8 +33,37 @@
     </div>
 
     <h2 class="h2">Наши мастера</h2>
-    <div class="about__content content">Наша небольшая команда всегда готова сделать вас еще красивее.
-Мы покажем вам состав наших мастеров, а про наши заслуги лучше расскажут наши клиенты в отзывах.</div>
+    <div class="about__content content">
+      <p>Наша небольшая команда всегда готова сделать вас еще красивее. Мы покажем вам состав наших мастеров, а про наши заслуги лучше расскажут наши клиенты в <a href="">отзывах</a>.</p>
+    </div>
+    <div class="about__inner">
+      <div class="masters-list">
+        <div class="master">
+          <img src="<?php echo get_template_directory_uri(); ?>/build/img/master.jpg" alt="" class="master__img">
+          <div class="master__name">Аракелян Анжела Станиславовна</div>
+          <div class="master__service">Услуги: маникюр, педикюр, шугаринг, коррекция бровей</div>
+          <div class="master__desc">Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастерСами лучши мастерСами лучши мастер.</div>
+        </div>
+        <div class="master">
+          <img src="<?php echo get_template_directory_uri(); ?>/build/img/master.jpg" alt="" class="master__img">
+          <div class="master__name">Хачатрян Моника Аветиковна</div>
+          <div class="master__service">Услуги: наращивание ресниц</div>
+          <div class="master__desc">Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастерСами лучши мастерСами лучши мастер.</div>
+        </div>
+        <div class="master">
+          <img src="<?php echo get_template_directory_uri(); ?>/build/img/master.jpg" alt="" class="master__img">
+          <div class="master__name">Аракелян Анжела Станиславовна</div>
+          <div class="master__service">Услуги: маникюр, педикюр</div>
+          <div class="master__desc">Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастерСами лучши мастерСами лучши мастер.</div>
+        </div>
+        <div class="master">
+          <img src="<?php echo get_template_directory_uri(); ?>/build/img/master.jpg" alt="" class="master__img">
+          <div class="master__name">Аракелян Анжела Станиславовна</div>
+          <div class="master__service">Услуги: маникюр</div>
+          <div class="master__desc">Сами лучши мастер Сами лучши мастер Сами лучши мастер</div>
+        </div>
+      </div>
+    </div>
 
 
   </div>

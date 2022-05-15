@@ -1,4 +1,4 @@
-@mixin Underline() {
+@mixin Underline($color: $white, $height: 2px) {
   transition: all 100ms ease;
   position: relative;
 
@@ -8,8 +8,8 @@
     top: 100%;
     width: 100%;
     left: 0;
-    height: 2px;
-    background: $white;
+    height: $height;
+    background: $color;
     transition: transform .4s cubic-bezier(.25,.25,0,1);
     transform: scaleX(0);
     transform-origin: right;
@@ -20,5 +20,3 @@
     transform-origin: left;
   }
 }
-
-  

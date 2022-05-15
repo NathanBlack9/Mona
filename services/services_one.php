@@ -36,7 +36,7 @@ Template Name: services_one
       <div class="service__content content">
         <p>Тут наши мастера тока по ресницам. Про них можно еще прочитать <a href="">отзывы.</a></p>
       </div>
-      <div class="service__masters-list">
+      <div class="masters-list">
         <div class="master">
           <img src="<?php echo get_template_directory_uri(); ?>/build/img/master.jpg" alt="" class="master__img">
           <div class="master__name">Аракелян Анжела Станиславовна</div>
