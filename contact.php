@@ -72,10 +72,63 @@
 
 </section>
 
+<script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/YaMap.js" type="text/javascript"></script>
+
 <script>
   var wp_vars = {};
   wp_vars.siteUrl = '<?php echo get_template_directory_uri(); ?>'
-</script>
 
+  const $mobile = window.innerWidth < 480;
+
+  ymaps.ready(init);
+  <?php /*
+    $(() => {
+      document.cookie = "Secure=1653128806";
+      document.cookie = "SameSite=Strict; secure";
+      console.log( document.cookie );
+    })
+  */ ?>
+  function init(){
+    var myMap = new ymaps.Map("map", {
+      center: [54.175166 + (!$mobile ? 0 : 0.001), 37.651151 + (!$mobile ? 0 : 0.002)],
+      zoom: 17,
+      controls: ['largeMapDefaultSet','routeButtonControl']
+    });
+
+    myMap.controls
+      .remove('rulerControl')
+      .remove('fullscreenControl')
+      .remove('searchControl')
+      .remove('routeButton');
+
+      var control = myMap.controls.get('routeButtonControl');
+      control.routePanel.state.set({
+        fromEnabled: true,
+        from: "",
+        to: "муниципальное образование Тула, микрорайон Левобережный, Восточная улица, 11",
+        type: "auto"
+      });
+
+    myMap.behaviors.disable([
+      'scrollZoom'
+    ]);
+
+    var placemark = new ymaps.Placemark([54.175856, 37.652768], {
+      hideIcon: false,
+      <?php /* balloonContentHeader: "г. Москва",
+        balloonContentBody: "ул. Пятницкая, д. 37",
+        balloonContentFooter: "офис 61",
+        hindContent: "Мы здесь!" */?>
+    },
+    {
+      iconLayout: 'default#image',
+      iconImageHref: '<?php echo get_template_directory_uri(); ?>' + "/build/img/map-placemark.svg",
+      iconImageSize: [73 - (!$mobile ? 0 : 28), 73 - (!$mobile ? 0 : 28)],
+      iconImageOffset: [-20 + (!$mobile ? 0 : 20), -73 + (!$mobile ? 0 : 20)]
+    });
+
+    myMap.geoObjects.add(placemark);
+  }
+</script>
 
 <?php get_footer() ?>
