@@ -34,7 +34,7 @@
                     <dd>600</dd>
                     <div class="price-hint hint">
                       <div class="hint-text">
-                        Скидка в честь открытия <br><a href="#">Читать подробнее</a>
+                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
                       </div>
                     </div>
                   </dl>
@@ -73,7 +73,7 @@
                     <dd>600</dd>
                     <div class="price-hint hint">
                       <div class="hint-text">
-                        Скидка в честь открытия <br><a href="#">Читать подробнее</a>
+                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
                       </div>
                     </div>
                   </dl>
@@ -112,7 +112,7 @@
                     <dd>600</dd>
                     <div class="price-hint hint">
                       <div class="hint-text">
-                        Скидка в честь открытия <br><a href="#">Читать подробнее</a>
+                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
                       </div>
                     </div>
                   </dl>
@@ -151,7 +151,7 @@
                     <dd>600</dd>
                     <div class="price-hint hint">
                       <div class="hint-text">
-                        Скидка в честь открытия <br><a href="#">Читать подробнее</a>
+                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
                       </div>
                     </div>
                   </dl>
@@ -190,7 +190,7 @@
                     <dd>600</dd>
                     <div class="price-hint hint">
                       <div class="hint-text">
-                        Скидка в честь открытия <br><a href="#">Читать подробнее</a>
+                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
                       </div>
                     </div>
                   </dl>

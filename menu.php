@@ -19,7 +19,7 @@
             <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
             <li><a href="">Цены и оплата</a></li>
             <li><a href="<?php echo home_url(); ?>/gallery/">Фотогалерея наших работ</a></li>
-            <li><a href="">Акции</a></li>
+            <li><a href="<?php echo home_url(); ?>/discounts/">Акции</a></li>
           </ul>
         </li>
         <li>
