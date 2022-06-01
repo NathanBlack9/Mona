@@ -1,10 +1,22 @@
 .btn {
+  cursor: pointer;
   padding: 13px 40px;    
   position: relative;
   display: block;
   box-sizing: border-box;
   background-color: transparent;
   transition: all 800ms ease;
+
+  &[type="submit"]:not(.subscribe__submit) {
+    border: 0;
+    outline: none;
+    color: $white;
+
+    &::before {
+      background: $pink;
+      z-index: -1;
+    }
+  }
   
   &::before,
   &::after {

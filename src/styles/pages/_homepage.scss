@@ -596,6 +596,10 @@
       width: 100%;
     }
 
+    .form__error {
+      text-align: center;
+    }
+
     &.error .form__error{
       display: block !important;
     }

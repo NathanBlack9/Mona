@@ -3,9 +3,67 @@
   border: 0;
 }
 
+input.inp, 
+textarea.inp {
+  border: 1px solid $pink;
+  box-shadow: 6px 8px 4px rgba(237, 201, 189, 0.25);
+  font-weight: 400;
+  font-size: 16px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+textarea.inp {
+  padding-top: 10px;
+}
+
+input.inp {
+  height: 40px;
+}
+
+div.inp {
+  margin-bottom: 25px;
+}
+
+.inp-label {
+  font-weight: 400;
+  font-size: 14px;
+  color: $black;
+  margin-bottom: 7px;
+
+  .required {
+    color: $red;
+  }
+}
+
 .form__error {
   font-size: 12px;
   margin: 10px 0;
   color: $red;
-  text-align: center;
+  text-align: left;
+  display: none;
+
+  .error > & {
+    display: block !important;
+  }
+}
+
+.selectric-customOptions .ico {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  height: 30px;
+  width: 30px;
+  margin: 0 6px 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+}
+
+.selectric-customOptions {
+  @for $i from 1 through $masters-length {
+    .ico-#{nth($masters, $i)} {
+      background-image: url('build/img/master-ico-#{nth($masters, $i)}.png');
+    }
+  }
 }

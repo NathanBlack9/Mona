@@ -13,6 +13,82 @@
     }
   }
 
+  &.reviews-page {
+    padding-bottom: 80px;
+
+    hr {
+      margin: 45px 0 60px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .reviews__title {
+      margin-bottom: 0;
+    }
+
+    .reviews__inner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 60px;
+      grid-row-gap: 50px;
+
+      @media only screen and (max-width: 1610px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @media #{$small-notebook} {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media #{$handheld} {
+        grid-column-gap: 20px;
+      }
+
+      @media only screen and (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media #{$small-mobile} {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+
+    .reviews__content {
+      margin: 10px 0 40px;
+    }
+
+    .reviews-form {
+      max-width: 380px;
+
+      @media #{$small-mobile} {
+        max-width: 100%;
+      }
+
+      .btn[type="submit"] {
+        margin: 0 auto;
+      }
+
+      div.inp {
+        margin-bottom: 25px;
+      }
+    }
+
+    .selectric .label {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .reviews-form__rating .reviews__rating {
+      li {
+        cursor: pointer;
+        width: 33px;
+        height: 28px;
+      }
+    }
+  }
+
   .reviews__title {
     margin-bottom: 30px;
   }
@@ -111,7 +187,8 @@
         height: 100%;
       }
 
-      &.active {
+      &.active,
+      &.active-fixed {
         &::before {
           background: url('build/img/star-active.svg') no-repeat 50%/cover;
         }

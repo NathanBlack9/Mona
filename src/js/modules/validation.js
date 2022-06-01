@@ -67,4 +67,13 @@ $(document).ready(function () {
       return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value)
     }
   }
+
+  $('.customOptions').selectric({
+    optionsItemBuilder: function(itemData, element, index) {
+      return element.val().length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
+    },
+    labelBuilder: function(itemData) {
+      return itemData.value.length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
+    },
+  });
 });

@@ -1,7 +1,7 @@
 $('.js-sorting a').click(function(e) {
   e.preventDefault();
   const $this = $(this);
-  const $content = $('.js-sorting-content a');
+  const $content = $('.js-sorting-content > *');
   const $SortValue = $this.data('sort');
 
   $this.addClass('active');
@@ -34,4 +34,26 @@ $(function() {
     })
   })
 
+});
+
+
+$("ul.js-rating-stars li").on("mouseenter", function (e) {
+  var $this = $(this);
+  $this.prevUntil().addClass("active"), 
+  $this.addClass("active");
+}),
+
+$("ul.js-rating-stars li").on("mouseleave", function (e) {
+  var $this = $(this);
+  $this.prevUntil().removeClass("active"), $this.removeClass("active");
+}),
+
+$("ul.js-rating-stars li").on("click", function (e) {
+  e.preventDefault();
+  $this = $(this);
+  $this.siblings().removeClass("active-fixed"),
+  $this.removeClass("active-fixed"),
+  $this.prevUntil().addClass("active-fixed"),
+  $this.addClass("active-fixed"),
+  $this.parent().next().val($this.index() + 1);
 });

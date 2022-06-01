@@ -16,6 +16,9 @@ $socials-length: length($socials);
 $payments: "visa", "master", "cash";
 $payments-length: length($payments);
 
+$masters: "Аракелян", "Хачатрян", "Антонова";
+$masters-length: length($masters);
+
 /*media variables*/
 
 $notebook-and-less : 'only screen and (max-width: 1440px)';
