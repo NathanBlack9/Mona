@@ -36,6 +36,23 @@
   }
 }
 
+.h3 {
+  font-weight: 700;
+  font-size: 22px;
+
+  @media #{$handheld} {
+    font-size: 19px;
+  }
+
+  @media #{$mobile} {
+    font-size: 16px;
+  }
+
+  @media #{$small-mobile} {
+    font-size: 15px;
+  }
+}
+
 p {
   font-size: 12px;
   font-weight: 100;

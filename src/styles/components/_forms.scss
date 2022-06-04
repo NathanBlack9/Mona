@@ -30,6 +30,9 @@ div.inp {
   padding-left: 33px;
   position: relative;
   display: block;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba($black, 50%);
 
   &::before {
     content: '';
@@ -40,6 +43,7 @@ div.inp {
     border: 1px solid $pink;
     transition: all 100ms ease;
     background: $white url('build/img/check.png') no-repeat 50%;
+    background-size: 11px;
   }
 
   &.active {
@@ -60,6 +64,10 @@ div.inp {
   font-size: 14px;
   color: $black;
   margin-bottom: 7px;
+
+  @media #{$small-mobile} {
+    font-size: 12px;
+  }
 
   .required {
     color: $red;

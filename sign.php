@@ -18,7 +18,14 @@
     <h1 class="sign__title h1"><?php the_title(); ?></h1>
 
     <div class="sign__inner">
-      <form action="/sign/" class="form sign-form">
+      <div class="sign-progress progress">
+        <div class="progress-point active">1</div>
+        <div class="progress-point">2</div>
+        <div class="progress-point">3</div>
+        <div class="progress-point">4</div>
+      </div>
+
+      <form action="/sign/" class="form sign-form js-form">
         <div class="inp">
           <div class="inp-label">Выберите услугу <span class="required">*</span></div>
           <select name="" id="" class="sign-form__select">
@@ -98,6 +105,13 @@
 
         <button type="submit" class="btn pink--btn">Записаться</button>
       </form>
+
+      <section class="sign__master">
+        <img src="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" alt="" class="sign__master-img">
+        <div class="sign__master-name h3">Мастер Аракелян Анжела</div>
+        <div class="sign__master-desc">Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастерСами лучши мастерСами лучши мастер.</div>
+        <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="sign__master-btn btn pink--btn">Посмотреть отзывы</a>
+      </section>
     </div>
   </div>
   
