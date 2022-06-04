@@ -8,13 +8,15 @@
   transition: all 800ms ease;
 
   &[type="submit"]:not(.subscribe__submit) {
-    border: 0;
+    border: 1px solid $pink;
     outline: none;
     color: $white;
+    background-color: $pink;
+    padding: 13px 60px;    
 
-    &::before {
-      background: $pink;
-      z-index: -1;
+    &::before,
+    &::after {
+      content: none;
     }
   }
   

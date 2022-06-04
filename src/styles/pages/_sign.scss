@@ -1,0 +1,63 @@
+.sign-page {
+  position: relative; 
+
+  .sign__inner {
+    margin-top: 50px;
+    padding-bottom: 150px;
+  }
+
+  .sign-form {
+    max-width: 410px;
+    margin-left: 150px;
+  }
+
+  .sign-form__date-input {
+    display: none;
+  }
+
+  .sign-form__time {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 12px;
+    justify-content: space-between;
+
+    div.radio {
+      input {
+        display: none;
+      }
+
+      label {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;  
+        padding: 10px 0;
+        // width: 105px;
+        border: 2px solid $pink;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1;
+        color: $black;
+        transition: all 150ms ease;
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+
+        &:hover {
+          background-color: rgba($pink, 0.7);
+        }
+      }
+
+      &.active label {
+        background-color: $pink;
+        color: $white;
+      }
+    }
+  }
+
+  .sign-form__checkbox {
+    display: none;
+  }
+
+}

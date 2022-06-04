@@ -132,7 +132,7 @@
     <div class="reviews__content content"><p>Поделитесь своим опытом посещения наших мастеров.</p></div>
     <form action="/review/" class="reviews-form js-form form">
       <div class="inp">
-        <div class="inp-label">Фамилия, Имя <span class="required">*</span></div>
+        <div class="inp-label">Ваше Имя <span class="required">*</span></div>
         <input type="text" class="inp" id="reviews-form__name">
         <label for="reviews-form__name" class="form__error">Это поле обяательно для заполнения.</label>
       </div>

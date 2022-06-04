@@ -68,6 +68,8 @@ $(document).ready(function () {
     }
   }
 
+  $('select').selectric();
+
   $('.customOptions').selectric({
     optionsItemBuilder: function(itemData, element, index) {
       return element.val().length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
@@ -76,4 +78,37 @@ $(document).ready(function () {
       return itemData.value.length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
     },
   });
+
+  $('.js-sign-radio').click(function() {
+    const $this = $(this);
+    const $parent = $this.closest('.radio');
+
+    if( $this.is(":checked") ) { 
+      console.log( $this.val() );
+      $parent.siblings().removeClass('active');
+      $parent.addClass('active');
+    }
+  });
+
+  $('.js-checkbox').click(function() {
+    const $this = $(this);
+    const $parent = $this.closest('.checkbox');
+
+    if( $this.is(":checked") ) { 
+      $parent.addClass('active');
+    } else $parent.removeClass('active');
+  })
+
+  $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
+  $('#sign-form__date').datepicker({
+    minDate: 0,
+    // beforeShowDay: function(date) {
+    //   // если число больше 15, то делаем их неактивными
+    //   if (new Date(date).getDate() > 15) {
+    //     return false;
+    //   }
+    //   return 'normal';
+    // }
+  });
+
 });

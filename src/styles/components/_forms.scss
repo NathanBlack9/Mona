@@ -25,6 +25,36 @@ div.inp {
   margin-bottom: 25px;
 }
 
+.checkbox {
+  cursor: pointer;
+  padding-left: 33px;
+  position: relative;
+  display: block;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 17px; height: 17px;
+    border: 1px solid $pink;
+    transition: all 100ms ease;
+    background: $white url('build/img/check.png') no-repeat 50%;
+  }
+
+  &.active {
+    &::before {
+      background-color: $pink;
+    }
+  }
+  
+  a {
+    color: $black;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+}
+
 .inp-label {
   font-weight: 400;
   font-size: 14px;
