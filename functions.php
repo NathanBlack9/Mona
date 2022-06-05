@@ -2,13 +2,35 @@
 
 // add_action( 'after_setup_theme', 'crb_load' );
 // function crb_load() {
-//     require_once( 'includes/carbon-fields/vendor/autoload.php' );
-//     \Carbon_Fields\Carbon_Fields::boot();
-// }
+// 	require_once( 'includes/carbon-fields/vendor/autoload.php' );
+// 	\Carbon_Fields\Carbon_Fields::boot();
+// };
 
-// add_action('carbon_fields_register_fields', 'register_carbon_fields');
-// function register_carbon_fields() {
-//   require_once( 'includes/carbon-fields-options/theme-options.php' );
+add_action('carbon_fields_register_fields', 'register_carbon_fields');
+function register_carbon_fields() {
+  require_once( 'includes/carbon-fields-options/theme-options.php' );
+}
+
+
+// use Carbon_Fields\Container;
+// use Carbon_Fields\Field;
+
+// add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' ); // Для версии 2.0 и выше
+// function crb_attach_theme_options() {
+// 	Container::make( 'theme_options', __( 'Content', 'crb' ) )
+// 		->add_fields( array(
+// 			Field::make( 'text', 'crb_text', 'текст филд' ),
+// 		) )
+// 		->add_tab( __('По асдасдасд'), array(
+//       Field::make( 'text', 'crb_first_name', 'First Name' ),
+//       Field::make( 'text', 'crb_last_name', 'Last Name' ),
+//       Field::make( 'text', 'crb_position', 'телефона' ),
+//     ) )
+// 		->add_tab('Блок ограниченного предложения', [
+// 			Field::make( 'text', 'limited_title', 'Заголовок' ),
+// 			// Field::make( 'text', 'btn_title2', 'Текст кнопки обратного звонка' ),
+// 			Field::make( 'media_gallery', 'limited_gallery', 'Изображения для слайдера'), //Изображения для слайдера
+// 		] );
 // }
 
 
