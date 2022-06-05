@@ -13,12 +13,26 @@
         yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumbs"><li>','</li></ul>');
       }
     ?>
+
+    <?php 
+      global $wpdb; 
+      $manicurePrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Маникюр");' );
+      $pedicurePrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Педикюр");' );
+      $sugaringPrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Шугаринг");' );
+      $lashesPrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Наращивание ресниц");' );
+      $eyebrowPrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Коррекция бровей");' );
+
+      // $phone = "+7 (950) 915 08-58";
+      // $phone = str_replace([' ', '(', ')', '-'], '', $phone);
+      // echo $phone;
+      // print_r($manicurePrices[3]->services_name);  // object.value
+    ?>
+
     <div class="price">
       <h1 class="h1"><?php the_title(); ?></h1>
       <div class="price__inner">
         <div class="price__content content"> <?php the_content(); ?></div>
         <div class="price__table js-price-table">
-
           <div class="price__table-item js-mobile-spoiler is-expanded" id="manicure">
             <div class="price__table-title js-spoiler-toggler is-expanded">Маникюр</div>
             <div class="price__table-body js-spoiler-body is-expanded">
@@ -26,7 +40,7 @@
                 <dt>Наименование услуги</dt>
                 <dd>Цена, руб.</dd>
               </dl>
-              <dl>
+              <?php /*<dl> // Со скидкой
                 <dt class="price__table-name"><span>Маникюр (аппаратный, комби) </span></dt>
                 <dd>
                   <dl>
@@ -39,23 +53,13 @@
                     </div>
                   </dl>
                 </dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Снятие геля</span></dt>
-                <dd><span>300</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
+              </dl> */ ?>
+              <?php foreach ($manicurePrices as $value) { ?>
+                <dl>
+                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                  <dd><span><?php echo $value->money ?></span></dd>
+                </dl>
+              <?php } ?>
             </div>
           </div>
           <div class="price__table-item js-mobile-spoiler" id="pedicure">
@@ -65,36 +69,12 @@
                 <dt>Наименование услуги</dt>
                 <dd>Цена, руб.</dd>
               </dl>
-              <dl>
-                <dt class="price__table-name"><span>Маникюр (аппаратный, комби) </span></dt>
-                <dd>
-                  <dl>
-                    <dt>550</dt>
-                    <dd>600</dd>
-                    <div class="price-hint hint">
-                      <div class="hint-text">
-                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
-                      </div>
-                    </div>
-                  </dl>
-                </dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Снятие геля</span></dt>
-                <dd><span>300</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
+              <?php foreach ($pedicurePrices as $value) { ?>
+                <dl>
+                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                  <dd><span><?php echo $value->money ?></span></dd>
+                </dl>
+              <?php } ?>
             </div>
           </div>
           <div class="price__table-item js-mobile-spoiler" id="sugaring">
@@ -104,36 +84,12 @@
                 <dt>Наименование услуги</dt>
                 <dd>Цена, руб.</dd>
               </dl>
-              <dl>
-                <dt class="price__table-name"><span>Маникюр (аппаратный, комби) </span></dt>
-                <dd>
-                  <dl>
-                    <dt>550</dt>
-                    <dd>600</dd>
-                    <div class="price-hint hint">
-                      <div class="hint-text">
-                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
-                      </div>
-                    </div>
-                  </dl>
-                </dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Снятие геля</span></dt>
-                <dd><span>300</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
+              <?php foreach ($sugaringPrices as $value) { ?>
+                <dl>
+                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                  <dd><span><?php echo $value->money ?></span></dd>
+                </dl>
+              <?php } ?>
             </div>
           </div>
           <div class="price__table-item js-mobile-spoiler" id="brows">
@@ -143,36 +99,12 @@
                 <dt>Наименование услуги</dt>
                 <dd>Цена, руб.</dd>
               </dl>
-              <dl>
-                <dt class="price__table-name"><span>Маникюр (аппаратный, комби) </span></dt>
-                <dd>
-                  <dl>
-                    <dt>550</dt>
-                    <dd>600</dd>
-                    <div class="price-hint hint">
-                      <div class="hint-text">
-                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
-                      </div>
-                    </div>
-                  </dl>
-                </dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Снятие геля</span></dt>
-                <dd><span>300</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
+              <?php foreach ($eyebrowPrices as $value) { ?>
+                <dl>
+                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                  <dd><span><?php echo $value->money ?></span></dd>
+                </dl>
+              <?php } ?>
             </div>
           </div>
           <div class="price__table-item js-mobile-spoiler" id="lashes">
@@ -182,41 +114,16 @@
                 <dt>Наименование услуги</dt>
                 <dd>Цена, руб.</dd>
               </dl>
-              <dl>
-                <dt class="price__table-name"><span>Маникюр (аппаратный, комби) </span></dt>
-                <dd>
-                  <dl>
-                    <dt>550</dt>
-                    <dd>600</dd>
-                    <div class="price-hint hint">
-                      <div class="hint-text">
-                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
-                      </div>
-                    </div>
-                  </dl>
-                </dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Снятие геля</span></dt>
-                <dd><span>300</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
-              <dl>
-                <dt class="proce__table-name"><span>Мужской маникюр</span></dt>
-                <dd><span>800</span></dd>
-              </dl>
+              <?php foreach ($lashesPrices as $value) { ?>
+                <dl>
+                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                  <dd><span><?php echo $value->money ?></span></dd>
+                </dl>
+              <?php } ?>
             </div>
           </div>
-          
-          
         </div>
+
         <div class="price__navigation js-navigation fixed">
           <a href="#manicure" id="nav1" class="js-scroll-to">Маникюр</a>
           <a href="#pedicure" id="nav2" class="js-scroll-to">Педикюр</a>
@@ -226,7 +133,6 @@
         </div>
       </div>
     </div>
-
 
     <div class="payment">
       <h2 class="h2">Оплата</h2>

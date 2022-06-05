@@ -161,6 +161,7 @@
 
         @media #{$handheld} {
           font-size: 14px;
+          align-items: flex-end;
         }
 
         dt, dd {

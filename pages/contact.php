@@ -2,6 +2,18 @@
 /*
   Template Name: contact
 */
+
+  $coordinates = carbon_get_theme_option('coordinates');
+
+  $centerX = $coordinates[0]['coordinates_centerx'];
+  $centerY = $coordinates[0]['coordinates_centery'];
+  $baloonY = $coordinates[0]['coordinates_pointx'];
+  $baloonY = $coordinates[0]['coordinates_pointy'];
+
+  $phone = carbon_get_theme_option('phone');
+  $email = carbon_get_theme_option('email');
+  $address = carbon_get_theme_option('address');
+
 ?>
 
 <?php get_header() ?>
@@ -13,22 +25,22 @@
         yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumbs"><li>','</li></ul>');
       }
     ?>
-    <div class="h1"><?php the_title(); ?></div>
+    <div class="h1"><?php the_title();?></div>
   </div>
 
   <map class="map-section">
     <div class="contact-panel">
       <dl>
         <dt>Адрес</dt>
-        <dd>300045, г. Тула, мкр. Левобережный, Восточная 11</dd>
+        <dd><?php echo $address ?></dd>
       </dl>
       <dl>
         <dt>Телефон</dt>
-        <dd><a href="tel:+79509150858">+7 950 915 08 58</a></dd>
+        <dd><a href="tel:<?php echo str_replace([' ', '(', ')', '-'], '', $phone) ?>"><?php echo str_replace(['(', ')',], '', $phone) ?></a></dd>
       </dl>
       <dl>
         <dt>Почта</dt>
-        <dd><a href="mailto:info@studiomona.ru">info@studiomona.ru</a></dd>
+        <dd><a href="mailto:<?php echo $email?>"><?php echo $email ?></a></dd>
       </dl>
       <dl>
         <dt>Режим работы</dt>
@@ -75,9 +87,6 @@
 <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/YaMap.js" type="text/javascript"></script>
 
 <script>
-  var wp_vars = {};
-  wp_vars.siteUrl = '<?php echo get_template_directory_uri(); ?>'
-
   const $mobile = window.innerWidth < 480;
 
   ymaps.ready(init);
@@ -90,7 +99,7 @@
   */ ?>
   function init(){
     var myMap = new ymaps.Map("map", {
-      center: [54.175166 + (!$mobile ? 0 : 0.001), 37.651151 + (!$mobile ? 0 : 0.002)],
+      center: [<?php echo $centerX; ?> + (!$mobile ? 0 : 0.001), <?php echo $centerY; ?> + (!$mobile ? 0 : 0.002)],
       zoom: 17,
       controls: ['largeMapDefaultSet','routeButtonControl']
     });
@@ -113,7 +122,7 @@
       'scrollZoom'
     ]);
 
-    var placemark = new ymaps.Placemark([54.175856, 37.652768], {
+    var placemark = new ymaps.Placemark([<?php echo $baloonX; ?>, <?php echo $baloonY; ?>], {
       hideIcon: false,
       <?php /* balloonContentHeader: "г. Москва",
         balloonContentBody: "ул. Пятницкая, д. 37",

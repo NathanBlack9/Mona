@@ -6,13 +6,6 @@ Template Name: 404
 
 <?php get_header() ?>
 
-
-<?php 
-  global $wpdb; 
-  $newtable = $wpdb->get_results( "SELECT * FROM wp_yoast_migrations" );
-
-  print_r($newtable[0]->version);  // object.value
-?>
 <section class="error-page error-404">
   <div class="wrapper">
     <div class="error-page__inner">
@@ -23,10 +16,5 @@ Template Name: 404
     </div>
   </div>
 </section>
-
-<script>
-  let i = <?php print_r( $newtable); ?>;
-  console.log( i );
-</script>
 
 <?php get_footer() ?>

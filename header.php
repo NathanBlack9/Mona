@@ -3,6 +3,10 @@
 
 <?php 
   get_template_part( 'head' );
+
+  $phone = carbon_get_theme_option('phone');
+  $tg = carbon_get_theme_option('tg');
+
 ?>
 
 <body>
@@ -17,12 +21,12 @@
           
           <a href="#" class="header__menu-btn js-menu-toggler"><span></span></a>
           <a href="<?php echo home_url(); ?>" class="header__logo"></a>
-          <a href="#" class="header__sign-btn btn only-desktop">Записаться онлайн</a>
+          <a href="<?php echo home_url(); ?>/sign/" class="header__sign-btn btn only-desktop">Записаться онлайн</a>
           <div class="header__messengers">
-            <a href="tel:+79509150858" class="header__messengers-phone">+7 (950) 915 08 58</a>
-            <a href="" class="header__messengers-wh"></a>
-            <a href="" class="header__messengers-vb"></a>
-            <a href="" class="header__messengers-tg"></a>
+            <a href="tel:<?php echo str_replace([' ', '(', ')', '-'], '', $phone) ?>" class="header__messengers-phone"><?php echo $phone ?></a>
+            <a href="https://api.whatsapp.com/send?phone=<?php echo str_replace([' ', '(', ')', '-'], '', $phone) ?>" class="header__messengers-wh" target="_blank"></a>
+            <a href="viber://add?number=<?php echo str_replace([' ', '(', ')', '-'], '', $phone) ?>" class="header__messengers-vb" target="_blank"></a>
+            <a href="<?php echo $tg ?>" class="header__messengers-tg" target="_blank"></a>
           </div>
         </div>
       </div>
