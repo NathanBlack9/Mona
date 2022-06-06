@@ -38,8 +38,8 @@
         </li>
       </ul>
       <div class="menu__socials">
-        <a href="<?php echo $inst ?>" class="menu__socials-inst"></a>
-        <a href="<?php echo $vk ?>" class="menu__socials-vk"></a>
+        <a href="<?php echo $inst ?>" class="menu__socials-inst" target="_blank"></a>
+        <a href="<?php echo $vk ?>" class="menu__socials-vk" target="_blank"></a>
         <span>Следите за нами</span>
       </div>
       <a href="<?php echo home_url(); ?>/sign/" class="menu__sign-btn btn not-desktop">Записаться онлайн</a>

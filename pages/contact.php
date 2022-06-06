@@ -7,12 +7,14 @@
 
   $centerX = $coordinates[0]['coordinates_centerx'];
   $centerY = $coordinates[0]['coordinates_centery'];
-  $baloonY = $coordinates[0]['coordinates_pointx'];
+  $baloonX = $coordinates[0]['coordinates_pointx'];
   $baloonY = $coordinates[0]['coordinates_pointy'];
 
   $phone = carbon_get_theme_option('phone');
   $email = carbon_get_theme_option('email');
   $address = carbon_get_theme_option('address');
+
+  $tel = str_replace([' ', '(', ')', '-'], '', $phone);
 
 ?>
 
@@ -36,7 +38,7 @@
       </dl>
       <dl>
         <dt>Телефон</dt>
-        <dd><a href="tel:<?php echo str_replace([' ', '(', ')', '-'], '', $phone) ?>"><?php echo str_replace(['(', ')',], '', $phone) ?></a></dd>
+        <dd><a href="tel:<?php echo $tel ?>"><?php echo str_replace(['(', ')',], '', $phone) ?></a></dd>
       </dl>
       <dl>
         <dt>Почта</dt>
@@ -51,7 +53,7 @@
       </dl>
       <dl>
         <dt>Координаты</dt>
-        <dd>54.175856, 37.652768</dd>
+        <dd><?php echo $baloonX; ?>, <?php echo $baloonY; ?></dd>
       </dl>
       <dl>
         <dt>Реквизиты</dt>

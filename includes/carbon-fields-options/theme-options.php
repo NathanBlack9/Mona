@@ -25,7 +25,7 @@ Container::make( 'theme_options', 'Content' )
     //   Field::make( 'text', 'modal_title', 'Заголовок' ),
     // ])
     ->add_tab( 'Контакты', array(
-      Field::make( 'text', 'phone', 'Номер телефона' )->set_width(30),
+      Field::make( 'text', 'phone', 'Номер телефона' )->set_width(30)->help_text('Это телефон для звонка, whatsapp и viber.'),
       Field::make( 'text', 'email', 'Почта' )->set_width(30),
       Field::make( 'text', 'address', 'Адрес' )->set_width(30),
       Field::make( 'text', 'inst', 'Ссылка на инстаграм' )->set_width(30)->set_default_value('https://instagram.com/'),

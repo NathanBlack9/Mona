@@ -1,3 +1,14 @@
+<?php 
+  $inst = carbon_get_theme_option('inst');
+  $vk = carbon_get_theme_option('vk');
+
+  $phone = carbon_get_theme_option('phone');
+  $email = carbon_get_theme_option('email');
+  $address = carbon_get_theme_option('address');
+
+  $tel = str_replace([' ', '(', ')', '-'], '', $phone);
+?>
+
   <footer class="footer">
     <div class="wrapper">
       <div class="footer__inner">
@@ -6,13 +17,13 @@
           <div class="footer__contact-address"><span>Тула</span>  |  мкр. Левобережный, Восточная 11</div>
           <div class="footer__contact-time">Пн – Вс: 09:00 — 20:00</div>
           <div class="footer__contact-info">
-            <a href="tel:+79509150858" class="footer__contact-phone">+7 (950) 915 08 58</a>
-            <a href="mailto:info@studiomona.ru" class="footer__contact-email">info@studiomona.ru</a>
+            <a href="tel:<?php echo $tel; ?>" class="footer__contact-phone"><?php echo $phone; ?></a>
+            <a href="mailto:<?php echo $email; ?>" class="footer__contact-email"><?php echo $email; ?></a>
           </div>
           <div class="footer__messengers">
-            <a href="" class="footer__messengers-wh"></a>
-            <a href="" class="footer__messengers-vb"></a>
-            <a href="" class="footer__messengers-tg"></a>
+            <a href="https://api.whatsapp.com/send?phone=<?php echo $tel ?>" class="footer__messengers-wh" target="_blank"></a>
+            <a href="viber://add?number=<?php echo $tel ?>" class="footer__messengers-vb" target="_blank"></a>
+            <a href="<?php echo $tg ?>" class="footer__messengers-tg" target="_blank"></a>
           </div>
         </div>
         <div class="footer__menu js-mobile-spoiler">
@@ -48,8 +59,8 @@
           <div class="footer__socials">
             <span>Мы в соцсетях</span>
             <ul>
-              <li><a href="" class="footer__socials-inst"></a></li>
-              <li><a href="" class="footer__socials-vk"></a></li>
+              <li><a href="<?php echo $inst ?>" class="footer__socials-inst" target="_blank"></a></li>
+              <li><a href="<?php echo $vk ?>" class="footer__socials-vk" target="_blank"></a></li>
             </ul>
           </div>
           <div class="footer__payment">
