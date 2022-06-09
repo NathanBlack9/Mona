@@ -5,10 +5,10 @@
 
   $coordinates = carbon_get_theme_option('coordinates');
 
-  $centerX = $coordinates[0]['coordinates_centerx'];
-  $centerY = $coordinates[0]['coordinates_centery'];
-  $baloonX = $coordinates[0]['coordinates_pointx'];
-  $baloonY = $coordinates[0]['coordinates_pointy'];
+  $centerX = carbon_get_theme_option('coordinates_centerx');
+  $centerY = carbon_get_theme_option('coordinates_centery');
+  $baloonX = carbon_get_theme_option('coordinates_pointx');
+  $baloonY = carbon_get_theme_option('coordinates_pointy');
 
   $phone = carbon_get_theme_option('phone');
   $email = carbon_get_theme_option('email');

@@ -7,7 +7,58 @@ if (!defined('ABSPATH')) {
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-Container::make( 'theme_options', 'Content' )
+Container::make( 'theme_options', 'Contacts' )
+  ->set_icon('dashicons-phone')
+  ->add_fields(array(
+    Field::make( 'text', 'phone', 'Номер телефона' )->set_width(30)->help_text('Это телефон для звонка, whatsapp и viber.'),
+    Field::make( 'text', 'email', 'Почта' )->set_width(30),
+    Field::make( 'text', 'address', 'Адрес' )->set_width(30),
+    Field::make( 'text', 'inst', 'Ссылка на инстаграм' )->set_width(30)->set_default_value('https://instagram.com/'),
+    Field::make( 'text', 'vk', 'Ссылка на ВК' )->set_width(30)->set_default_value('https://vk.com/'),
+    Field::make( 'text', 'tg', 'Ссылка на Telegram' )->set_width(30),
+    Field::make( 'text', 'coordinates_centerx', 'Координата центра карты (X)' )
+      ->set_width(25),
+    Field::make( 'text', 'coordinates_centery', 'Координата центра карты (Y)')
+      ->set_width(25),
+    Field::make( 'text', 'coordinates_pointx', 'Координата точки на карте (X)' )
+      ->set_width(25),
+    Field::make( 'text', 'coordinates_pointy', 'Координата точки на карте (Y)')
+      ->set_width(25),
+
+  ) );
+
+Container::make( 'theme_options', 'Menu' )
+  ->set_icon('dashicons-menu-alt3')
+  ->add_tab( 'Меню в подвале', array(
+    Field::make( 'complex', 'footer_menu', 'Посетителям')
+      ->add_fields('element', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(45),
+        Field::make( 'text', 'url', 'Url')->set_width(45),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+      ) ),
+    Field::make( 'complex', 'footer_services', 'Наши услуги')
+    ->add_fields('element', array( 
+      Field::make( 'text', 'name', 'Название' )->set_width(45),
+      Field::make( 'text', 'url', 'Url')->set_width(45),
+      Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+    ) ),
+    Field::make( 'complex', 'footer_more', 'Другое')
+    ->add_fields('element', array( 
+      Field::make( 'text', 'name', 'Название' )->set_width(45),
+      Field::make( 'text', 'url', 'Url')->set_width(45),
+      Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+    ) ),
+  ) );
+
+Container::make( 'nav_menu_item', 'Menu Settings' )
+  ->add_fields( array(
+      Field::make( 'color', 'crb_color' ),
+  ));
+
+    
+
+
+// Container::make( 'theme_options', 'dddd' )
 		// ->add_fields( array(
 		// 	Field::make( 'text', 'crb_text', 'Text Field' ),
 		// ) )
@@ -24,30 +75,6 @@ Container::make( 'theme_options', 'Content' )
     // ->add_tab('Форма обратного звонка',[
     //   Field::make( 'text', 'modal_title', 'Заголовок' ),
     // ])
-    ->add_tab( 'Контакты', array(
-      Field::make( 'text', 'phone', 'Номер телефона' )->set_width(30)->help_text('Это телефон для звонка, whatsapp и viber.'),
-      Field::make( 'text', 'email', 'Почта' )->set_width(30),
-      Field::make( 'text', 'address', 'Адрес' )->set_width(30),
-      Field::make( 'text', 'inst', 'Ссылка на инстаграм' )->set_width(30)->set_default_value('https://instagram.com/'),
-      Field::make( 'text', 'vk', 'Ссылка на ВК' )->set_width(30)->set_default_value('https://vk.com/'),
-      Field::make( 'text', 'tg', 'Ссылка на Telegram' )->set_width(30),
-      Field::make( 'complex', 'coordinates', 'Координаты карты')
-        ->add_fields( array( 
-
-          Field::make( 'text', 'coordinates_centerx', 'Координата центра (X)' )
-            ->set_width(25),
-          Field::make( 'text', 'coordinates_centery', 'Координата центра (Y)')
-            ->set_width(25),
-          Field::make( 'text', 'coordinates_pointx', 'Координата точки (X)' )
-            ->set_width(25),
-          Field::make( 'text', 'coordinates_pointy', 'Координата точки (Y)')
-            ->set_width(25),
-        ) )
-
-    ) );
-
-
-// Container::make( 'theme_options', 'dddd' )
 //     ->add_fields( array(
 //       Field::make( 'text', 'crb_134text', 'Text Field' ),
 //       Field::make( 'text', 'crb_1354text', 'Text Field' ),

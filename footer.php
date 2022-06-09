@@ -7,6 +7,11 @@
   $address = carbon_get_theme_option('address');
 
   $tel = str_replace([' ', '(', ')', '-'], '', $phone);
+
+  $menu_pos = carbon_get_theme_option('footer_menu');
+
+  // $menu_pos = asort($menu_pos);
+
 ?>
 
   <footer class="footer">
@@ -29,13 +34,11 @@
         <div class="footer__menu js-mobile-spoiler">
           <div class="footer__menu-title footer__menu-toggler js-spoiler-toggler">Посетителям</div>
           <ul class="footer__menu-list footer__menu-body js-spoiler-body">
-            <li><a href="#">О нас</a></li>
-            <li><a href="#">Цены и оплата</a></li>
-            <li><a href="#">Сертификаты</a></li>
-            <li><a href="#">Фотогалерея наших работ</a></li>
-            <li><a href="#">Онлайн запись</a></li>
-            <li><a href="#">Отзывы</a></li>
-            <li><a href="#">Контакты</a></li>
+            <?php foreach ( $menu_pos as $item ) { ?>
+              <?php if ( $item['visible'] == 1 ) : ?>
+                <li><a href="<?php echo get_template_directory_uri() . $item['url']; ?>"><?php echo $item['name']; ?></a></li>
+              <?php endif; ?>
+            <?php } ?>
           </ul>
         </div>
         <div class="footer__menu js-mobile-spoiler">

@@ -4,6 +4,22 @@
 */
 ?>
 
+<?php 
+  global $wpdb; 
+  $manicurePrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Маникюр");' );
+  $pedicurePrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Педикюр");' );
+  $sugaringPrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Шугаринг");' );
+  $lashesPrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Наращивание ресниц");' );
+  $eyebrowPrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Коррекция бровей");' );
+
+  $services = $wpdb->get_results('SELECT name from service_categories');
+
+  // $phone = "+7 (950) 915 08-58";
+  // $phone = str_replace([' ', '(', ')', '-'], '', $phone);
+  // echo $phone;
+  // print_r($services[1]->name);  // object.value
+?>
+
 <?php get_header() ?>
 
 <section class="price-page">
@@ -12,20 +28,6 @@
       if ( function_exists('yoast_breadcrumb') ) {
         yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumbs"><li>','</li></ul>');
       }
-    ?>
-
-    <?php 
-      global $wpdb; 
-      $manicurePrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Маникюр");' );
-      $pedicurePrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Педикюр");' );
-      $sugaringPrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Шугаринг");' );
-      $lashesPrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Наращивание ресниц");' );
-      $eyebrowPrices = $wpdb->get_results( 'SELECT services_name, money from services where category_id like (select id from service_categories where name = "Коррекция бровей");' );
-
-      // $phone = "+7 (950) 915 08-58";
-      // $phone = str_replace([' ', '(', ')', '-'], '', $phone);
-      // echo $phone;
-      // print_r($manicurePrices[3]->services_name);  // object.value
     ?>
 
     <div class="price">
@@ -40,25 +42,28 @@
                 <dt>Наименование услуги</dt>
                 <dd>Цена, руб.</dd>
               </dl>
-              <?php /*<dl> // Со скидкой
-                <dt class="price__table-name"><span>Маникюр (аппаратный, комби) </span></dt>
-                <dd>
-                  <dl>
-                    <dt>550</dt>
-                    <dd>600</dd>
-                    <div class="price-hint hint">
-                      <div class="hint-text">
-                        Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
-                      </div>
-                    </div>
-                  </dl>
-                </dd>
-              </dl> */ ?>
               <?php foreach ($manicurePrices as $value) { ?>
-                <dl>
-                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
-                  <dd><span><?php echo $value->money ?></span></dd>
-                </dl>
+                <?php if ( $value->discount_price == 0 ) { ?>
+                  <dl>
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd><span><?php echo $value->money ?></span></dd>
+                  </dl>
+                <?php } else {?>
+                  <dl> 
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd>
+                      <dl>
+                        <dt><?php echo $value->discount_price ?></dt>
+                        <dd><?php echo $value->money ?></dd>
+                        <div class="price-hint hint">
+                          <div class="hint-text">
+                            Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
+                          </div>
+                        </div>
+                      </dl>
+                    </dd>
+                  </dl> 
+                <?php } ?>
               <?php } ?>
             </div>
           </div>
@@ -70,10 +75,27 @@
                 <dd>Цена, руб.</dd>
               </dl>
               <?php foreach ($pedicurePrices as $value) { ?>
-                <dl>
-                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
-                  <dd><span><?php echo $value->money ?></span></dd>
-                </dl>
+                <?php if ( $value->discount_price == 0 ) { ?>
+                  <dl>
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd><span><?php echo $value->money ?></span></dd>
+                  </dl>
+                <?php } else {?>
+                  <dl> 
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd>
+                      <dl>
+                        <dt><?php echo $value->discount_price ?></dt>
+                        <dd><?php echo $value->money ?></dd>
+                        <div class="price-hint hint">
+                          <div class="hint-text">
+                            Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
+                          </div>
+                        </div>
+                      </dl>
+                    </dd>
+                  </dl> 
+                <?php } ?>
               <?php } ?>
             </div>
           </div>
@@ -85,10 +107,27 @@
                 <dd>Цена, руб.</dd>
               </dl>
               <?php foreach ($sugaringPrices as $value) { ?>
-                <dl>
-                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
-                  <dd><span><?php echo $value->money ?></span></dd>
-                </dl>
+                <?php if ( $value->discount_price == 0 ) { ?>
+                  <dl>
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd><span><?php echo $value->money ?></span></dd>
+                  </dl>
+                <?php } else {?>
+                  <dl> 
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd>
+                      <dl>
+                        <dt><?php echo $value->discount_price ?></dt>
+                        <dd><?php echo $value->money ?></dd>
+                        <div class="price-hint hint">
+                          <div class="hint-text">
+                            Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
+                          </div>
+                        </div>
+                      </dl>
+                    </dd>
+                  </dl> 
+                <?php } ?>
               <?php } ?>
             </div>
           </div>
@@ -100,10 +139,27 @@
                 <dd>Цена, руб.</dd>
               </dl>
               <?php foreach ($eyebrowPrices as $value) { ?>
-                <dl>
-                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
-                  <dd><span><?php echo $value->money ?></span></dd>
-                </dl>
+                <?php if ( $value->discount_price == 0 ) { ?>
+                  <dl>
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd><span><?php echo $value->money ?></span></dd>
+                  </dl>
+                <?php } else {?>
+                  <dl> 
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd>
+                      <dl>
+                        <dt><?php echo $value->discount_price ?></dt>
+                        <dd><?php echo $value->money ?></dd>
+                        <div class="price-hint hint">
+                          <div class="hint-text">
+                            Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
+                          </div>
+                        </div>
+                      </dl>
+                    </dd>
+                  </dl> 
+                <?php } ?>
               <?php } ?>
             </div>
           </div>
@@ -115,21 +171,38 @@
                 <dd>Цена, руб.</dd>
               </dl>
               <?php foreach ($lashesPrices as $value) { ?>
-                <dl>
-                  <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
-                  <dd><span><?php echo $value->money ?></span></dd>
-                </dl>
+                <?php if ( $value->discount_price == 0 ) { ?>
+                  <dl>
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd><span><?php echo $value->money ?></span></dd>
+                  </dl>
+                <?php } else {?>
+                  <dl> 
+                    <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
+                    <dd>
+                      <dl>
+                        <dt><?php echo $value->discount_price ?></dt>
+                        <dd><?php echo $value->money ?></dd>
+                        <div class="price-hint hint">
+                          <div class="hint-text">
+                            Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
+                          </div>
+                        </div>
+                      </dl>
+                    </dd>
+                  </dl> 
+                <?php } ?>
               <?php } ?>
             </div>
           </div>
         </div>
 
         <div class="price__navigation js-navigation fixed">
-          <a href="#manicure" id="nav1" class="js-scroll-to">Маникюр</a>
-          <a href="#pedicure" id="nav2" class="js-scroll-to">Педикюр</a>
-          <a href="#sugaring" id="nav3" class="js-scroll-to">Шугаринг</a>
-          <a href="#brows" id="nav4" class="js-scroll-to">Коррекция бровей</a>
-          <a href="#lashes" id="nav5" class="js-scroll-to">Наращивание ресниц</a>
+          <a href="#manicure" id="nav1" class="js-scroll-to"><?php echo $services[0]->name ?></a>
+          <a href="#pedicure" id="nav2" class="js-scroll-to"><?php echo $services[1]->name ?></a>
+          <a href="#sugaring" id="nav3" class="js-scroll-to"><?php echo $services[2]->name ?></a>
+          <a href="#brows" id="nav4" class="js-scroll-to"><?php echo $services[3]->name ?></a>
+          <a href="#lashes" id="nav5" class="js-scroll-to"><?php echo $services[4]->name ?></a>
         </div>
       </div>
     </div>
