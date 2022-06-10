@@ -37,26 +37,47 @@ Container::make( 'theme_options', 'Menu' )
         Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
       ) ),
     Field::make( 'complex', 'footer_services', 'Наши услуги')
-    ->add_fields('element', array( 
-      Field::make( 'text', 'name', 'Название' )->set_width(45),
-      Field::make( 'text', 'url', 'Url')->set_width(45),
-      Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-    ) ),
+      ->add_fields('element', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(45),
+        Field::make( 'text', 'url', 'Url')->set_width(45),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+      ) ),
     Field::make( 'complex', 'footer_more', 'Другое')
-    ->add_fields('element', array( 
-      Field::make( 'text', 'name', 'Название' )->set_width(45),
-      Field::make( 'text', 'url', 'Url')->set_width(45),
-      Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-    ) ),
+      ->add_fields('element', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(45),
+        Field::make( 'text', 'url', 'Url')->set_width(45),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+      ) ),
+  ) )
+  ->add_tab( 'Меню в шапке', array(
+    Field::make( 'complex', 'header_menu', 'Главное меню')
+      ->add_fields('element', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(40),
+        Field::make( 'text', 'url', 'Url')->set_width(40),
+        Field::make( 'text', 'class', 'Css класс')->set_width(10),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+      ) ),
+    Field::make( 'complex', 'header_services', 'Наши услуги')
+      ->add_fields('element', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(40),
+        Field::make( 'text', 'url', 'Url')->set_width(40),
+        Field::make( 'text', 'class', 'Css класс')->set_width(10),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+      ) ),
+    Field::make( 'complex', 'header_about', 'О нас')
+      ->add_fields('element', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(40),
+        Field::make( 'text', 'url', 'Url')->set_width(40),
+        Field::make( 'text', 'class', 'Css класс')->set_width(10),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
+      ) ),
   ) );
+
 
 Container::make( 'nav_menu_item', 'Menu Settings' )
   ->add_fields( array(
       Field::make( 'color', 'crb_color' ),
   ));
-
-    
-
 
 // Container::make( 'theme_options', 'dddd' )
 		// ->add_fields( array(
