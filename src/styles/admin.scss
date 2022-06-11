@@ -14,6 +14,14 @@
   }
 }
 
+// Окно загрузки фотки 
+
+.cf-field.cf-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 // Название раздела меню 
 .main-menu {
   border-top-color: $blue !important;

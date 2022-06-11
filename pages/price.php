@@ -5,7 +5,7 @@
 ?>
 
 <?php 
-  global $wpdb; 
+  // global $wpdb; 
   $manicurePrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Маникюр");' );
   $pedicurePrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Педикюр");' );
   $sugaringPrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Шугаринг");' );
@@ -13,6 +13,7 @@
   $eyebrowPrices = $wpdb->get_results( 'SELECT services_name, money, discount_price from services where category_id like (select id from service_categories where name = "Коррекция бровей");' );
 
   $services = $wpdb->get_results('SELECT name from service_categories');
+
 
   // $phone = "+7 (950) 915 08-58";
   // $phone = str_replace([' ', '(', ')', '-'], '', $phone);

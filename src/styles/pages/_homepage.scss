@@ -310,6 +310,7 @@
         background-color: transparent;
         border: 1px solid $white;
         bottom: 30%;
+        pointer-events: none;
       }
 
       @media #{$small-mobile} {

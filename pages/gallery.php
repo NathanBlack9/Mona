@@ -1,7 +1,19 @@
 <?php
-/*
-Template Name: gallery
-*/
+/**
+ * Template Name: gallery
+ */
+?>
+
+<?php 
+
+  $services = $wpdb->get_results('SELECT name from service_categories');
+
+  $gallery = carbon_get_theme_option('gallery');
+
+  // echo wp_get_attachment_caption($gallery[0]['photo']); // Подпись картинки
+  // echo wp_get_attachment_image_url($gallery[0]['photo'], 'full'); // Ссылка картинки
+
+  // echo $gallery[0]['select'];
 ?>
 
 <?php get_header() ?>
@@ -18,42 +30,26 @@ Template Name: gallery
     <div class="sorting">
       <div class="sorting__controls js-sorting not-mobile">
         <a href="#" class="sorting__btn active" data-sort="all">Все</a>
-        <a href="#" class="sorting__btn" data-sort="Маникюр">Маникюр</a>
-        <a href="#" class="sorting__btn" data-sort="Педикюр">Педикюр</a>
-        <a href="#" class="sorting__btn" data-sort="Наращивание ресниц">Наращивание ресниц</a>
-        <a href="#" class="sorting__btn" data-sort="Коррекция бровей">Коррекция бровей</a>
+        <?php foreach( $services as $item ) { ?>
+          <a href="#" class="sorting__btn" data-sort="<?php echo $item->name ?>"><?php echo $item->name ?></a>
+        <?php } ?>
       </div>
       <div class="only-mobile">
         <select name="" id="" class="sorting__select js-sorting-select">
           <option value="all">Все</option>
-          <option value="Маникюр">Маникюр</option>
-          <option value="Педикюр">Педикюр</option>
-          <option value="Наращивание ресниц">Наращивание ресниц</option>
-          <option value="Коррекция бровей">Коррекция бровей</option>
+          <?php foreach( $services as $item ) { ?>
+            <option value="<?php echo $item->name ?>"><?php echo $item->name ?></option>
+          <?php } ?>
         </select>
       </div>
     </div>
     <div class="certificates__inner js-sorting-content">
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" data-fancybox="certificates" data-sort="Маникюр">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" alt="">
-        <div class="gallery__author">Аракелян Анжела</div>
-      </a>
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" data-fancybox="certificates" data-sort="Педикюр">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" alt="">
-        <div class="gallery__author">Хачатрян Моника</div>
-      </a>
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" data-fancybox="certificates" data-sort="Коррекция бровей">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" alt="">
-        <div class="gallery__author">Аракелян Анжела</div>
-      </a>
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" data-fancybox="certificates" data-sort="Наращивание ресниц">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" alt="">
-        <div class="gallery__author">Хачатрян Моника</div>
-      </a>
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" data-fancybox="certificates" data-sort="Наращивание ресниц">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" alt="">
-        <div class="gallery__author">Хачатрян Моника</div>
-      </a>
+      <?php foreach( $gallery as $item ) { ?> 
+        <a href="<?php echo wp_get_attachment_image_url($item['photo'], 'full'); ?>" data-fancybox="certificates" data-sort="<?php echo $item['select']; ?>">
+          <img src="<?php echo wp_get_attachment_image_url($item['photo'], 'full'); ?>" alt="">
+          <div class="gallery__author"><?php echo $item['master']; ?></div>
+        </a>
+      <?php } ?>
     </div>
   </div>
 </section>

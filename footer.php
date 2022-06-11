@@ -85,7 +85,7 @@
 
   <div class="go-top__btn js-go-top-btn"></div>
   
-  <?php get_template_part( 'templates_navigation' ); ?>
+  <?php //get_template_part( 'templates_navigation' ); ?>
   
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery-3.6.0.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery.selectric.min.js"></script>
