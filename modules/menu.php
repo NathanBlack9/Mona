@@ -1,41 +1,37 @@
 <?php 
   $inst = carbon_get_theme_option('inst');
   $vk = carbon_get_theme_option('vk');
+
+  $menu = carbon_get_theme_option('header_menu');
 ?>
 
 <menu class="menu js-menu">
   <div class="wrapper">
     <div class="menu__inner">
       <ul>
-        <li class="has-dropdown">
-          <a href="<?php echo home_url(); ?>/services/">Наши услуги</a>
-          <ul class="dropdown">
-            <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
-            <li><a href="">Маникюр</a></li>
-            <li><a href="">Педикюр</a></li>
-            <li><a href="">Шугаринг</a></li>
-            <li><a href="">Наращивание ресниц</a></li>
-            <li><a href="">Коррекция бровей</a></li>
-          </ul>
-        </li>
-        <li class="has-dropdown">
-          <a href="<?php echo home_url(); ?>/about/">О нас</a>
-          <ul class="dropdown">
-            <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
-            <li><a href="<?php echo home_url(); ?>/price/">Цены и оплата</a></li>
-            <li><a href="<?php echo home_url(); ?>/gallery/">Фотогалерея наших работ</a></li>
-            <li><a href="<?php echo home_url(); ?>/discounts/">Акции</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="<?php echo home_url(); ?>/certificates/">Сертификаты</a>
-        </li>
-        <li>
-          <a href="<?php echo home_url(); ?>/reviews/">Отзывы</a>
-        </li>
-        <li>
-          <a href="<?php echo home_url(); ?>/contacts/">Контакты</a>
-        </li>
+        <?php foreach ( $menu as $item ) { ?>
+          <?php if ( $item['visible'] == 1 ) : ?>
+            <?php if ( $item['_type'] == 'element' ) { ?>
+              <li class="<?php echo $item['class']; ?>"><a href="<?php echo get_template_directory_uri() . $item['url']; ?>"><?php echo $item['name']; ?></a></li>
+            <?php } else { ?>
+
+              <li class="has-dropdown">
+                <a href="<?php echo home_url() .$item['url']; ?>"><?php echo $item['name']; ?></a>
+                <ul class="dropdown">
+                  <a class="dropdown__back-btn js-back-btn not-desktop">Назад</a>
+
+                  <?php foreach ( $item['dropdown'] as $drop ) { ?>
+                    <li class="<?php echo $drop['class']; ?>">
+                      <a href="<?php echo get_template_directory_uri() . $drop['url']; ?>"><?php echo $drop['name']; ?></a>
+                    </li>
+                  <?php } ?>
+
+                </ul>
+              </li>
+
+            <?php } ?>
+          <?php endif; ?>
+        <?php } ?>
       </ul>
       <div class="menu__socials">
         <a href="<?php echo $inst ?>" class="menu__socials-inst" target="_blank"></a>

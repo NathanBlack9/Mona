@@ -9,8 +9,8 @@
   $tel = str_replace([' ', '(', ')', '-'], '', $phone);
 
   $menu_pos = carbon_get_theme_option('footer_menu');
-
-  // $menu_pos = asort($menu_pos);
+  $menu_services = carbon_get_theme_option('footer_services');
+  $menu_more = carbon_get_theme_option('footer_more');
 
 ?>
 
@@ -44,18 +44,20 @@
         <div class="footer__menu js-mobile-spoiler">
           <div class="footer__menu-title footer__menu-toggler js-spoiler-toggler" >Наши услуги</div>
           <ul class="footer__menu-list footer__menu-body js-spoiler-body">
-            <li><a href="#">Маникюр</a></li>
-            <li><a href="#">Педикюр</a></li>
-            <li><a href="#">Шугаринг</a></li>
-            <li><a href="#">Наращивание ресниц</a></li>
-            <li><a href="#">Коррекция бровей</a></li>
+            <?php foreach ( $menu_services as $item ) { ?>
+              <?php if ( $item['visible'] == 1 ) : ?>
+                <li><a href="<?php echo get_template_directory_uri() . $item['url']; ?>"><?php echo $item['name']; ?></a></li>
+              <?php endif; ?>
+            <?php } ?>
           </ul>
         </div>
         <div class="footer__menu footer__menu-info">
           <ul class="footer__menu-list">
-            <li><a href="#">Акции</a></li>
-            <li><a href="#">Карта сайта</a></li>
-            <li><a href="#">Политика конфиденциальности</a></li>
+            <?php foreach ( $menu_more as $item ) { ?>
+              <?php if ( $item['visible'] == 1 ) : ?>
+                <li><a href="<?php echo get_template_directory_uri() . $item['url']; ?>"><?php echo $item['name']; ?></a></li>
+              <?php endif; ?>
+            <?php } ?>
           </ul>
         </div>
         <div class="footer__right">

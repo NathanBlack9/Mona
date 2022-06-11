@@ -27,75 +27,78 @@ Container::make( 'theme_options', 'Contacts' )
 
   ) );
 
+$employees_labels = array(
+  'plural_name' => 'эл',
+  'singular_name' => 'элемент',
+);
+
 Container::make( 'theme_options', 'Menu' )
   ->set_icon('dashicons-menu-alt3')
+  /*------- Footer -------*/
   ->add_tab( 'Меню в подвале', array(
-    Field::make( 'complex', 'footer_menu', 'Посетителям')
+    Field::make( 'complex', 'footer_menu', 'Посетителям')->set_classes('main-menu')
+      ->setup_labels( $employees_labels )
       ->add_fields('element', array( 
         Field::make( 'text', 'name', 'Название' )->set_width(45),
         Field::make( 'text', 'url', 'Url')->set_width(45),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-      ) ),
-    Field::make( 'complex', 'footer_services', 'Наши услуги')
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3)->set_default_value(true),
+      ) )->set_header_template('<%- name %>'),
+    Field::make( 'complex', 'footer_services', 'Наши услуги')->set_classes('main-menu')
+      ->setup_labels( $employees_labels )
       ->add_fields('element', array( 
         Field::make( 'text', 'name', 'Название' )->set_width(45),
         Field::make( 'text', 'url', 'Url')->set_width(45),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-      ) ),
-    Field::make( 'complex', 'footer_more', 'Другое')
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3)->set_default_value(true),
+      ) )->set_header_template('<%- name %>'),
+    Field::make( 'complex', 'footer_more', 'Другое')->set_classes('main-menu')
+      ->setup_labels( $employees_labels )
       ->add_fields('element', array( 
         Field::make( 'text', 'name', 'Название' )->set_width(45),
         Field::make( 'text', 'url', 'Url')->set_width(45),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-      ) ),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3)->set_default_value(true),
+      ) )->set_header_template('<%- name %>'),
   ) )
+  /*------- Header -------*/
   ->add_tab( 'Меню в шапке', array(
-    Field::make( 'complex', 'header_menu', 'Главное меню')
+    Field::make( 'complex', 'header_menu', 'Главное меню')->set_classes('main-menu')->setup_labels( $employees_labels )
       ->add_fields('element', array( 
         Field::make( 'text', 'name', 'Название' )->set_width(40),
         Field::make( 'text', 'url', 'Url')->set_width(40),
         Field::make( 'text', 'class', 'Css класс')->set_width(10),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-      ) ),
-    Field::make( 'complex', 'header_services', 'Наши услуги')
-      ->add_fields('element', array( 
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
+      ) )->set_header_template('<%- name %>')
+      ->add_fields('element_with_dropdown', array( 
         Field::make( 'text', 'name', 'Название' )->set_width(40),
         Field::make( 'text', 'url', 'Url')->set_width(40),
         Field::make( 'text', 'class', 'Css класс')->set_width(10),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-      ) ),
-    Field::make( 'complex', 'header_about', 'О нас')
-      ->add_fields('element', array( 
-        Field::make( 'text', 'name', 'Название' )->set_width(40),
-        Field::make( 'text', 'url', 'Url')->set_width(40),
-        Field::make( 'text', 'class', 'Css класс')->set_width(10),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(3),
-      ) ),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
+        Field::make( 'complex', 'dropdown', 'Выпадающий список')->set_classes('dropdown')->setup_labels( $employees_labels )
+          ->add_fields('element', array( 
+            Field::make( 'text', 'name', 'Название' )->set_width(40),
+            Field::make( 'text', 'url', 'Url')->set_width(40),
+            Field::make( 'text', 'class', 'Css класс')->set_width(10),
+            Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
+          ))->set_header_template('<%- name %>')
+      ) )->set_header_template('<%- name %>'),
   ) );
 
-
-Container::make( 'nav_menu_item', 'Menu Settings' )
-  ->add_fields( array(
-      Field::make( 'color', 'crb_color' ),
-  ));
-
 // Container::make( 'theme_options', 'dddd' )
-		// ->add_fields( array(
-		// 	Field::make( 'text', 'crb_text', 'Text Field' ),
-		// ) )
-    // ->add_tab( __('По русски'), array(
-    //   Field::make( 'text', 'crb_first_name', 'First Name' ),
-    //   Field::make( 'text', 'crb_last_name', 'Last Name' ),
-    //   Field::make( 'text', 'crb_position', 'телефона' ),
-    // ) )
-    // ->add_tab('Первый блок', [
-    //   Field::make( 'text', 'first_title', 'Заголовок' ),
-    //   // Field::make( 'text', 'btn_title1', 'Текст кнопки обратного звонка' ),
-    //   Field::make( 'media_gallery', 'ass_gallery', 'Изображения для слайдера') //Изображения для слайдера
-    // ])
-    // ->add_tab('Форма обратного звонка',[
-    //   Field::make( 'text', 'modal_title', 'Заголовок' ),
-    // ])
+  // ->add_fields( array(
+  // 	Field::make( 'text', 'crb_text', 'Text Field' ),
+  // ) )
+  // ->add_tab( __('По русски'), array(
+  //   Field::make( 'text', 'crb_first_name', 'First Name' ),
+  //   Field::make( 'text', 'crb_last_name', 'Last Name' ),
+  //   Field::make( 'text', 'crb_position', 'телефона' ),
+  // ) )
+  // ->add_tab('Первый блок', [
+  //   Field::make( 'text', 'first_title', 'Заголовок' ),
+  //   // Field::make( 'text', 'btn_title1', 'Текст кнопки обратного звонка' ),
+  //   Field::make( 'media_gallery', 'ass_gallery', 'Изображения для слайдера') //Изображения для слайдера
+  // ])
+  // ->add_tab('Форма обратного звонка',[
+  //   Field::make( 'text', 'modal_title', 'Заголовок' ),
+  // ])
 //     ->add_fields( array(
 //       Field::make( 'text', 'crb_134text', 'Text Field' ),
 //       Field::make( 'text', 'crb_1354text', 'Text Field' ),

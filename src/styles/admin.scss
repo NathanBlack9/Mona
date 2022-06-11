@@ -1,0 +1,42 @@
+@import './variables';
+
+// переключение табов
+.cf-container__tabs-item {
+
+  &:not(.cf-container__tabs-item--current) button { 
+    cursor: pointer !important;
+  }  
+
+  &.cf-container__tabs-item--current button {
+    background-color: $blue !important;
+    color: $white !important;
+    font-weight: 500 !important;
+  }
+}
+
+// Название раздела меню 
+.main-menu {
+  border-top-color: $blue !important;
+}
+
+.main-menu > .cf-field__head > .cf-field__label {
+  font-size: 18px;
+  padding-bottom: 0 !important;
+  border-bottom: 1px solid $blue;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.dropdown {
+  position: relative;
+  padding-left: 50px !important;
+
+  &::before {
+    content: '\2192';
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    font-size: 30px;
+    line-height: 14px;
+  }
+}
