@@ -49,7 +49,7 @@
                     <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
                     <dd><span><?php echo $value->money ?></span></dd>
                   </dl>
-                <?php } else {?>
+                <?php } else { ?>
                   <dl> 
                     <dt class="price__table-name"><span><?php echo $value->services_name ?></span></dt>
                     <dd>

@@ -14,6 +14,10 @@ function get_services_name_from_db() {
   }
   return $anotherServices;
 }
+global $wpdb; 
+
+$price = $wpdb->get_results('SELECT services_name, money from services');
+
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
@@ -25,6 +29,30 @@ $employees_labels = array(
 
 Container::make( 'theme_options', 'Menu' )
   ->set_icon('dashicons-menu-alt3')
+  
+  /*------- Header -------*/
+  ->add_tab( 'Меню в шапке', array(
+    Field::make( 'complex', 'header_menu', 'Главное меню')->set_classes('main-menu')->setup_labels( $employees_labels )
+      ->add_fields('element', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(40),
+        Field::make( 'text', 'url', 'Url')->set_width(40),
+        Field::make( 'text', 'class', 'Css класс')->set_width(10),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
+      ) )->set_header_template('<%- name %>')
+      ->add_fields('element_with_dropdown', array( 
+        Field::make( 'text', 'name', 'Название' )->set_width(40),
+        Field::make( 'text', 'url', 'Url')->set_width(40),
+        Field::make( 'text', 'class', 'Css класс')->set_width(10),
+        Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
+        Field::make( 'complex', 'dropdown', 'Выпадающий список')->set_classes('dropdown')->setup_labels( $employees_labels )
+          ->add_fields('element', array( 
+            Field::make( 'text', 'name', 'Название' )->set_width(40),
+            Field::make( 'text', 'url', 'Url')->set_width(40),
+            Field::make( 'text', 'class', 'Css класс')->set_width(10),
+            Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
+          ))->set_header_template('<%- name %>')
+      ) )->set_header_template('<%- name %>'),
+  ) )
   /*------- Footer -------*/
   ->add_tab( 'Меню в подвале', array(
     Field::make( 'complex', 'footer_menu', 'Посетителям')->set_classes('main-menu')
@@ -48,30 +76,8 @@ Container::make( 'theme_options', 'Menu' )
         Field::make( 'text', 'url', 'Url')->set_width(45),
         Field::make( 'checkbox', 'visible', 'Вид')->set_width(3)->set_default_value(true),
       ) )->set_header_template('<%- name %>'),
-  ) )
-  /*------- Header -------*/
-  ->add_tab( 'Меню в шапке', array(
-    Field::make( 'complex', 'header_menu', 'Главное меню')->set_classes('main-menu')->setup_labels( $employees_labels )
-      ->add_fields('element', array( 
-        Field::make( 'text', 'name', 'Название' )->set_width(40),
-        Field::make( 'text', 'url', 'Url')->set_width(40),
-        Field::make( 'text', 'class', 'Css класс')->set_width(10),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
-      ) )->set_header_template('<%- name %>')
-      ->add_fields('element_with_dropdown', array( 
-        Field::make( 'text', 'name', 'Название' )->set_width(40),
-        Field::make( 'text', 'url', 'Url')->set_width(40),
-        Field::make( 'text', 'class', 'Css класс')->set_width(10),
-        Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
-        Field::make( 'complex', 'dropdown', 'Выпадающий список')->set_classes('dropdown')->setup_labels( $employees_labels )
-          ->add_fields('element', array( 
-            Field::make( 'text', 'name', 'Название' )->set_width(40),
-            Field::make( 'text', 'url', 'Url')->set_width(40),
-            Field::make( 'text', 'class', 'Css класс')->set_width(10),
-            Field::make( 'checkbox', 'visible', 'Вид')->set_width(4)->set_default_value(true),
-          ))->set_header_template('<%- name %>')
-      ) )->set_header_template('<%- name %>'),
   ) );
+  
 
 Container::make( 'theme_options', 'Contacts' )
   ->set_icon('dashicons-phone')
@@ -108,8 +114,14 @@ Container::make( 'theme_options', 'Media')
     Field::make( 'media_gallery', 'certificates', 'Сертификаты')->set_classes('main-menu')->help_text('Множественный выбор с зажатым Ctrl')
   ));
 
+  Container::make( 'theme_options', 'Managment')
+    ->set_icon('dashicons-businesswoman')
+  
+    ->add_tab( 'Сотрудники', array (
+      Field::make( 'text', 'ddd', 'Има мастера')->set_width(10),
+    ));
 
-
+  
 //   ->add_tab('Блок марок автомобилей', [
 //     Field::make( 'text', 'mark_title', 'Заголовок' ),
 //     Field::make( 'media_gallery', 'mark_gallery', 'Изображения марок автомобилей') //Лого марок машин  
