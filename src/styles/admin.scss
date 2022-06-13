@@ -48,3 +48,15 @@
     line-height: 14px;
   }
 }
+
+// окно контента страницы 
+.interface-interface-skeleton__content::-webkit-scrollbar {
+  display: none;
+}
+
+.interface-interface-skeleton__content {
+  .cf-container__fields {
+    padding: 0 30px;
+    padding-bottom: 30px;
+  }
+}

@@ -5,6 +5,10 @@
 ?>
 
 <?php 
+
+  $page_ID = get_the_ID();
+  $gallery = carbon_get_post_meta( $page_ID, 'about_gallery' );
+
   $masters = $wpdb->get_results('SELECT * from masters');
 
   function getServices( $param ) {
@@ -23,7 +27,29 @@
     ?>
     <h1 class="h1"><?php the_title(); ?></h1>
 
-    <?php the_content(); ?>
+    <div class="about__content content">
+      <?php echo carbon_get_post_meta( $page_ID, 'main_content' ) ?>
+    </div>
+
+    <div class="about__inner">
+      
+      <?php if($gallery) : ?>
+        <div class="about-page__slider js-slideshow slider">
+          
+          <?php foreach($gallery as $item) { ?>
+            <a href="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" data-fancybox="about_slider" class="slider-item">
+              <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="">
+            </a>
+          <?php } ?>
+        </div>
+      <?php endif; ?>
+
+    </div>
+
+    <h2 class="h2">Наши мастера</h2>
+    <div class="about__content content">
+      <?php echo carbon_get_post_meta( $page_ID, 'second_content' ) ?>
+    </div>
 
     <div class="about__inner">
       <div class="masters-list">
@@ -51,6 +77,7 @@
         <?php } ?>
       </div>
     </div>
+
   </div>
 </section>
 

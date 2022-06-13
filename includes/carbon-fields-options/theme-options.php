@@ -14,10 +14,7 @@ function get_services_name_from_db() {
   }
   return $anotherServices;
 }
-global $wpdb; 
-
-$price = $wpdb->get_results('SELECT services_name, money from services');
-
+/* ------------------------ */ 
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
@@ -27,7 +24,7 @@ $employees_labels = array(
   'singular_name' => 'элемент',
 );
 
-Container::make( 'theme_options', 'Menu' )
+Container::make( 'theme_options', 'Меню' )
   ->set_icon('dashicons-menu-alt3')
   
   /*------- Header -------*/
@@ -79,7 +76,7 @@ Container::make( 'theme_options', 'Menu' )
   ) );
   
 
-Container::make( 'theme_options', 'Contacts' )
+Container::make( 'theme_options', 'Контакты' )
   ->set_icon('dashicons-phone')
   ->add_fields(array(
     Field::make( 'text', 'phone', 'Номер телефона' )->set_width(30)->help_text('Это телефон для звонка, whatsapp и viber.'),
@@ -88,17 +85,9 @@ Container::make( 'theme_options', 'Contacts' )
     Field::make( 'text', 'inst', 'Ссылка на инстаграм' )->set_width(30)->set_default_value('https://instagram.com/'),
     Field::make( 'text', 'vk', 'Ссылка на ВК' )->set_width(30)->set_default_value('https://vk.com/'),
     Field::make( 'text', 'tg', 'Ссылка на Telegram' )->set_width(30),
-    Field::make( 'text', 'coordinates_centerx', 'Координата центра карты (X)' )
-      ->set_width(25),
-    Field::make( 'text', 'coordinates_centery', 'Координата центра карты (Y)')
-      ->set_width(25),
-    Field::make( 'text', 'coordinates_pointx', 'Координата точки на карте (X)' )
-      ->set_width(25),
-    Field::make( 'text', 'coordinates_pointy', 'Координата точки на карте (Y)')
-      ->set_width(25),
   ) );
 
-Container::make( 'theme_options', 'Media')
+Container::make( 'theme_options', 'Медиа')
   ->set_icon('dashicons-images-alt2')
 
   ->add_tab( 'Фотогалерея', array(
@@ -111,15 +100,8 @@ Container::make( 'theme_options', 'Media')
       ) )->set_header_template('<%- select %>')
   ))
   ->add_tab( 'Сертификаты', array(
-    Field::make( 'media_gallery', 'certificates', 'Сертификаты')->set_classes('main-menu')->help_text('Множественный выбор с зажатым Ctrl')
+    Field::make( 'media_gallery', 'certificates', 'Сертификаты')->set_classes('main-menu')->help_text('Множественный выбор с зажатым Ctrl.<br> Имя мастера писать в ПОДПИСИ!!!')
   ));
-
-  Container::make( 'theme_options', 'Managment')
-    ->set_icon('dashicons-businesswoman')
-  
-    ->add_tab( 'Сотрудники', array (
-      Field::make( 'text', 'ddd', 'Има мастера')->set_width(10),
-    ));
 
   
 //   ->add_tab('Блок марок автомобилей', [

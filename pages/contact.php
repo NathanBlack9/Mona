@@ -2,19 +2,26 @@
 /*
   Template Name: contact
 */
+?>
+
+<?php
 
   $coordinates = carbon_get_theme_option('coordinates');
 
-  $centerX = carbon_get_theme_option('coordinates_centerx');
-  $centerY = carbon_get_theme_option('coordinates_centery');
-  $baloonX = carbon_get_theme_option('coordinates_pointx');
-  $baloonY = carbon_get_theme_option('coordinates_pointy');
+  $page_ID = get_the_ID();
+
+  $centerX = carbon_get_post_meta( $page_ID, 'coordinates_centerx' );
+  $centerY = carbon_get_post_meta( $page_ID, 'coordinates_centery' );
+  $baloonX = carbon_get_post_meta( $page_ID, 'coordinates_pointx' );
+  $baloonY = carbon_get_post_meta( $page_ID, 'coordinates_pointy' );
 
   $phone = carbon_get_theme_option('phone');
   $email = carbon_get_theme_option('email');
   $address = carbon_get_theme_option('address');
 
   $tel = str_replace([' ', '(', ')', '-'], '', $phone);
+
+  $gallery = carbon_get_post_meta( $page_ID, 'contact_gallery' );
 
 ?>
 
@@ -67,22 +74,19 @@
     <div id="map" class="map"></div>
   </map>
 
-  <div class="wrapper">
-    <div class="contacts-slider slider js-slideshow">
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/Groddup_21.jpg" data-fancybox="certificates" class="slider-item">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/Groddup_21.jpg" alt="" >
-      </a>
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" data-fancybox="certificates" class="slider-item">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" alt="" >
-      </a>
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/Groddup_21.jpg" data-fancybox="certificates" class="slider-item">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/Groddup_21.jpg" alt="" >
-      </a>
-      <a href="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" data-fancybox="certificates" class="slider-item">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/aa.jpg" alt="" >
-      </a>
+  <?php if($gallery) : ?>
+
+    <div class="wrapper">
+      <div class="contacts-slider slider js-slideshow">
+        <?php foreach($gallery as $item) { ?>
+          <a href="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" data-fancybox="contact" class="slider-item">
+            <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="" >
+          </a>
+        <?php } ?>
+      </div>
     </div>
-  </div>
+
+  <?php endif; ?>
 
 </section>
 
