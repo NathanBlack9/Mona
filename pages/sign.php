@@ -4,6 +4,17 @@
 */
 ?>
 
+<?php 
+  $masters = $wpdb->get_results("SELECT * from masters;");
+  $categories = $wpdb->get_results("SELECT * from service_categories;");
+
+  $manicure = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 1;");
+  $pedicure = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 2;");
+  $sugaring = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 3;");
+  $lashes = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 4;");
+  $browes = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 5;");
+?>
+
 <?php get_header() ?>
 
 
@@ -25,6 +36,8 @@
         <div class="progress-point">4</div>
       </div>
 
+
+      <?php /*
       <form action="/sign/" class="form sign-form js-form">
         <div class="inp">
           <div class="inp-label">Выберите услугу <span class="required">*</span></div>
@@ -105,6 +118,9 @@
 
         <button type="submit" class="btn pink--btn">Записаться</button>
       </form>
+       */ ?>
+
+      <?php the_content(); ?> 
 
       <section class="sign__master">
         <img src="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" alt="" class="sign__master-img">
@@ -114,8 +130,73 @@
       </section>
     </div>
   </div>
-  
-
 </section>
 
+
 <?php get_footer() ?>
+
+<script>
+  $('.js-form-type').hide(); // Селект типа услуги
+
+  /* --- Вывод услуг из базы --- */
+  $('.js-services-select').on('selectric-before-init', function(event, element, selectric) {
+    $(element).empty();
+    <?php foreach($categories as $item) { ?>
+      $(element).append('<option value="<?php echo $item->id; ?>"><?php echo $item->name ?></option>');
+    <?php } ?>
+  });
+
+  $('.js-services-select').on('selectric-change', function(event, element, selectric) {
+    const $this = $(this);
+    const $optionVal = +$(this).val();
+    const $typeSelect = $('.js-type-select');
+
+    $('.js-form-type').fadeIn('fast');
+
+    $typeSelect.empty();
+
+    switch ($optionVal) {
+      case 1:
+        <?php $arr = $manicure;
+          foreach($arr as $item) { ?>
+          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
+        <?php } ?>
+        break;
+      case 2:
+        <?php $arr = $pedicure;
+          foreach($arr as $item) { ?>
+          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
+        <?php } ?>
+        break;
+      case 3:
+        <?php $arr = $sugaring;
+          foreach($arr as $item) { ?>
+          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
+        <?php } ?>
+        break;
+      case 4:
+        <?php $arr = $lashes;
+          foreach($arr as $item) { ?>
+          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
+        <?php } ?>
+        break;
+      case 5:
+        <?php $arr = $browes;
+          foreach($arr as $item) { ?>
+          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
+        <?php } ?>
+        break;
+    }
+
+    $typeSelect.selectric('refresh');
+  });
+  /* ------------------ */
+    
+  /* --- Вывод мастеров из базы --- */
+  $('.js-masters-select').on('selectric-before-init', function(event, element, selectric) {
+    $(element).empty();
+    <?php foreach($masters as $item) { ?>
+      $(element).append('<option value="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1) . '.' . mb_substr($item->mid_name, 0, 1). '.' ?></option>');
+    <?php } ?>
+  });
+</script>

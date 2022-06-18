@@ -68,7 +68,7 @@ $(document).ready(function () {
     }
   }
 
-  $('select').selectric();
+  $('select:not(.not-default-select)').selectric();
 
   $('.customOptions').selectric({
     optionsItemBuilder: function(itemData, element, index) {

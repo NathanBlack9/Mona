@@ -144,3 +144,9 @@ class Pretty_Breadcrumb {
 }
 
 new Pretty_Breadcrumb();
+
+function my_skip_mail($skip_mail, $contact_form) {
+	$skip_mail = true; 
+	return $skip_mail;	
+}
+add_filter( 'wpcf7_skip_mail','my_skip_mail', PHP_INT_MAX, 2 );

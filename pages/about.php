@@ -26,6 +26,9 @@
       }
     ?>
     <h1 class="h1"><?php the_title(); ?></h1>
+    <div class=""><?php the_content(); ?></div>
+    
+
 
     <div class="about__content content">
       <?php echo carbon_get_post_meta( $page_ID, 'main_content' ) ?>
