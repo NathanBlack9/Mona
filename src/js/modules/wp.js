@@ -1,3 +1,3 @@
-$('.wpcf7-form').on('submit', function () {  
-  alert('5');
-});
+// $('.wpcf7-form').on('submit', function () {  
+//   alert('5');
+// });

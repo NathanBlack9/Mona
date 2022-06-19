@@ -19,7 +19,7 @@
       <div class="wrapper">
         <div class="header__inner">
           
-          <?php get_template_part( '/modules/menu' ); ?>
+          <?php get_template_part( '/menu/menu' ); ?>
           
           <a href="#" class="header__menu-btn js-menu-toggler"><span></span></a>
           <a href="<?php echo home_url(); ?>" class="header__logo"></a>

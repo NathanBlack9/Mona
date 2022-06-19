@@ -8,11 +8,17 @@
   $masters = $wpdb->get_results("SELECT * from masters;");
   $categories = $wpdb->get_results("SELECT * from service_categories;");
 
-  $manicure = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 1;");
-  $pedicure = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 2;");
-  $sugaring = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 3;");
-  $lashes = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 4;");
-  $browes = $wpdb->get_results("SELECT services_name, id FROM services WHERE category_id = 5;");
+  $manicure = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 1 and time <> 0;");
+  $pedicure = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 2 and time <> 0;");
+  $sugaring = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 3 and time <> 0;");
+  $lashes = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 4 and time <> 0;");
+  $browes = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 5 and time <> 0;");
+
+  function defineMaster( $param ) {
+    global $wpdb;
+    $master = $wpdb->get_results("SELECT * FROM masters where id in (select master_id from services where category_id = {$param})");
+    return $master;
+  }
 ?>
 
 <?php get_header() ?>
@@ -136,67 +142,141 @@
 <?php get_footer() ?>
 
 <script>
-  $('.js-form-type').hide(); // Селект типа услуги
-
   /* --- Вывод услуг из базы --- */
   $('.js-services-select').on('selectric-before-init', function(event, element, selectric) {
     $(element).empty();
     <?php foreach($categories as $item) { ?>
-      $(element).append('<option value="<?php echo $item->id; ?>"><?php echo $item->name ?></option>');
+      $(element).append('<option value="<?php echo $item->name; ?>"><?php echo $item->name; ?></option>');
     <?php } ?>
-  });
-
-  $('.js-services-select').on('selectric-change', function(event, element, selectric) {
+  })
+  .on('selectric-change', function(event, element, selectric) {
     const $this = $(this);
-    const $optionVal = +$(this).val();
+    const $optionVal = $(this).val();
     const $typeSelect = $('.js-type-select');
-
-    $('.js-form-type').fadeIn('fast');
+    const $mastersSelect = $('.js-masters-select');
 
     $typeSelect.empty();
+    $mastersSelect.empty();
 
     switch ($optionVal) {
-      case 1:
+      case "Маникюр":
         <?php $arr = $manicure;
           foreach($arr as $item) { ?>
-          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
-        <?php } ?>
+            $typeSelect.append($('<option>', {
+                value: '<?php echo $item->services_name; ?>',
+                text: '<?php echo $item->services_name; ?>'
+            }));
+          <?php } ?>
+
+          <?php $master = defineMaster($manicure[0]->category_id);?> 
+          <?php foreach($master as $item) { ?>
+            $mastersSelect.append($('<option>', {
+                value: '<?php echo $item->last_name; ?>',
+                text: '<?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>'
+            }));
+          <?php } ?>
         break;
-      case 2:
+
+      case "Педикюр":
         <?php $arr = $pedicure;
           foreach($arr as $item) { ?>
-          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
-        <?php } ?>
+            $typeSelect.append($('<option>', {
+                value: '<?php echo $item->services_name; ?>',
+                text: '<?php echo $item->services_name; ?>'
+            }));
+          <?php } ?>
+
+          <?php $master = defineMaster($pedicure[0]->category_id);?> 
+          <?php foreach($master as $item) { ?>
+            $mastersSelect.append($('<option>', {
+                value: '<?php echo $item->last_name; ?>',
+                text: '<?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>'
+            }));
+          <?php } ?>
         break;
-      case 3:
+
+      case "Шугаринг":
         <?php $arr = $sugaring;
           foreach($arr as $item) { ?>
-          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
-        <?php } ?>
+            $typeSelect.append($('<option>', {
+                value: '<?php echo $item->services_name; ?>',
+                text: '<?php echo $item->services_name; ?>'
+            }));
+          <?php } ?>
+
+          <?php $master = defineMaster($sugaring[0]->category_id);?> 
+          <?php foreach($master as $item) { ?>
+            $mastersSelect.append($('<option>', {
+                value: '<?php echo $item->last_name; ?>',
+                text: '<?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>'
+            }));
+          <?php } ?>
         break;
-      case 4:
+
+      case "Наращивание ресниц":
         <?php $arr = $lashes;
           foreach($arr as $item) { ?>
-          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
-        <?php } ?>
+            $typeSelect.append($('<option>', {
+                value: '<?php echo $item->services_name; ?>',
+                text: '<?php echo $item->services_name; ?>'
+            }));
+          <?php } ?>
+
+          <?php $master = defineMaster($lashes[0]->category_id);?> 
+          <?php foreach($master as $item) { ?>
+            $mastersSelect.append($('<option>', {
+                value: '<?php echo $item->last_name; ?>',
+                text: '<?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>'
+            }));
+          <?php } ?>
         break;
-      case 5:
+
+      case "Коррекция бровей":
         <?php $arr = $browes;
           foreach($arr as $item) { ?>
-          $typeSelect.append('<option value="<?php echo $item->id; ?>"><?php echo $item->services_name; ?></option>');
-        <?php } ?>
+            $typeSelect.append($('<option>', {
+                value: '<?php echo $item->services_name; ?>',
+                text: '<?php echo $item->services_name; ?>'
+            }));
+          <?php } ?>
+
+          <?php $master = defineMaster($browes[0]->category_id);?> 
+          <?php foreach($master as $item) { ?>
+            $mastersSelect.append($('<option>', {
+                value: '<?php echo $item->last_name; ?>',
+                text: '<?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>'
+            }));
+          <?php } ?>
         break;
     }
 
-    $typeSelect.selectric('refresh');
+    
+    // setTimeout(() => {
+      $typeSelect.selectric('refresh');
+    // }, 500);
+
+    $mastersSelect.selectric('refresh');
   });
   /* ------------------ */
     
-  /* --- Вывод мастеров из базы --- */
-  $('.js-masters-select').on('selectric-before-init', function(event, element, selectric) {
-    $(element).empty();
-    <?php foreach($masters as $item) { ?>
-      $(element).append('<option value="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1) . '.' . mb_substr($item->mid_name, 0, 1). '.' ?></option>');
-    <?php } ?>
+  /* --- Дата и время записи --- */
+  const $dateInput = $('.sign-form__date-input');
+
+  $('#sign-form__date').datepicker({
+    minDate: 0,
+    dateFormat: "yy-mm-dd",
+    onSelect: function( date, element ) {
+      console.log(date);
+
+      $dateInput.val(date);
+    },
+    // beforeShowDay: function(date) {
+    //   // если число больше 15, то делаем их неактивными
+    //   if (new Date(date).getDate() > 15) {
+    //     return false;
+    //   }
+    //   return 'normal';
+    // }
   });
+  /* ------------------ */
 </script>

@@ -68,8 +68,6 @@ $(document).ready(function () {
     }
   }
 
-  $('select:not(.not-default-select)').selectric();
-
   $('.customOptions').selectric({
     optionsItemBuilder: function(itemData, element, index) {
       return element.val().length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
@@ -78,6 +76,9 @@ $(document).ready(function () {
       return itemData.value.length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
     },
   });
+
+  // $('select:not(.not-default-select)').selectric();
+  $('select').selectric();
 
   $('.js-sign-radio').click(function() {
     const $this = $(this);
@@ -100,15 +101,5 @@ $(document).ready(function () {
   })
 
   $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
-  $('#sign-form__date').datepicker({
-    minDate: 0,
-    // beforeShowDay: function(date) {
-    //   // если число больше 15, то делаем их неактивными
-    //   if (new Date(date).getDate() > 15) {
-    //     return false;
-    //   }
-    //   return 'normal';
-    // }
-  });
 
 });
