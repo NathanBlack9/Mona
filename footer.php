@@ -18,7 +18,7 @@
     <div class="wrapper">
       <div class="footer__inner">
         <div class="footer__contact">
-          <a href="/" class="footer__logo"></a>
+          <a href="<?php echo get_template_directory_uri(); ?>/" class="footer__logo"></a>
           <div class="footer__contact-address"><span>Тула</span>  |  мкр. Левобережный, Восточная 11</div>
           <div class="footer__contact-time">Пн – Вс: 09:00 — 20:00</div>
           <div class="footer__contact-info">
