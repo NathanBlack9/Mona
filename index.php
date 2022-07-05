@@ -17,31 +17,31 @@
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_1.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon1.svg" alt=""></i>
-          <a href="#" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo get_template_directory_uri(); ?>/manicure/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Маникюр</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_2.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon2.svg" alt=""></i>
-          <a href="#" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo get_template_directory_uri(); ?>/pedicure/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Педикюр</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_3.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon3.svg" alt=""></i>
-          <a href="#" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo get_template_directory_uri(); ?>/sugaring/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Шугаринг</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_4.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon4.svg" alt=""></i>
-          <a href="#" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo get_template_directory_uri(); ?>/lashes/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Наращивание ресниц</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_5.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon5.svg" alt=""></i>
-          <a href="#" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo get_template_directory_uri(); ?>/browes/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Коррекция бровей</span>
         </div>
       </div>
@@ -72,7 +72,7 @@
             <p>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</p>
             <p>Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. <a href="#">сертификаты наших мастеров</a></p>
           </div>
-          <a href="#" class="about__btn btn pink--btn">Подрбонее о нас</a>
+          <a href="<?php echo get_template_directory_uri(); ?>/about/" class="about__btn btn pink--btn">Подрбонее о нас</a>
         </div>
       </div>
     </div>
@@ -166,7 +166,7 @@
           <div class="reviews__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. </div>
         </div>
       </div>
-      <a href="#" class="reviews__btn btn pink--btn">Смотреть все</a>
+      <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="reviews__btn btn pink--btn">Смотреть все</a>
     </div>
   </section>
 
