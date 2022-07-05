@@ -22,25 +22,25 @@ Template Name: sitemap
       <div class="sitemap__item">
         <h3 class="h3">Общая информация</h3>
         <ul>
-          <li><a href="#">О нас</a></li>
-          <li><a href="#">Политика конфиденциальности</a></li>
-          <li><a href="#">Цены и оплата</a></li>
-          <li><a href="#">Сертификаты</a></li>
-          <li><a href="#">Фотогалерея наших работ</a></li>
-          <li><a href="#">Отзывы</a></li>
-          <li><a href="#">Контакты</a></li>
-          <li><a href="#">Акции</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/about/">О нас</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/privacy/">Политика конфиденциальности</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/price/">Цены и оплата</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/certificates/">Сертификаты</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/gallery/">Фотогалерея наших работ</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/reviews/">Отзывы</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/contact/">Контакты</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Акции</a></li>
         </ul>
       </div>
       <div class="sitemap__item">
         <h3 class="h3">Услуги</h3>
         <ul>
-          <li><a href="#">Все услуги</a></li>
-          <li><a href="#">Маникюр</a></li>
-          <li><a href="#">Педикюр</a></li>
-          <li><a href="#">Шугаринг</a></li>
-          <li><a href="#">Наращивание ресниц</a></li>
-          <li><a href="#">Коррекция бровей</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/services/">Все услуги</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/manicure/">Маникюр</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/pedicure/">Педикюр</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/sugaring/">Шугаринг</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/lashes/">Наращивание ресниц</a></li>
+          <li><a href="<?php echo get_template_directory_uri(); ?>/browes/">Коррекция бровей</a></li>
         </ul>
       </div>
     </div>
