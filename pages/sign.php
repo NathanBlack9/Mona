@@ -364,13 +364,28 @@
     onSelect: function( date, element ) {
 
       $dateInput.val(date);
+      // console.log($dateInput.val());
+      
 
+      $.ajax({
+        url: '<?php echo get_template_directory_uri(); ?>/ajax.php',
+        type: 'GET',
+        data: `date=${$dateInput.val()}`,
+        success: function(data){
+          console.log(data);
+        },
+        error: function(){
+          console.log('ERROR');
+        }
+      });
+
+      
+      
       <?php 
         // $arr = getFreeSignTime('2022-06-21', 1, 1); 
         
         
-        // ( $date, $masterId, $serviceTime )
-        print_r(getFreeSignTime('2022-06-21', 1, 1));
+        
 
       ?>
       
