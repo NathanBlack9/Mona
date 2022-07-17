@@ -366,13 +366,40 @@
       $dateInput.val(date);
       // console.log($dateInput.val());
       
-
+      <?php 
+        // Отправляет значение даты из календаря и получается свободное время в этот день
+      ?>
       $.ajax({
         url: '<?php echo get_template_directory_uri(); ?>/ajax.php',
         type: 'GET',
         data: `date=${$dateInput.val()}`,
         success: function(data){
-          console.log(data);
+
+          $('.js-time-block').removeClass('--hidden');
+
+          var $response = JSON.parse(data);
+
+          var $timeEl = $('.wpcf7-list-item').first().clone(); // копируем однин чеквокс времени
+
+          $('.js-sign-radio').empty(); // очищаем временные чекбоксы 
+
+          for (let i = 0; i < $response.length; i++) {
+            $timeEl = $timeEl.clone();
+            let $input = $timeEl.find('input');
+            $timeEl.find('.wpcf7-list-item-label').text($response[i]);
+            $input.val($response[i]).prop('checked', false).removeAttr("checked");
+            $timeEl.removeClass('first').removeClass('last');
+
+            if( i == 0 ) {
+              $timeEl.addClass('first');
+            }
+
+            if( i == $response.length - 1 ) {
+              $timeEl.addClass('last')
+            }
+
+            $('.js-sign-radio').append($timeEl); 
+          }
         },
         error: function(){
           console.log('ERROR');
@@ -383,10 +410,6 @@
       
       <?php 
         // $arr = getFreeSignTime('2022-06-21', 1, 1); 
-        
-        
-        
-
       ?>
       
     },

@@ -90,7 +90,6 @@ function getFreeSignTime( $date, $masterId, $serviceTime ) {
 
 if(isset($_GET['date'] ) ) {
   $date = $_GET['date'];
-
   
   print_r(json_encode(getFreeSignTime($date, 1, 1)));
 

@@ -23,6 +23,14 @@
 
     div.inp {
       margin-bottom: 30px;
+      transition: all 150ms ease;
+
+      &.--hidden {
+        transition: all 150ms ease;
+        opacity: 0;
+        pointer-events: none;
+        height: 0;
+      }
     }
     
     .h3 {
@@ -40,13 +48,25 @@
     display: none;
   }
 
-  .sign-form__time {
+  .wpcf7-list-item {
+    margin-left: 0 !important;
+
+    &.active label {
+      background-color: $pink;
+      color: $white;
+    }
+  }
+
+  .sign-form__time .wpcf7-form-control {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 12px;
     justify-content: space-between;
+  }
 
+  .sign-form__time {
+    
     div.radio {
       input {
         display: none;
@@ -76,11 +96,6 @@
         &:hover {
           background-color: rgba($pink, 0.7);
         }
-      }
-
-      &.active label {
-        background-color: $pink;
-        color: $white;
       }
     }
   }

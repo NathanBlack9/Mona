@@ -80,15 +80,15 @@ $(document).ready(function () {
   // $('select:not(.not-default-select)').selectric();
   $('select').selectric();
 
+
   $('.js-sign-radio').click(function() {
     const $this = $(this);
-    const $parent = $this.closest('.radio');
+    const $checkbox = $this.find('.wpcf7-list-item input[type="radio"]:checked');
+    const $parent = $checkbox.parent().parent();
+    
+    $parent.siblings().removeClass('active');
+    $parent.addClass('active');
 
-    if( $this.is(":checked") ) { 
-      console.log( $this.val() );
-      $parent.siblings().removeClass('active');
-      $parent.addClass('active');
-    }
   });
 
   $('.js-checkbox').click(function() {
