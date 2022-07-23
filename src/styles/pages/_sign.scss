@@ -44,6 +44,19 @@
     }
   }
 
+  .wpcf7-response-output {
+    max-width: 410px !important;
+    margin-left: 150px !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    padding: 1em 1.5em !important;
+
+    @media #{$small-mobile} {
+      margin-left: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+
   .sign-form__date-input {
     display: none;
   }
@@ -121,6 +134,7 @@
 
     &-img {
       max-height: 400px;
+      max-width: 430px;
       object-fit: cover;
 
       @media #{$small-notebook} {

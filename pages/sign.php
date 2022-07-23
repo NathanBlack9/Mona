@@ -224,10 +224,10 @@
 
       <?php the_content(); ?> 
 
-      <section class="sign__master">
-        <img src="<?php echo get_template_directory_uri(); ?>/build/img/pex.jpg" alt="" class="sign__master-img">
-        <div class="sign__master-name h3">Мастер Аракелян Анжела</div>
-        <div class="sign__master-desc">Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастер Сами лучши мастерСами лучши мастерСами лучши мастер.</div>
+      <section class="sign__master js-sign-master" style="display: none;">
+        <img src="" alt="" class="sign__master-img">
+        <div class="sign__master-name h3"></div>
+        <div class="sign__master-desc"></div>
         <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="sign__master-btn btn pink--btn">Посмотреть отзывы</a>
       </section>
     </div>
@@ -244,10 +244,32 @@
     <?php foreach($categories as $item) { ?>
       $(element).append('<option value="<?php echo $item->name; ?>"><?php echo $item->name; ?></option>');
     <?php } ?>
+
+    const $typeSelect = $('.js-type-select');
+    const $mastersSelect = $('.js-masters-select');
+
+    $typeSelect.empty();
+    $mastersSelect.empty();
+
+    <?php $arr = $manicure;
+      foreach($arr as $item) { ?>
+        $typeSelect.append($('<option>', {
+            value: '<?php echo $item->services_name; ?>',
+            text: '<?php echo $item->services_name; ?>'
+        }));
+      <?php } ?>
+
+      <?php $master = defineMaster($manicure[0]->category_id);?> 
+      <?php foreach($master as $item) { ?>
+        $mastersSelect.append($('<option>', {
+            value: '<?php echo $item->last_name; ?>',
+            text: '<?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>'
+        }));
+      <?php } ?>      
   })
   .on('selectric-change', function(event, element, selectric) {
     const $this = $(this);
-    const $optionVal = $(this).val();
+    const $optionVal = $this.val();
     const $typeSelect = $('.js-type-select');
     const $mastersSelect = $('.js-masters-select');
 
@@ -346,12 +368,33 @@
         break;
     }
 
-    
     // setTimeout(() => {
       $typeSelect.selectric('refresh');
     // }, 500);
 
     $mastersSelect.selectric('refresh');
+
+    $.ajax({
+      url: '<?php echo get_template_directory_uri(); ?>/backend/backend.php',
+      type: 'GET',
+      data: `service=${$optionVal}`,
+      success: function(data){
+        let $response = JSON.parse(data);
+        const $masterBlock = $('.js-sign-master');
+
+        $masterBlock.find('.sign__master-name').text(`Мастер ${$response.last_name} ${$response.first_name}`);
+        $masterBlock.find('.sign__master-desc').text(`${$response.about}`);
+        $masterBlock.find('.sign__master-img').attr('src', `<?php echo get_template_directory_uri(); ?>${$response.img}`);
+
+        $masterBlock.fadeIn();
+
+        console.log($response); //object
+      },
+      error: function(){
+        console.log('ERROR');
+      }
+    });
+
   });
   /* ------------------ */
     
@@ -370,7 +413,7 @@
         // Отправляет значение даты из календаря и получается свободное время в этот день
       ?>
       $.ajax({
-        url: '<?php echo get_template_directory_uri(); ?>/ajax.php',
+        url: '<?php echo get_template_directory_uri(); ?>/backend/backend.php',
         type: 'GET',
         data: `date=${$dateInput.val()}`,
         success: function(data){
@@ -405,13 +448,6 @@
           console.log('ERROR');
         }
       });
-
-      
-      
-      <?php 
-        // $arr = getFreeSignTime('2022-06-21', 1, 1); 
-      ?>
-      
     },
     // beforeShowDay: function(date) {
     //   // если число больше 15, то делаем их неактивными
