@@ -26,7 +26,7 @@
       }
     ?>
     <h1 class="h1"><?php the_title(); ?></h1>
-    <div class=""><?php the_content(); ?></div>
+    <div class=""><?php // the_content(); ?></div>
     
 
 
@@ -41,7 +41,7 @@
           
           <?php foreach($gallery as $item) { ?>
             <a href="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" data-fancybox="about_slider" class="slider-item">
-              <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="">
+              <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="О нас">
             </a>
           <?php } ?>
         </div>

@@ -87,7 +87,11 @@
   
   <?php //get_template_part( 'templates_navigation' ); ?>
 
-      
+  <script>
+    var WPJS = {};
+    WPJS.siteUrl = '<?php echo get_template_directory_uri(); ?>';
+  </script>    
+
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery-3.6.0.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery.selectric.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery-ui.min.js"></script>

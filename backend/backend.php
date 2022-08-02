@@ -23,7 +23,7 @@ function setTimeFormat($array ) {
 /* ------------------- */
 
 function getDecimal($number) {
-  return fmod($number, 1);
+  return fmod($number, 1); // остаток от деления на 1
 }
 
 /* Получается свободное время мастер с ид $masterId, с временем выполнения услуги $serviceTime и в дату $date */
@@ -103,6 +103,43 @@ if(isset($_GET['date'] ) ) {
   $masterInfo = $masterInfo->fetch_array(MYSQLI_ASSOC);
 
   print_r(json_encode($masterInfo));
+
+} else if(isset($_GET['databaseData'] )) {
+
+  $object = json_decode($_GET['databaseData'], true); 
+
+  $allValuesDefined = false;
+
+  foreach ($object as $key => $value) {
+
+    if ( strlen($value) > 0 ) {
+      $allValuesDefined = true;
+    } else if ($key == 'email') {
+      $allValuesDefined = true;
+    } else {
+      $allValuesDefined = false;
+      break;
+    }
+  }
+
+  if( $allValuesDefined ) { // Если все поля (кроме почты) заполнены => заполняем базу пришедшими данными
+    $mysqli = new mysqli("localhost", "root", "", "mona");
+    
+    $marterId = $mysqli->query("SELECT id FROM masters where last_name = '{$object['masters']}';");
+    $marterId = $marterId->fetch_array(MYSQLI_ASSOC);
+    $masterId = intval($marterId['id']);
+    
+
+    $queryI = $mysqli->query("INSERT INTO sign (service_id, master_id, date, time, name, phone, email) VALUES (1, {$masterId}, '{$object['date']}', '{$object['time']}', '{$object['text-name']}', '{$object['tel']}', '{$object['email']}');");
+
+    /* TODO
+      Сейчас время в базу заполняется как строке "08:00", соответственно там переводится в число 
+      Надо сначало преобразовать правильно в число потом заполнять в базу 
+    */ 
+
+  }
+
+  print_r('Готово');
 
 } else {
   echo json_encode('Ошибка!!!');

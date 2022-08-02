@@ -71,6 +71,19 @@ a {
 }
 
 .content {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6rem;
+  color: $black;
+
+  @media #{$small-handheld} {
+    font-size: 14px;
+  }
+
+  @media #{$small-mobile} {
+    font-size: 12px;
+  }
+
   p {
     font-weight: 400;
     font-size: 18px;

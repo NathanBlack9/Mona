@@ -368,12 +368,12 @@
         break;
     }
 
-    // setTimeout(() => {
-      $typeSelect.selectric('refresh');
-    // }, 500);
-
+    $typeSelect.selectric('refresh');
     $mastersSelect.selectric('refresh');
 
+    <?php 
+      // Отправляет значение сервиса и получается инфу о мастере 
+    ?>
     $.ajax({
       url: '<?php echo get_template_directory_uri(); ?>/backend/backend.php',
       type: 'GET',
@@ -388,7 +388,7 @@
 
         $masterBlock.fadeIn();
 
-        console.log($response); //object
+        // console.log($response); //object
       },
       error: function(){
         console.log('ERROR');
