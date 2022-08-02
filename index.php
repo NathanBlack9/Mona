@@ -81,7 +81,9 @@
   <div class="certificates">
     <div class="wrapper">
       <div class="certificates__title h1">Сертификаты</div>
-      <div class="certificates__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана.</div>
+      <div class="certificates__text">Наши мастера имеют высокую квалификацию и&nbsp;регулярно повышают свой уровень, посещая различные мастер-классы, о&nbsp;чем свидетельствуют наши сертификаты.</br>
+      Кроме того, наши мастера&nbsp;&mdash; регулярные участники всероссийских и&nbsp;международных конкурсов красоты.
+      </div>
       <div class="certificates__inner">
         <div class="certificates__slider js-slideshow slider">
           <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="slider-item">

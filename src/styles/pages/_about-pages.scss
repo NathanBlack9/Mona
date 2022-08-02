@@ -111,6 +111,11 @@
     font-weight: 400;
     font-size: 22px;
     margin-bottom: 60px;
+    max-width: 70%;
+
+    @media #{$handheld} {
+      max-width: 100%;
+    }
 
     @media #{$mobile} {
       order: 1;
