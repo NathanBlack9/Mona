@@ -20,7 +20,7 @@ $('.wpcf7-form').on('submit', function (event) {
   $.ajax({
     url: WPJS.siteUrl + '/backend/backend.php',
     type: 'GET',
-    data: `databaseData=${JSON.stringify($signFormData)}`,
+    data: `databaseData=${JSON.stringify($signFormData)}&serviceName=${$('.js-type-select').val()}`,
     success: function(data){
       console.log('SUCCESS');
       console.log(data);

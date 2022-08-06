@@ -88,10 +88,20 @@ function getFreeSignTime( $date, $masterId, $serviceTime ) {
 
 /* -------------------- */
 
-if(isset($_GET['date'] ) ) {
+if(isset($_GET['date']) && isset($_GET['master']) && isset($_GET['serviceName']) ) {
   $date = $_GET['date'];
-  
-  print_r(json_encode(getFreeSignTime($date, 1, 1)));
+  $master = $_GET['master'];
+  $serviceName = $_GET['serviceName'];
+
+  $mysqli = new mysqli("localhost", "root", "", "mona");
+  $time = $mysqli->query("SELECT time FROM services WHERE services_name like '%{$serviceName}%'");
+  $time = $time->fetch_array(MYSQLI_ASSOC);
+
+  $masterId = $mysqli->query("SELECT id FROM masters WHERE last_name like '%{$master}%'");
+  $masterId = $masterId->fetch_array(MYSQLI_ASSOC);
+  $masterId = intval($masterId['id']);
+
+  print_r(json_encode(getFreeSignTime($date, $masterId, $time['time'])));
 
 } else if(isset($_GET['service'] ) ) {
   $serv = $_GET['service'];
@@ -104,7 +114,9 @@ if(isset($_GET['date'] ) ) {
 
   print_r(json_encode($masterInfo));
 
-} else if(isset($_GET['databaseData'] )) {
+} else if(isset($_GET['databaseData']) && isset($_GET['serviceName']) ) {
+  
+  $serviceName = $_GET['serviceName'];
 
   $object = json_decode($_GET['databaseData'], true); 
 
@@ -124,18 +136,18 @@ if(isset($_GET['date'] ) ) {
 
   if( $allValuesDefined ) { // Если все поля (кроме почты) заполнены => заполняем базу пришедшими данными
     $mysqli = new mysqli("localhost", "root", "", "mona");
+
+    $serviceId = $mysqli->query("SELECT id FROM services WHERE services_name like '%{$serviceName}%'");
+    $serviceId = $serviceId->fetch_array(MYSQLI_ASSOC);
+    $serviceId = intval($serviceId['id']);
     
     $marterId = $mysqli->query("SELECT id FROM masters where last_name = '{$object['masters']}';");
     $marterId = $marterId->fetch_array(MYSQLI_ASSOC);
     $masterId = intval($marterId['id']);
     
+    $time = intval(mb_substr($object['time'], 0, 2)) + ( intval(mb_substr($object['time'], 3, 2)) / 60 );
 
-    $queryI = $mysqli->query("INSERT INTO sign (service_id, master_id, date, time, name, phone, email) VALUES (1, {$masterId}, '{$object['date']}', '{$object['time']}', '{$object['text-name']}', '{$object['tel']}', '{$object['email']}');");
-
-    /* TODO
-      Сейчас время в базу заполняется как строке "08:00", соответственно там переводится в число 
-      Надо сначало преобразовать правильно в число потом заполнять в базу 
-    */ 
+    $queryI = $mysqli->query("INSERT INTO sign (service_id, master_id, date, time, name, phone, email) VALUES ({$serviceId}, {$masterId}, '{$object['date']}', '{$time}', '{$object['text-name']}', '{$object['tel']}', '{$object['email']}');");
 
   }
 
