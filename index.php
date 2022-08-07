@@ -1,3 +1,15 @@
+<?php 
+  $masters = $wpdb->get_results("SELECT * from masters;");
+  $reviews = $wpdb->get_results("SELECT * from reviews;");
+
+  function defineMaster( $param ) {
+    global $wpdb;
+    $master = $wpdb->get_results("SELECT * FROM masters where id = {$param}");
+    return $master;
+  };
+?>
+
+
 <?php get_template_part( 'header__lite' ); ?>
 
   <section class="intro">
@@ -108,65 +120,32 @@
     <div class="wrapper">
       <div class="reviews__title h1">Отзывы</div>
       <div class="reviews__inner">
-        <div class="reviews__item js-reviews-rating" data-rating="5">
-          <div class="reviews__name">Лукянова Анна</div>
-          <div class="reviews__job">
-            <span>мастер</span>
-            Аракелян Анжела
-          </div>
-          <ul class="reviews__rating">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-          <div class="reviews__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. </div>
-        </div>
-        <div class="reviews__item js-reviews-rating" data-rating="4">
-          <div class="reviews__name">Гирина Анастясия</div>
-          <div class="reviews__job">
-            <span>мастер</span>
-            Аракелян Анжела
-          </div>
-          <ul class="reviews__rating">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-          <div class="reviews__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. </div>
-        </div>
-        <div class="reviews__item js-reviews-rating" data-rating="3">
-          <div class="reviews__name">Лукянова Анна</div>
-          <div class="reviews__job">
-            <span>мастер</span>
-            Аракелян Анжела
-          </div>
-          <ul class="reviews__rating">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-        <div class="reviews__item js-reviews-rating" data-rating="1">
-          <div class="reviews__name">Гирина Анастясия</div>
-          <div class="reviews__job">
-            <span>мастер</span>
-            Аракелян Анжела
-          </div>
-          <ul class="reviews__rating">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-          <div class="reviews__text">Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. </div>
-        </div>
+        <?php $counter = 0; ?>
+        <?php foreach($reviews as $item) { 
+          if ($counter >= 4) break;
+          if($item->rating >= 4) {
+
+            $master = defineMaster($item->master_id); 
+          ?>
+            <?php foreach($master as $y) { ?>
+              <div class="reviews__item js-reviews-rating" data-rating="<?php echo $item->rating; ?>">
+                <div class="reviews__name"><?php echo $item->name; ?></div>
+                <div class="reviews__job">
+                  <span>мастер</span>
+                  <?php echo $y->last_name .' '.$y->first_name ?>
+                </div>
+                <ul class="reviews__rating">
+                  <?php $i = 1 ?>
+                  <?php while ($i <= 5) { ?>
+                    <li></li>
+                  <?php $i++; } ?>
+                </ul>
+                <div class="reviews__text"><?php echo $item->text; ?></div>
+              </div>
+            <?php } ?>
+            
+          <?php $counter++; } ?>
+        <?php } ?>
       </div>
       <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="reviews__btn btn pink--btn">Смотреть все</a>
     </div>

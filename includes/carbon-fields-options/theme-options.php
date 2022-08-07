@@ -24,7 +24,7 @@ $employees_labels = array(
   'singular_name' => 'элемент',
 );
 
-Container::make( 'theme_options', 'Меню' )
+Container::make( 'theme_options', __('Menu') ) //'Меню'
   ->set_icon('dashicons-menu-alt3')
   
   /*------- Header -------*/
