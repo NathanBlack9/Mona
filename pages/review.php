@@ -37,9 +37,9 @@
       <div class="only-mobile">
         <select name="" id="" class="sorting__select js-sorting-select">
           <option value="all">Все</option>
-          <option value="Аракелян">Аракелян А.С.</option>
-          <option value="Хачатрян">Хачатрян М.А.</option>
-          <option value="Антонова">Антонова А.А.</option>
+          <?php foreach($masters as $item) { ?>
+            <option value="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></option>
+          <?php } ?>
         </select>
       </div>
     </div>
@@ -72,40 +72,42 @@
 
     <h2 class="h2">Оставьте свой отзыв</h2>
     <div class="reviews__content content"><p>Поделитесь своим опытом посещения наших мастеров.</p></div>
-    <form action="/review/" class="reviews-form js-form form">
-      <div class="inp">
+    <form action="/reviews/?" class="reviews-form js-review-form form"> <?php // js-form ?>
+      <div class="inp required">
         <div class="inp-label">Ваше Имя <span class="required">*</span></div>
-        <input type="text" class="inp" id="reviews-form__name">
+        <input type="text" name="name" class="inp" id="reviews-form__name">
         <label for="reviews-form__name" class="form__error">Это поле обяательно для заполнения.</label>
       </div>
-      <div class="inp">
+      <div class="inp required">
         <div class="inp-label">Мастер <span class="required">*</span></div>
-        <select name="" id="" class="reviews-form__select customOptions">
-          <option value="Аракелян">Аракелян А.С.</option>
-          <option value="Хачатрян">Хачатрян М.А.</option>
-          <option value="Антонова">Антонова А.А.</option>
+        <select name="master" id="reviews-form__master" class="reviews-form__select customOptions">
+          <?php foreach($masters as $item) { ?>
+            <option value="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></option>
+          <?php } ?>
         </select>
       </div>
-      <div class="inp reviews-form__rating">
+      <div class="inp reviews-form__rating required">
         <div class="inp-label">Оценка <span class="required">*</span></div>
-        <ul class="reviews__rating js-rating-stars" id="reviews-form__name">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+        <ul class="reviews__rating js-rating-stars">
+          <?php $i = 1 ?>
+          <?php while ($i <= 5) { ?>
+            <li></li>
+          <?php $i++; } ?>
         </ul>
-        <input style="display: none" type="text">
+        <input id="reviews-form__rating" name="rating" style="display: none" type="text" class="js-review-rating">
         <label for="reviews-form__name" class="form__error">Оцените работу мастера.</label>
       </div>
       <div class="inp">
         <div class="inp-label">Текст отзыва</div>
-        <textarea name="" id="reviews-form__desc" rows="5" class="inp" placeholder="Мастер молодец!"></textarea>
+        <textarea name="text" id="reviews-form__desc" rows="5" class="inp" placeholder="Мастер молодец!"></textarea>
         <label for="reviews-form__desc" class="form__error">Оцените работу мастера.</label>
       </div>
 
       <button type="submit" class="btn pink--btn">Отправить</button>
     </form>
+    <div class="reviews__content content js-review-form-success" style="display: none;">
+      Спасибо за Ваш отзыв. Он успешно отправлен!
+    </div>
 
   </div>
 </section>

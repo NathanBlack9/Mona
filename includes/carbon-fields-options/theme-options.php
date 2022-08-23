@@ -24,7 +24,7 @@ $employees_labels = array(
   'singular_name' => 'элемент',
 );
 
-Container::make( 'theme_options', __('Menu') ) //'Меню'
+Container::make( 'theme_options', 'Menu' ) //'Меню'
   ->set_icon('dashicons-menu-alt3')
   
   /*------- Header -------*/
@@ -76,7 +76,7 @@ Container::make( 'theme_options', __('Menu') ) //'Меню'
   ) );
   
 
-Container::make( 'theme_options', 'Контакты' )
+Container::make( 'theme_options', 'Contacts' )
   ->set_icon('dashicons-phone')
   ->add_fields(array(
     Field::make( 'text', 'phone', 'Номер телефона' )->set_width(30)->help_text('Это телефон для звонка, whatsapp и viber.'),
@@ -87,7 +87,7 @@ Container::make( 'theme_options', 'Контакты' )
     Field::make( 'text', 'tg', 'Ссылка на Telegram' )->set_width(30),
   ) );
 
-Container::make( 'theme_options', 'Медиа')
+Container::make( 'theme_options', 'Media')
   ->set_icon('dashicons-images-alt2')
 
   ->add_tab( 'Фотогалерея', array(

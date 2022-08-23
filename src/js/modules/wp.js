@@ -29,8 +29,5 @@ $('.wpcf7-form').on('submit', function (event) {
       console.log('ERROR');
     }
   });
-
-  
-
 });
 
