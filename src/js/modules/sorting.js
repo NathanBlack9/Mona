@@ -18,6 +18,27 @@ $('.js-sorting a').click(function(e) {
   });
 });
 
+$(function() { // сортировка озывов на странице отзывов
+  function insertAfter(elem, refElem ) {
+    return refElem.parentNode.insertBefore(elem, refElem.nextSibling);
+  }
+
+  if(!document.querySelector('.js-review-sort')) return;
+
+  let $this = document.querySelector('.js-review-sort'),
+      $replacedNode;
+
+  for (let i = 0; i < $this.children.length; i++) {
+    for (let j = i; j < $this.children.length; j++) {
+
+      if (+$this.children[i].getAttribute('data-id') < +$this.children[j].getAttribute('data-id')) {
+        $replacedNode = $this.replaceChild($this.children[j], $this.children[i]);
+        insertAfter($replacedNode, $this.children[i])
+      }
+    }    
+  }
+});
+
 $(function() {
   $('.js-sorting-select').selectric().on('change', function(element) {
     const $SortValue = $(this).val();

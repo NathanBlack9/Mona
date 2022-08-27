@@ -167,7 +167,20 @@ if(isset($_GET['date']) && isset($_GET['master']) && isset($_GET['serviceName'])
   $serviceId = $mysqli->query("INSERT into reviews (master_id, name, rating, text) values ({$masterId}, '{$object['name']}', {$object['rating']}, '{$object['text']}');");
     
   print_r('Добавлен новый отзыв');
-} else {
+} else if(isset($_POST['subscriptEmail'])){
+  $object = json_decode($_POST['subscriptEmail'], true); 
+
+  $mysqli = new mysqli("localhost", "root", "", "mona");
+
+  $queryInsert = $mysqli->query("INSERT INTO alert(email) VALUES ('{$object['email']}');");
+
+  if (!$queryInsert) {
+    echo false;
+  } else {
+    echo true;
+  }
+  
+}else {
   echo json_encode('Ошибка!!!');
 }
 

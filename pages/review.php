@@ -44,28 +44,28 @@
       </div>
     </div>
 
-    <div class="reviews__inner js-sorting-content">
-      
+    <div class="reviews__inner js-sorting-content js-review-sort">
       <?php foreach($reviews as $item) { ?>
-        <?php $master = defineMaster($item->master_id); ?>
-        <?php foreach($master as $y) { ?>
-          <div class="reviews__item js-reviews-rating" data-rating="<?php echo $item->rating; ?>" data-sort="<?php echo $y->last_name; ?>">
-            <div class="reviews__name"><?php echo $item->name; ?></div>
-            <div class="reviews__job">
-              <span>мастер</span>
-              <?php echo $y->last_name .' '.$y->first_name ?>
+        <?php if ($item->view != 0) { // Если включен View в базе ?>
+          <?php $master = defineMaster($item->master_id); ?>
+          <?php foreach($master as $y) { ?>
+            <div class="reviews__item js-reviews-rating" data-id="<?php echo $item->id; ?>" data-rating="<?php echo $item->rating; ?>" data-sort="<?php echo $y->last_name; ?>">
+              <div class="reviews__name"><?php echo $item->name; ?></div>
+              <div class="reviews__job">
+                <span>мастер</span>
+                <?php echo $y->last_name .' '.$y->first_name ?>
+              </div>
+              <ul class="reviews__rating">
+                <?php $i = 1 ?>
+                <?php while ($i <= 5) { ?>
+                  <li></li>
+                <?php $i++; } ?>
+              </ul>
+              <div class="reviews__text"><?php echo $item->text; ?></div>
             </div>
-            <ul class="reviews__rating">
-              <?php $i = 1 ?>
-              <?php while ($i <= 5) { ?>
-                <li></li>
-              <?php $i++; } ?>
-            </ul>
-            <div class="reviews__text"><?php echo $item->text; ?></div>
-          </div>
+          <?php } ?>
         <?php } ?>
       <?php } ?>
-
     </div>
 
     <hr>
@@ -99,7 +99,8 @@
       </div>
       <div class="inp">
         <div class="inp-label">Текст отзыва</div>
-        <textarea name="text" id="reviews-form__desc" rows="5" class="inp" placeholder="Мастер молодец!"></textarea>
+        <textarea name="text" id="reviews-form__desc" rows="5" maxlength="120" class="inp js-textarea-counter" placeholder="Мастер молодец!"></textarea>
+        <div class="textarea-symbol-counter"><span>0</span> / 120</div>
         <label for="reviews-form__desc" class="form__error">Оцените работу мастера.</label>
       </div>
 

@@ -30,16 +30,16 @@
 
     .reviews__inner {
       display: grid;
-      grid-template-columns: repeat(5, auto);
+      grid-template-columns: repeat(5, 1fr);
       grid-column-gap: 60px;
       grid-row-gap: 50px;
 
       @media only screen and (max-width: 1610px) {
-        grid-template-columns: repeat(4, auto);
+        grid-template-columns: repeat(4, 1fr);
       }
 
       @media #{$small-notebook} {
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(3, 1fr);
       }
 
       @media #{$handheld} {
@@ -47,7 +47,7 @@
       }
 
       @media only screen and (max-width: 900px) {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       @media #{$small-mobile} {
@@ -87,6 +87,13 @@
         height: 28px;
       }
     }
+  }
+
+  .textarea-symbol-counter {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: $pink;
   }
 
   .reviews__title {
@@ -193,6 +200,7 @@
         display: block;
         width: 100%;
         height: 100%;
+        transition: all 100ms linear;
       }
 
       &.active,

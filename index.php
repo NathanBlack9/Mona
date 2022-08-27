@@ -1,6 +1,6 @@
 <?php 
   $masters = $wpdb->get_results("SELECT * from masters;");
-  $reviews = $wpdb->get_results("SELECT * from reviews;");
+  $reviews = $wpdb->get_results("SELECT * from reviews order by Id DESC;");
 
   function defineMaster( $param ) {
     global $wpdb;
@@ -119,16 +119,16 @@
   <section class="reviews">
     <div class="wrapper">
       <div class="reviews__title h1">Отзывы</div>
-      <div class="reviews__inner">
+      <div class="reviews__inner js-review-sort">
         <?php $counter = 0; ?>
         <?php foreach($reviews as $item) { 
           if ($counter >= 4) break;
-          if($item->rating >= 4) {
+          if($item->rating >= 4 && $item->view == 1) {
 
             $master = defineMaster($item->master_id); 
           ?>
             <?php foreach($master as $y) { ?>
-              <div class="reviews__item js-reviews-rating" data-rating="<?php echo $item->rating; ?>">
+              <div class="reviews__item js-reviews-rating" data-rating="<?php echo $item->rating; ?>" data-id="<?php echo $item->id; ?>">
                 <div class="reviews__name"><?php echo $item->name; ?></div>
                 <div class="reviews__job">
                   <span>мастер</span>
@@ -156,9 +156,11 @@
       <div class="subscribe__inner">
         <div class="h1 subscribe__title">Подписаться</div>
         <div class="subscribe__subtitle">Будьте в курсе всех самых свежих новостей и акций</div>
-        <form action="" class="subscription__form js-form form">
-          <input type="text" class="subscribe__inp js-input-email required" placeholder="info@studiomona.ru">
-          <div class="form__error" style="display: none;">Поле должно содержать E-Mail в формате example@site.com</div>
+        <form action="" class="subscription__form js-subscribe-form form">
+          <div class="inp required">
+            <input type="text" name="email" class="subscribe__inp js-input-email" placeholder="info@studiomona.ru">
+            <div class="form__error" style="display: none;">Поле должно содержать E-Mail в формате example@site.com</div>
+          </div>
           <button type="submit" class="subscribe__submit btn black--btn">Подписаться</button>
         </form>
       </div>

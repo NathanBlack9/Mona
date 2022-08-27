@@ -84,18 +84,7 @@ $(document).ready(function () {
 
     if ($error===0) {
       let $reviewsFormData = {};
-      // alert('все ОК!');
 
-      // let response = await fetch('sendmail.php', {
-      //   method: 'POST',
-      //   body: formData
-      // });
-      // if (response.ok) {
-      //   let result = await response.json();
-      //   form.reset();
-      // } else {
-      //   alert('ошибка');
-      // }
       $.each($form.serializeArray(), function (index) { 
         let name = this.name;
         let value = this.value;
@@ -126,7 +115,59 @@ $(document).ready(function () {
     console.log();
   });
 
+  $('.js-textarea-counter').on('keyup paste change', function countLetters() {
 
+    const $textarea = $(this);
+    const $count = $textarea.closest('div.inp').find('.textarea-symbol-counter span');
+    const $textlength = $textarea.val().length;
+  
+    $count.text($textlength);
+  });
+
+  $('.js-subscribe-form').on('submit', function (e) {
+    e.preventDefault();
+  
+    const $form = $(this);
+
+    let $error = formValidate($form);
+
+    if ($error===0) {
+      let $subscribeFormData = {};
+
+      $.each($form.serializeArray(), function (index) { 
+        let name = this.name;
+        let value = this.value;
+  
+        $subscribeFormData[`${name}`] = value;
+      });
+      // console.log($subscribeFormData); // Какой объект получился до отправки
+
+      $.ajax({
+        url: WPJS.siteUrl + '/backend/backend.php',
+        type: 'POST',
+        data: `subscriptEmail=${JSON.stringify($subscribeFormData)}`,
+        success: function(data){
+          // console.log(data);
+
+          if(data) {
+            $form.remove();
+            $('.subscribe__subtitle').html('Вы успешно подписались на наши обновления.</br> Спасибо, что следите за нами');
+          } else {
+            $form.remove();
+            $('.subscribe__subtitle').text('Введенный Email уже подписан на наши обновления!')
+          }
+        },
+        error: function(){
+          console.log('ERROR');
+        }
+      });
+
+    } else {
+      // alert('Заполните обязательные поля!');
+    }
+    
+    console.log();
+  });
 
 
   $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
