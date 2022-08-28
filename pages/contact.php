@@ -107,22 +107,24 @@
     var myMap = new ymaps.Map("map", {
       center: [<?php echo $centerX; ?> + (!$mobile ? 0 : 0.001), <?php echo $centerY; ?> + (!$mobile ? 0 : 0.002)],
       zoom: 17,
-      controls: ['largeMapDefaultSet','routeButtonControl']
+      controls: ['zoomControl'] // 'routeButtonControl',
     });
 
-    myMap.controls
-      .remove('rulerControl')
-      .remove('fullscreenControl')
-      .remove('searchControl')
-      .remove('routeButton');
+    // myMap.controls
+    //   .remove('rulerControl')
+    //   .remove('fullscreenControl')
+    //   .remove('searchControl')
+    //   .remove('typeSelector')
+    //   .remove('trafficControl')
+    //   .remove('routeButton');
 
-      var control = myMap.controls.get('routeButtonControl');
-      control.routePanel.state.set({
-        fromEnabled: true,
-        from: "",
-        to: "муниципальное образование Тула, микрорайон Левобережный, Восточная улица, 11",
-        type: "auto"
-      });
+    // var control = myMap.controls.get('routeButtonControl');
+    // control.routePanel.state.set({
+    //   fromEnabled: true,
+    //   from: "",
+    //   to: "микрорайон Левобережный, село Осиновая Гора, муниципальное образование Тула, Тульская область",
+    //   type: "auto"
+    // });
 
     myMap.behaviors.disable([
       'scrollZoom'

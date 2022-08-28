@@ -7,6 +7,7 @@
 <?php 
 
   $gallery = carbon_get_theme_option('certificates');
+  $masters = $wpdb->get_results("SELECT * from masters;");
 
 ?>
 
@@ -24,17 +25,27 @@
     <div class="sorting">
       <div class="sorting__controls js-sorting not-mobile">
         <a href="#" class="sorting__btn active" data-sort="all">Все</a>
-        <a href="#" class="sorting__btn" data-sort="Аракелян">Аракелян А.С.</a>
-        <a href="#" class="sorting__btn" data-sort="Хачатрян">Хачатрян М.А.</a>
+
+        <?php foreach($masters as $item) { ?>
+          <a href="#" class="sorting__btn" data-sort="<?php echo $item->last_name; ?>">
+            <?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>
+          </a>
+        <?php } ?>
       </div>
+
       <div class="only-mobile">
         <select name="" id="" class="sorting__select js-sorting-select">
           <option value="all">Все</option>
-          <option value="Аракелян">Аракелян А.С.</option>
-          <option value="Хачатрян">Хачатрян М.А.</option>
+
+          <?php foreach($masters as $item) { ?>
+            <option value="<?php echo $item->last_name; ?>">
+              <?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>
+            </option>
+          <?php } ?>
         </select>
       </div>
     </div>
+    
     <div class="certificates__inner js-sorting-content">
       <?php foreach($gallery as $item) { ?>
         <a href="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" data-fancybox="certificates" data-sort="<?php echo wp_get_attachment_caption($item); ?>">

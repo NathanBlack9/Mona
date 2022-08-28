@@ -78,11 +78,11 @@
 }
 
 .homepage .certificates {
-  margin: 200px 0 135px;
+  margin: 150px 0 135px;
 
-  @media #{$handheld} {
-    margin-top: 150px;
-  }
+  // @media #{$handheld} {
+  //   margin-top: 150px;
+  // }
 
   @media #{$mobile} {
     margin-bottom: 190px;

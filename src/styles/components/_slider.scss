@@ -22,6 +22,8 @@
     text-decoration: none;
     margin: 0 15px;
 
+    
+
     @media #{$mobile} {
       margin-left: 0;
     }
@@ -48,6 +50,29 @@
 
     &.slick-disabled {
       display: none !important;
+    }
+  }
+
+  &.certificates__slider {
+    .slider-item {
+      height: 365px;
+      
+      @media #{$handheld} {
+        height: 320px;
+      }
+
+      @media #{$small-handheld} {
+        height: 250px;
+      }
+
+      @media #{$small-mobile} {
+        height: 320px;
+      }
+
+      >img {
+        width: 100%;
+        object-fit: cover;
+      }
     }
   }
 }

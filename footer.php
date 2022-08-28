@@ -6,7 +6,7 @@
   $email = carbon_get_theme_option('email');
   $address = carbon_get_theme_option('address');
 
-  $tel = str_replace([' ', '(', ')', '-'], '', $phone);
+  $tel = str_replace([' ', '(', ')', '-', '+'], '', $phone);
 
   $menu_pos = carbon_get_theme_option('footer_menu');
   $menu_services = carbon_get_theme_option('footer_services');

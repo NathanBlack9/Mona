@@ -8,7 +8,7 @@
 <?php 
   $phone = carbon_get_theme_option('phone');
   $tg = carbon_get_theme_option('tg');
-  $tel = str_replace([' ', '(', ')', '-'], '', $phone);
+  $tel = str_replace([' ', '(', ')', '-', '+'], '', $phone);
 ?>
 
 <body <?php body_class() ?>>

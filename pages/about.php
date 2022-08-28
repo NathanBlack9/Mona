@@ -26,12 +26,10 @@
       }
     ?>
     <h1 class="h1"><?php the_title(); ?></h1>
-    <div class=""><?php // the_content(); ?></div>
-    
-
 
     <div class="about__content content">
-      <?php echo carbon_get_post_meta( $page_ID, 'main_content' ) ?>
+      <?php // echo carbon_get_post_meta( $page_ID, 'main_content' ) ?>
+      <?php the_content(); ?>
     </div>
 
     <div class="about__inner">
@@ -48,6 +46,39 @@
       <?php endif; ?>
 
     </div>
+
+    <section class="features">
+      <div class="features__title h1">Почему нам доверяют</div>
+      <div class="features__inner">
+        <div class="features__item">
+          <div class="features__item-img">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature1.svg" alt="">
+          </div>
+          <div class="features__item-right">
+            <div class="features__item-title">Соблюдаем стандарты СЭС</div>
+            <div class="features__item-text">Добровольно проверяем работу стерилизаторов. Используем одноразовую продукцию</div>
+          </div>
+        </div>
+        <div class="features__item">
+          <div class="features__item-img">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature2.svg" alt="">
+          </div>
+          <div class="features__item-right">
+            <div class="features__item-title">Индивидуальный подход</div>
+            <div class="features__item-text">Мы&nbsp;действительно стараемся понять ваши потребности и&nbsp;ожидания</div>
+          </div>
+        </div>
+        <div class="features__item">
+          <div class="features__item-img">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature3.svg" alt="">
+          </div>
+          <div class="features__item-right">
+            <div class="features__item-title">Не обещаем того, что выполнить не можем</div>
+            <div class="features__item-text">Подробно и&nbsp;честно расскажем о&nbsp;преимуществах и&nbsp;недостатках каждой процедуры. Не&nbsp;забываем рассказать про уход в&nbsp;домашних условиях</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <h2 class="h2">Наши мастера</h2>
     <div class="about__content content">

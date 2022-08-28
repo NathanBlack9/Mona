@@ -45,7 +45,7 @@
     </div>
     <div class="certificates__inner js-sorting-content">
       <?php foreach( $gallery as $item ) { ?> 
-        <a href="<?php echo wp_get_attachment_image_url($item['photo'], 'full'); ?>" data-fancybox="certificates" data-sort="<?php echo $item['select']; ?>">
+        <a href="<?php echo wp_get_attachment_image_url($item['photo'], 'full'); ?>" data-fancybox="gallery" data-sort="<?php echo $item['select']; ?>">
           <img src="<?php echo wp_get_attachment_image_url($item['photo'], 'full'); ?>" alt="">
           <div class="gallery__author"><?php echo $item['master']; ?></div>
         </a>
