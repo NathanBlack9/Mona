@@ -34,31 +34,31 @@
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_1.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon1.svg" alt=""></i>
-          <a href="<?php echo get_template_directory_uri(); ?>/manicure/" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo home_url(); ?>/services/manicure/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Маникюр</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_2.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon2.svg" alt=""></i>
-          <a href="<?php echo get_template_directory_uri(); ?>/pedicure/" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo home_url(); ?>/services/pedicure/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Педикюр</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_3.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon3.svg" alt=""></i>
-          <a href="<?php echo get_template_directory_uri(); ?>/sugaring/" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo home_url(); ?>/services/sugaring/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Шугаринг</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_4.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon4.svg" alt=""></i>
-          <a href="<?php echo get_template_directory_uri(); ?>/lashes/" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo home_url(); ?>/services/lashes/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Наращивание ресниц</span>
         </div>
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_5.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon5.svg" alt=""></i>
-          <a href="<?php echo get_template_directory_uri(); ?>/browes/" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo home_url(); ?>/services/browes/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Коррекция бровей</span>
         </div>
       </div>
@@ -102,7 +102,7 @@
       <div class="features__inner">
         <div class="features__item">
           <div class="features__item-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature1.svg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature1-new.svg" alt="">
           </div>
           <div class="features__item-right">
             <div class="features__item-title">Соблюдаем стандарты СЭС</div>
@@ -111,7 +111,7 @@
         </div>
         <div class="features__item">
           <div class="features__item-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature2.svg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature2-new.svg" alt="">
           </div>
           <div class="features__item-right">
             <div class="features__item-title">Индивидуальный подход</div>
@@ -120,7 +120,7 @@
         </div>
         <div class="features__item">
           <div class="features__item-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature3.svg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature3-new.svg" alt="">
           </div>
           <div class="features__item-right">
             <div class="features__item-title">Не обещаем того, что выполнить не можем</div>

@@ -1,7 +1,7 @@
 .intro {
   width: 100%;
   height: 100vh;
-  background: url('build/img/intro.jpg') no-repeat 50%/cover;
+  background: url('build/img/intro-new.jpg') no-repeat 50%/cover;
 
   @media #{$handheld} {
     background: url('build/img/intro-mobile.jpg') no-repeat 50%/cover;

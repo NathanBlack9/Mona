@@ -154,6 +154,10 @@
       margin: 10px 0;
       max-width: 100%;
     }
+    
+    @media #{$small-mobile} {
+      font-size: 14px;
+    }
   }
 
   .master__service {

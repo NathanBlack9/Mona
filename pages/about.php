@@ -52,7 +52,7 @@
       <div class="features__inner">
         <div class="features__item">
           <div class="features__item-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature1.svg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature1-new.svg" alt="">
           </div>
           <div class="features__item-right">
             <div class="features__item-title">Соблюдаем стандарты СЭС</div>
@@ -61,7 +61,7 @@
         </div>
         <div class="features__item">
           <div class="features__item-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature2.svg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature2-new.svg" alt="">
           </div>
           <div class="features__item-right">
             <div class="features__item-title">Индивидуальный подход</div>
@@ -70,7 +70,7 @@
         </div>
         <div class="features__item">
           <div class="features__item-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature3.svg" alt="">
+            <img src="<?php echo get_template_directory_uri(); ?>/build/img/feature3-new.svg" alt="">
           </div>
           <div class="features__item-right">
             <div class="features__item-title">Не обещаем того, что выполнить не можем</div>
