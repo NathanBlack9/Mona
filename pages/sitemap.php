@@ -4,6 +4,14 @@ Template Name: sitemap
 */
 ?>
 
+<?php 
+
+  $menu_pos = carbon_get_theme_option('footer_menu');
+  $menu_services = carbon_get_theme_option('footer_services');
+  $menu_more = carbon_get_theme_option('footer_more');
+
+?>
+
 <?php get_header() ?>
 
 <section class="sitemap">
@@ -22,25 +30,27 @@ Template Name: sitemap
       <div class="sitemap__item">
         <h3 class="h3">Общая информация</h3>
         <ul>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/about/">О нас</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/privacy/">Политика конфиденциальности</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/price/">Цены и оплата</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/certificates/">Сертификаты</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/gallery/">Фотогалерея наших работ</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/reviews/">Отзывы</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/contact/">Контакты</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Акции</a></li>
+          <?php foreach ( $menu_pos as $item ) { ?>
+            <?php if ( $item['visible'] == 1 ) : ?>
+              <li><a href="<?php echo get_template_directory_uri() . $item['url']; ?>"><?php echo $item['name']; ?></a></li>
+            <?php endif; ?>
+          <?php } ?>
+          <?php foreach ( $menu_more as $item ) { ?>
+            <?php if ( $item['visible'] == 1 ) : ?>
+              <li><a href="<?php echo get_template_directory_uri() . $item['url']; ?>"><?php echo $item['name']; ?></a></li>
+            <?php endif; ?>
+          <?php } ?>
         </ul>
       </div>
       <div class="sitemap__item">
         <h3 class="h3">Услуги</h3>
         <ul>
           <li><a href="<?php echo get_template_directory_uri(); ?>/services/">Все услуги</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/manicure/">Маникюр</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/pedicure/">Педикюр</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/sugaring/">Шугаринг</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/lashes/">Наращивание ресниц</a></li>
-          <li><a href="<?php echo get_template_directory_uri(); ?>/browes/">Коррекция бровей</a></li>
+          <?php foreach ( $menu_services as $item ) { ?>
+            <?php if ( $item['visible'] == 1 ) : ?>
+              <li><a href="<?php echo get_template_directory_uri() . $item['url']; ?>"><?php echo $item['name']; ?></a></li>
+            <?php endif; ?>
+          <?php } ?>
         </ul>
       </div>
     </div>

@@ -202,8 +202,8 @@
           <a href="#manicure" id="nav1" class="js-scroll-to"><?php echo $services[0]->name ?></a>
           <a href="#pedicure" id="nav2" class="js-scroll-to"><?php echo $services[1]->name ?></a>
           <a href="#sugaring" id="nav3" class="js-scroll-to"><?php echo $services[2]->name ?></a>
-          <a href="#brows" id="nav4" class="js-scroll-to"><?php echo $services[3]->name ?></a>
-          <a href="#lashes" id="nav5" class="js-scroll-to"><?php echo $services[4]->name ?></a>
+          <a href="#brows" id="nav4" class="js-scroll-to"><?php echo $services[4]->name ?></a>
+          <a href="#lashes" id="nav5" class="js-scroll-to"><?php echo $services[3]->name ?></a>
         </div>
       </div>
     </div>

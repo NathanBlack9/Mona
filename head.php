@@ -20,10 +20,6 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/selectric.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/jquery-ui.min.css">
 
-  <title>Mona</title>
-
-
-
   
   <?php wp_head(); ?>
 </head>
