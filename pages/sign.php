@@ -160,7 +160,7 @@
         <img src="" alt="" class="sign__master-img">
         <div class="sign__master-name h3"></div>
         <div class="sign__master-desc"></div>
-        <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="sign__master-btn btn pink--btn">Посмотреть отзывы</a>
+        <a href="#" class="sign__master-btn btn pink--btn" target="_blank">Посмотреть отзывы</a>
       </section>
     </div>
   </div>
@@ -313,11 +313,13 @@
       data: `service=${$optionVal}`,
       success: function(data){
         let $response = JSON.parse(data);
+        console.log($response);
         const $masterBlock = $('.js-sign-master');
 
         $masterBlock.find('.sign__master-name').text(`Мастер ${$response.last_name} ${$response.first_name}`);
         $masterBlock.find('.sign__master-desc').text(`${$response.about}`);
         $masterBlock.find('.sign__master-img').attr('src', `<?php echo get_template_directory_uri(); ?>${$response.img}`);
+        $masterBlock.find('.sign__master-btn').attr('href', `<?php echo get_template_directory_uri(); ?>/reviews?master=${$response.last_name}`);
 
         $masterBlock.fadeIn();
 

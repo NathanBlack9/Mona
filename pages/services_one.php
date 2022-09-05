@@ -31,7 +31,7 @@ Template Name: services_one
         <?php echo carbon_get_post_meta( $page_ID, 'main_content' ) ?>
       </div>
       
-      <?php if($gallery) : ?>
+      <?php if($gallery) { ?>
         <div class="service__slider-block">
           <div class="service__slider js-fade-slider">
             <?php foreach($gallery as $item) { ?>
@@ -39,13 +39,15 @@ Template Name: services_one
               <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="" class="service__slider-item" />
             <?php } ?>
           </div>
-          <div class="service__slider-controls">
-            <div class="js-fade-slider-prev slick-prev"></div>
-            <div class="js-fade-slider-counter service__slider-counter"></div>
-            <div class="js-fade-slider-next slick-next"></div>
-          </div>
+          <?php if ( count($gallery) > 1 ) { ?>
+            <div class="service__slider-controls">
+              <div class="js-fade-slider-prev slick-prev"></div>
+              <div class="js-fade-slider-counter service__slider-counter"></div>
+              <div class="js-fade-slider-next slick-next"></div>
+            </div>
+          <?php } ?>
         </div>
-      <?php endif; ?>
+      <?php } ?>
     </div>
 
     <div class="service__masters">

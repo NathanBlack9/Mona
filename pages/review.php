@@ -13,6 +13,7 @@
     $master = $wpdb->get_results("SELECT * FROM masters where id = {$param}");
     return $master;
   };
+
 ?>
 
 <?php get_header() ?>
@@ -114,3 +115,12 @@
 </section>
 
 <?php get_footer() ?>
+
+<?php if (isset ($_GET['master']) ) { ?>
+  <script>
+    (() => {
+      $('.js-sorting').find('[data-sort="<?php echo $_GET['master'] ?>"]').click();
+    })();
+  </script>
+<?php ; } ?>
+     
