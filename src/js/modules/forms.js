@@ -111,8 +111,6 @@ $(document).ready(function () {
     } else {
       // alert('Заполните обязательные поля!');
     }
-    
-    console.log();
   });
 
   $('.js-textarea-counter').on('keyup paste change', function countLetters() {
@@ -169,6 +167,88 @@ $(document).ready(function () {
     console.log();
   });
 
+  $('.js-unsign-form').on('submit', function (e) {
+    e.preventDefault();
+    const $form = $(this);
+    let $error = formValidate($form);
+
+    if ($error===0) {
+      let $unsignData = {};
+
+      $.each($form.serializeArray(), function (index) { 
+        let name = this.name;
+        let value = this.value;
+  
+        $unsignData[`${name}`] = value;
+      });
+      console.log($unsignData);
+
+      $.ajax({
+        url: WPJS.siteUrl + '/backend/backend.php',
+        type: 'GET',
+        data: `allSigns=${JSON.stringify($unsignData)}`,
+        success: function(data){
+          let $response = JSON.parse(data);
+          const $tableSection = $('.js-insign-table');
+          const $warning = $('.js-unsign-warning');
+
+          if($response.length > 0) {
+            const $table = $tableSection.find('table');
+            $table.find('tr:not(:first)').remove();
+  
+            $response.forEach(element => {
+              $table.find('tr:last')
+              .after(`<tr>
+                        <td>${element.id}</td>
+                        <td>${element.name}</td>
+                        <td>${element.phone}</td>
+                        <td>${element.date}, ${Math.trunc(element.time)}:${(element.time % 1)*60}</td>
+                        <td> 
+                          <a class="js-delete-sign" href="#" data-id="${element.id}">Удалить
+                            <img src="/mona/wp-content/themes/Mona/build/img/close.svg" alt="" width="14" height="14">
+                          </a>
+                        </td>
+                      </tr>`);
+            });
+
+            $tableSection.fadeIn();
+            $warning.fadeOut();
+          } else {
+            $tableSection.fadeOut();
+            $warning.fadeIn();
+          }
+        },
+        error: function(){
+          console.log('ERROR');
+        }
+      });
+
+    } else {
+      // alert('Заполните обязательные поля!');
+    }
+  });
+
+  $('.js-delete-sign').on('click', function () {
+    let $confirm;
+
+    $.confirm({
+      title: 'Вы уверены, что хотите отменить запись?',
+      content: 'После удаления записи ее восстановить будет нельзя!',
+      backgroundDismiss: true,
+      draggable: false,
+      buttons: {
+        Удалить: function () {
+          $confirm = true;
+          alert($confirm);
+        },
+        Отмена: function () {
+          $confirm = false;
+          alert($confirm);
+        },
+      }
+    });
+
+  })
 
   $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
 

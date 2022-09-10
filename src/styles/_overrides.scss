@@ -348,3 +348,47 @@ html .ui-button.ui-state-disabled:active {
   padding-top: 0.35em;
   padding-bottom: 0.25em;
 }
+
+/* -------------------------- */
+/* Jquery Confirm */
+
+.jconfirm-box-container {
+  max-width: 35vw !important;
+  margin: 0 auto;
+
+  @media #{$handheld} {
+    max-width: 400px;
+  }
+
+  @media #{$small-mobile} {
+    max-width: 90vw !important;
+  }
+
+  .jconfirm-box {
+    padding: 40px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .jconfirm-content {
+    font-size: 16px;
+  }
+
+  .jconfirm-buttons {
+    margin-top: 40px;
+
+    .btn::before,
+    .btn::after {
+      content: none;;
+    }
+
+    .btn-default {
+      border-radius: 0 !important;
+
+      &:first-child {
+        background-color: $red !important;
+        color: $white !important;
+        margin-right: 10px !important;
+      }
+    }
+  }
+}

@@ -167,6 +167,15 @@ if(isset($_GET['date']) && isset($_GET['master']) && isset($_GET['serviceName'])
   $serviceId = $mysqli->query("INSERT into reviews (master_id, name, rating, text) values ({$masterId}, '{$object['name']}', {$object['rating']}, '{$object['text']}');");
     
   print_r('Добавлен новый отзыв');
+} else if(isset($_GET['allSigns'])){
+  $object = json_decode($_GET['allSigns'], true); 
+  
+  $mysqli = new mysqli("localhost", "root", "", "mona");
+  $signs = $mysqli->query("SELECT id, name, phone, date, time FROM sign where name like '%{$object['name']}%' and phone like '%{$object['tel']}%';");
+  $signs = $signs->fetch_all(MYSQLI_ASSOC);
+
+  print_r(json_encode($signs));
+
 } else if(isset($_POST['subscriptEmail'])){
   $object = json_decode($_POST['subscriptEmail'], true); 
 
@@ -183,6 +192,7 @@ if(isset($_GET['date']) && isset($_GET['master']) && isset($_GET['serviceName'])
 }else {
   echo json_encode('Ошибка!!!');
 }
+
 
 
 

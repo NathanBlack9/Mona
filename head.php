@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/animate.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/selectric.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/jquery-ui.min.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/jquery-confirm.min.css">
 
   
   <?php wp_head(); ?>

@@ -19,33 +19,6 @@
     $master = $wpdb->get_results("SELECT * FROM masters where id in (select master_id from services where category_id = {$param})");
     return $master;
   };
-
-  /* Делает из массива чисел формат даты -> 13.5 = 13:30 */ 
-  function setTimeFormat($array ) {
-  
-    for ($i = 0; $i < count($array); $i++) {
-        
-      if (getDecimal($array[$i]) != 0) {
-        $minutes = getDecimal($array[$i]) * 60;
-      } else {
-        $minutes = '00';
-      }
-    
-      if (floor($array[$i]) < 10) {
-        $array[$i] = '0' .floor($array[$i]). ':' .$minutes.'';
-      } else {
-        $array[$i] = ''.floor($array[$i]).':'.$minutes.'';
-      }
-    }
-
-    return $array;
-  }
-  /* ------------------- */
-
-  function getDecimal($number) {
-    return fmod($number, 1);
-  }
-
   /* -------------------- */
 ?>
 
@@ -61,6 +34,13 @@
     ?>
 
     <h1 class="sign__title h1"><?php the_title(); ?></h1>
+
+    <div class="sign__content content">
+      <p>Записаться онлайн к нашим мастерам очень просто - выберите удобную для вас дату, время и оставьте нам свои контакты для обратной связи. Перед оформлением записи просим вас ознакомится с нашими <a href="<?php echo get_template_directory_uri(); ?>/rules/" target="_blank">правилами записи</a>.</p>
+ 
+      <p>Отменить уже созданную запись можно так же на нашем сайте, для этого нажмите <a href="<?php echo get_template_directory_uri(); ?>/unsign/">здесь</a>.</p> 
+      <?php // <p>Если вы записывались к мастеру не через сайт, то такую запись можно отменить только по телефону +79509150858.</p> ?>
+    </div>
 
     <div class="sign__inner">
       <div class="sign-progress progress">
