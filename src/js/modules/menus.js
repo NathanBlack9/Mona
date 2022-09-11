@@ -14,7 +14,11 @@ $(function () {
   $hasDropdown.on('mouseenter', function() {
     $(this).addClass('is-hovered');
     $(this).siblings().removeClass('is-hovered');
-  })
+  });
+
+  $hasDropdown.on('mouseleave', function() {
+    $(this).removeClass('is-hovered');
+  });
 
   $backButton.on('mouseenter', function(e) {
     e.preventDefault();

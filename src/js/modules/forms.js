@@ -13,11 +13,24 @@ $(document).ready(function () {
           formAddError($input);
           $error++;
         }
+      } else if($input.getAttribute('type') === 'text' && !$input.classList.contains('js-input-email') && !$input.classList.contains('js-review-rating')) {
+        if(!nameTest($input)) {
+          $input.nextElementSibling.innerHTML = 'Некорректно введено Имя';
+          formAddError($input);
+          $error++;
+        }
       } else if ($input.getAttribute('type') === 'checkbox' && $input.checked === false) {
           formAddError($input);
           $error++;
+      } else if($input.getAttribute('type') === 'tel' && $input.value != '') { // проверка номера телефона
+        if(!phoneTest($input)) {
+          $input.nextElementSibling.innerHTML = 'Некорректный формат номера.';
+          formAddError($input);
+          $error++;
+        }
       } else {
         if ($input.value === '') {
+          $input.nextElementSibling.innerHTML = 'Это поле обяательно для заполнения.';
           formAddError($input);
           $error++;
         }
@@ -36,8 +49,16 @@ $(document).ready(function () {
       input.classList.remove('error');
     }
 
+    function phoneTest(input) {
+      return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(input.value);
+    }
+
     function emailTest(input) {
       return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value)
+    }
+
+    function nameTest(input) {
+      return /^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$/.test(input.value)
     }
   }
 
@@ -78,7 +99,6 @@ $(document).ready(function () {
   
     const $form = $(this);
 
-    // formValidate($form);
     let $error = formValidate($form);
 
 
@@ -284,7 +304,7 @@ $(document).ready(function () {
           });
         },
         Отмена: function () {
-          alert('1');
+          // alert('1');
         },
       }
     });

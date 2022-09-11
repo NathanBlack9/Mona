@@ -148,6 +148,16 @@
 
 <?php get_footer() ?>
 
+<?php if (isset ($_GET['sign']) ) { ?>
+  <script>
+    (() => {
+      $('.sign__content').remove();
+      $('.sign__inner').empty().append(`<a href="<?php echo home_url(); ?>" class="sign__success-btn btn black--btn">На главную</a>`);
+      $('.sign__title').html(`Запись принята!<br>Спасибо что выбрали нас!`);
+    })();
+  </script>
+<?php } ?>
+
 <script>
   /* --- Вывод услуг из базы --- */
   $('.js-services-select').on('selectric-before-init', function(event, element, selectric) {

@@ -85,6 +85,7 @@ div.inp {
   text-align: left;
   display: none;
 
+  .inp.required.error &,
   .error > & {
     display: block !important;
   }

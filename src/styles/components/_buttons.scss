@@ -22,6 +22,7 @@
   
   &::before,
   &::after {
+    pointer-events: none;
     content: '';
     position: absolute;
     width: 100%;
