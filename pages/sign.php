@@ -50,7 +50,6 @@
         <div class="progress-point">4</div>
       </div>
 
-
       <?php /*
       <form action="/sign/" class="form sign-form js-form">
         <div class="inp">
@@ -132,7 +131,7 @@
 
         <button type="submit" class="btn pink--btn">Записаться</button>
       </form>
-       */ ?>
+      */?>
 
       <?php the_content(); ?> 
 

@@ -145,8 +145,6 @@ $(document).ready(function () {
         type: 'POST',
         data: `subscriptEmail=${JSON.stringify($subscribeFormData)}`,
         success: function(data){
-          // console.log(data);
-
           if(data) {
             $form.remove();
             $('.subscribe__subtitle').html('Вы успешно подписались на наши обновления.</br> Спасибо, что следите за нами');
@@ -163,8 +161,6 @@ $(document).ready(function () {
     } else {
       // alert('Заполните обязательные поля!');
     }
-    
-    console.log();
   });
 
   $('.js-unsign-form').on('submit', function (e) {
@@ -175,13 +171,12 @@ $(document).ready(function () {
     if ($error===0) {
       let $unsignData = {};
 
-      $.each($form.serializeArray(), function (index) { 
+      $.each($form.serializeArray(), function () { 
         let name = this.name;
         let value = this.value;
   
         $unsignData[`${name}`] = value;
       });
-      console.log($unsignData);
 
       $.ajax({
         url: WPJS.siteUrl + '/backend/backend.php',
@@ -204,8 +199,8 @@ $(document).ready(function () {
                         <td>${element.phone}</td>
                         <td>${element.date}, ${Math.trunc(element.time)}:${(element.time % 1)*60}</td>
                         <td> 
-                          <a class="js-delete-sign" href="#" data-id="${element.id}">Удалить
-                            <img src="/mona/wp-content/themes/Mona/build/img/close.svg" alt="" width="14" height="14">
+                          <a class="js-delete-sign" href="/" data-id="${element.id}">Удалить
+                            <img src="${WPJS.siteUrl}/build/img/close.svg" alt="" width="14" height="14">
                           </a>
                         </td>
                       </tr>`);
@@ -228,8 +223,10 @@ $(document).ready(function () {
     }
   });
 
-  $('.js-delete-sign').on('click', function () {
-    let $confirm;
+  $(document).on('click', '.js-delete-sign', function (e) {
+    e.preventDefault();
+    const $this = $(this);
+    const $id = $this.data('id');
 
     $.confirm({
       title: 'Вы уверены, что хотите отменить запись?',
@@ -238,12 +235,56 @@ $(document).ready(function () {
       draggable: false,
       buttons: {
         Удалить: function () {
-          $confirm = true;
-          alert($confirm);
+          $form = $('.js-unsign-form');
+          let $unsignData = {};
+
+          $.each($form.serializeArray(), function () { 
+            let name = this.name;
+            let value = this.value;
+      
+            $unsignData[`${name}`] = value;
+          });
+
+          $.ajax({
+            url: WPJS.siteUrl + '/backend/unsign.php',
+            type: 'GET',
+            data: `unsign=${$id}&unsignData=${JSON.stringify($unsignData)}`,
+            success: function(response){
+              let $response = JSON.parse(response);
+              const $tableSection = $('.js-insign-table');
+
+              if($response.length > 0) {
+                const $table = $tableSection.find('table');
+                $table.find('tr:not(:first)').remove();
+      
+                $response.forEach(element => {
+                  $table.find('tr:last')
+                  .after(`<tr>
+                            <td>${element.id}</td>
+                            <td>${element.name}</td>
+                            <td>${element.phone}</td>
+                            <td>${element.date}, ${Math.trunc(element.time)}:${(element.time % 1)*60}</td>
+                            <td> 
+                              <a class="js-delete-sign" href="/" data-id="${element.id}">Удалить
+                                <img src="${WPJS.siteUrl}/build/img/close.svg" alt="" width="14" height="14">
+                              </a>
+                            </td>
+                          </tr>`);
+                });
+
+                // $.alert({
+                //   title: 'Ваша запись отменена!',
+                //   content: 'Спасибо, что заботитесь о других посетителях!',
+                // });
+              } 
+            },
+            error: function(){
+              console.log('ERROR');
+            }
+          });
         },
         Отмена: function () {
-          $confirm = false;
-          alert($confirm);
+          alert('1');
         },
       }
     });
