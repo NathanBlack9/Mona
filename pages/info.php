@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: privacy
+Template Name: info
 */
 ?>
 
@@ -8,15 +8,15 @@ Template Name: privacy
 
 
 
-<section class="privacy">
+<section class="info info-page">
   <div class="wrapper">
     <?php
       if ( function_exists('yoast_breadcrumb') ) {
         yoast_breadcrumb('<ul id="breadcrumbs" class="breadcrumbs"><li>','</li></ul>');
       }
     ?>
-    <div class="privacy__inner">
-      <h1 class="privacy__title h1"><?php the_title(); ?></h1>
+    <div class="info__inner">
+      <h1 class="info__title h1"><?php the_title(); ?></h1>
       <div class="text-container">
         <?php the_content(); ?>
       </div>

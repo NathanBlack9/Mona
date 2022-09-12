@@ -13,7 +13,7 @@ $(document).ready(function () {
           formAddError($input);
           $error++;
         }
-      } else if($input.getAttribute('type') === 'text' && !$input.classList.contains('js-input-email') && !$input.classList.contains('js-review-rating')) {
+      } else if($input.getAttribute('name') === 'name' ) { // && !$input.classList.contains('js-input-email') && !$input.classList.contains('js-review-rating')
         if(!nameTest($input)) {
           $input.nextElementSibling.innerHTML = 'Некорректно введено Имя';
           formAddError($input);
