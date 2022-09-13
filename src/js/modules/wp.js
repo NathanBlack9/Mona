@@ -7,16 +7,23 @@ function formValidate(form) {
     const $input = $formReq[i];
     formRemoveError($input);
 
-    if ($input.getAttribute('type') === 'checkbox' && $input.checked === false) { // проверка чекбоксов
+    if($input.value === '') { // проверка на не пустое поле
+      $($input).closest('p').find('.form__error').text('Это поле обяательно для заполнения.');
+      formAddError($input);
+      $error++;
+    } else if ($input.getAttribute('type') === 'checkbox' && $input.checked === false) { // проверка чекбоксов
       formAddError($input);
       $error++;
     } else if($input.getAttribute('type') === 'tel') { // проверка номера телефона
       if(!phoneTest($input)) {
+        $($input).closest('p').find('.form__error').text('Некорректный формат номера.');
+
         formAddError($input);
         $error++;
       }
-    } else if($input.getAttribute('type') === 'text') { // проверка ФИО
+    } else if($input.getAttribute('name') === 'name') { // проверка ФИО
       if(!nameTest($input)) {
+        $($input).closest('p').find('.form__error').text('Некорректно введено Имя');
         formAddError($input);
         $error++;
       }
@@ -25,9 +32,6 @@ function formValidate(form) {
       $error++;
     } else if($input.getAttribute('type') === 'radio' && $input.checked === true) { // убираем еррор если хоть один радио выбран
       radioChecked = true;
-    } else if ($input.value === '') { // проверка на не пустое поле
-      formAddError($input);
-      $error++;
     }
   }
 
@@ -60,7 +64,7 @@ function formValidate(form) {
   }
 
   function nameTest(input) {
-    return /^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$/.test(input.value)
+    return /^[a-zA-Zа-яА-ЯёЁ'][a-zA-Z-а-яА-ЯёЁ' ]+[a-zA-Zа-яА-ЯёЁ']?$/.test(input.value);
   }
 }
 
@@ -85,7 +89,7 @@ $('.wpcf7-form').on('submit', function (event) {
 
     // Отправляет инфу формы для заполнения личной базы
     $.ajax({
-      url: WPJS.siteUrl + '/backend/backend.php',
+      url: WPJS.siteUrl + '/backend/sign.php',
       type: 'GET',
       data: `databaseData=${JSON.stringify($signFormData)}&serviceName=${$('.js-type-select').val()}`,
       success: function(data){

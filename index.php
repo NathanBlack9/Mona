@@ -58,7 +58,7 @@
         <div class="services__item">
           <img class="services__img" src="<?php echo get_template_directory_uri(); ?>/build/img/service_5.jpg" alt="" >
           <i class="icon"><img src="<?php echo get_template_directory_uri(); ?>/build/img/service_icon5.svg" alt=""></i>
-          <a href="<?php echo home_url(); ?>/services/browes/" class="services__btn btn">Подробнее</a>
+          <a href="<?php echo home_url(); ?>/services/eyebrow/" class="services__btn btn">Подробнее</a>
           <span class="services__name">Коррекция бровей</span>
         </div>
       </div>

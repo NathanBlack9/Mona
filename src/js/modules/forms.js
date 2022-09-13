@@ -8,14 +8,18 @@ $(document).ready(function () {
       const $input = $formReq[i];
       formRemoveError($input);
 
-      if ($input.classList.contains('js-input-email')){
+      if ($input.value === '') {
+        $($input).next().text('Это поле обяательно для заполнения.');
+        formAddError($input);
+        $error++;
+      } else if ($input.classList.contains('js-input-email')){
         if(emailTest($input)) {
           formAddError($input);
           $error++;
         }
       } else if($input.getAttribute('name') === 'name' ) { // && !$input.classList.contains('js-input-email') && !$input.classList.contains('js-review-rating')
         if(!nameTest($input)) {
-          $input.nextElementSibling.innerHTML = 'Некорректно введено Имя';
+          $($input).next().text('Некорректно введено Имя');
           formAddError($input);
           $error++;
         }
@@ -24,13 +28,7 @@ $(document).ready(function () {
           $error++;
       } else if($input.getAttribute('type') === 'tel' && $input.value != '') { // проверка номера телефона
         if(!phoneTest($input)) {
-          $input.nextElementSibling.innerHTML = 'Некорректный формат номера.';
-          formAddError($input);
-          $error++;
-        }
-      } else {
-        if ($input.value === '') {
-          $input.nextElementSibling.innerHTML = 'Это поле обяательно для заполнения.';
+          $($input).next().text('Некорректный формат номера.');
           formAddError($input);
           $error++;
         }
@@ -114,7 +112,7 @@ $(document).ready(function () {
       console.log($reviewsFormData);
 
       $.ajax({
-        url: WPJS.siteUrl + '/backend/backend.php',
+        url: WPJS.siteUrl + '/backend/review.php',
         type: 'POST',
         data: `newReviewData=${JSON.stringify($reviewsFormData)}`,
         success: function(data){
@@ -142,6 +140,8 @@ $(document).ready(function () {
     $count.text($textlength);
   });
 
+  /* ----- Подписаться на рассылку ----- */ 
+
   $('.js-subscribe-form').on('submit', function (e) {
     e.preventDefault();
   
@@ -161,9 +161,9 @@ $(document).ready(function () {
       // console.log($subscribeFormData); // Какой объект получился до отправки
 
       $.ajax({
-        url: WPJS.siteUrl + '/backend/backend.php',
+        url: WPJS.siteUrl + '/backend/subscribe.php',
         type: 'POST',
-        data: `subscriptEmail=${JSON.stringify($subscribeFormData)}`,
+        data: `subscribeEmail=${JSON.stringify($subscribeFormData)}`,
         success: function(data){
           if(data) {
             $form.remove();
@@ -182,7 +182,10 @@ $(document).ready(function () {
       // alert('Заполните обязательные поля!');
     }
   });
+  /* -------------------------------- */
 
+  /* ----- Удаление Записи ----- */ 
+  
   $('.js-unsign-form').on('submit', function (e) {
     e.preventDefault();
     const $form = $(this);
@@ -199,7 +202,7 @@ $(document).ready(function () {
       });
 
       $.ajax({
-        url: WPJS.siteUrl + '/backend/backend.php',
+        url: WPJS.siteUrl + '/backend/unsign.php',
         type: 'GET',
         data: `allSigns=${JSON.stringify($unsignData)}`,
         success: function(data){
@@ -310,6 +313,7 @@ $(document).ready(function () {
     });
 
   })
+  /* -------------------------------- */ 
 
   $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
 
