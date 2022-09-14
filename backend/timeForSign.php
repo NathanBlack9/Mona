@@ -28,16 +28,11 @@
 
   /* Получается свободное время мастер с ид $masterId, с временем выполнения услуги $serviceTime и в дату $date */
   function getFreeSignTime( $date, $masterId, $serviceTime ) {
-    // global $wpdb;
 
     $mysqli = new mysqli("localhost", "root", "", "mona");
 
-    // $result = $mysqli->query("SELECT * from sign");
     $arrTimeStart = $mysqli->query("SELECT time FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
     $arrTimeEnd = $mysqli->query("SELECT time_end FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
-
-    // $arrTimeStart = $wpdb->get_results("SELECT time FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
-    // $arrTimeEnd = $wpdb->get_results("SELECT time_end FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
 
     $reservedTimesStart = [];
     $reservedTimesEnd = [];
@@ -75,8 +70,15 @@
           /*
             Если время записи + время процедуры НЕ БОЛЬШЕ чем начало следующей записи то только тогда записываем
           */
-          if( ($reservedTimesEnd[$i] + $interval * $j + $serviceTime) <= $reservedTimesStart[$i + 1]) {
-            array_push($timeLine, $reservedTimesEnd[$i] + $interval * $j);
+          $todayHour = gmdate("H") + 3; // +3 для москвы 
+          $today = date("Y-m-d");
+          $time = $reservedTimesEnd[$i] + $interval * $j + $serviceTime;
+          if( $time <= $reservedTimesStart[$i + 1]) {
+            if($date == $today && $time < $todayHour + 1.25) {
+              continue
+            } else {
+              array_push($timeLine, $reservedTimesEnd[$i] + $interval * $j);
+            }
           }
         }
       }

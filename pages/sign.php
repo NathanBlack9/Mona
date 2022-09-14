@@ -348,9 +348,11 @@
           console.log($response);
           console.log(data);
 
-          var $timeEl = $('.wpcf7-list-item').first().clone(); // копируем однин чеквокс времени
+          $('.wpcf7-list-item').first().find('input').prop('checked', false).removeAttr("checked");
+          var $timeEl = $('.wpcf7-list-item').first().clone(); // копируем один чеквокс времени
 
           $('.js-sign-radio').empty(); // очищаем временные чекбоксы 
+          $('.js-sign-radio').append($timeEl);
 
           for (let i = 0; i < $response.length; i++) {
             $timeEl = $timeEl.clone();
@@ -358,7 +360,7 @@
             $timeEl.find('.wpcf7-list-item-label').text($response[i]);
             $input.val($response[i]).prop('checked', false).removeAttr("checked");
             $timeEl.removeClass('first').removeClass('last');
-
+            
             if( i == 0 ) {
               $timeEl.addClass('first');
             }

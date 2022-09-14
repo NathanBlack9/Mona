@@ -72,6 +72,10 @@
       background-color: $pink;
       color: $white;
     }
+
+    &.first.last {
+      display: none;
+    }
   }
 
   .sign-form__time .wpcf7-form-control {
@@ -133,7 +137,7 @@
     }
 
     @media #{$handheld} {
-      display: none;
+      display: none !important;
     }
 
     &-img {
