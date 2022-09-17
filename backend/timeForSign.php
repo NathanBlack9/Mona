@@ -75,7 +75,7 @@
           $time = $reservedTimesEnd[$i] + $interval * $j;
           if( $time + $serviceTime <= $reservedTimesStart[$i + 1]) {
             if($date == $today && $time < $todayHour + 0.25) {
-              continue
+              continue;
             } else {
               array_push($timeLine, $time);
             }

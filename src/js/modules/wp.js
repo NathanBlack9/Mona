@@ -77,12 +77,12 @@ $('.wpcf7-form').on('submit', function (event) {
 
   if ($error == 0) { //Если форма прошла валидацию 
     $.each($(this).serializeArray(), function (index) { 
-      if(index > 5) {
+      // if(index > 5) {
         let name = this.name;
         let value = this.value;
 
         $signFormData[`${name}`] = value;
-      }
+      // }
     });
     console.log($signFormData);
     console.log('=================');

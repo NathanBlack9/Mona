@@ -8,11 +8,11 @@
   $masters = $wpdb->get_results("SELECT * from masters;");
   $categories = $wpdb->get_results("SELECT * from service_categories;");
 
-  $manicure = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 1 and time <> 0;");
-  $pedicure = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 2 and time <> 0;");
-  $sugaring = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 3 and time <> 0;");
-  $lashes = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 4 and time <> 0;");
-  $browes = $wpdb->get_results("SELECT services_name, category_id FROM services WHERE category_id = 5 and time <> 0;");
+  $manicure = $wpdb->get_results("SELECT id, services_name, category_id FROM services WHERE category_id = 1 and time <> 0;");
+  $pedicure = $wpdb->get_results("SELECT id, services_name, category_id FROM services WHERE category_id = 2 and time <> 0;");
+  $sugaring = $wpdb->get_results("SELECT id, services_name, category_id FROM services WHERE category_id = 3 and time <> 0;");
+  $lashes = $wpdb->get_results("SELECT id, services_name, category_id FROM services WHERE category_id = 4 and time <> 0;");
+  $browes = $wpdb->get_results("SELECT id, services_name, category_id FROM services WHERE category_id = 5 and time <> 0;");
 
   function defineMaster( $param ) {
     global $wpdb;
@@ -302,7 +302,7 @@
       data: `service=${$optionVal}`,
       success: function(data){
         let $response = JSON.parse(data);
-        console.log($response);
+        // console.log($response);
         const $masterBlock = $('.js-sign-master');
 
         $masterBlock.find('.sign__master-name').text(`Мастер ${$response.last_name} ${$response.first_name}`);
@@ -346,7 +346,6 @@
 
           var $response = JSON.parse(data);
           console.log($response);
-          console.log(data);
 
           $('.wpcf7-list-item').first().find('input').prop('checked', false).removeAttr("checked");
           var $timeEl = $('.wpcf7-list-item').first().clone(); // копируем один чеквокс времени

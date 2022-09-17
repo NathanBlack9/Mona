@@ -73,7 +73,7 @@
       color: $white;
     }
 
-    &.first.last {
+    &.first.last:first-child {
       display: none;
     }
   }
