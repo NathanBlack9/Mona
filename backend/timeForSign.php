@@ -70,11 +70,11 @@
           /*
             Если время записи + время процедуры НЕ БОЛЬШЕ чем начало следующей записи то только тогда записываем
           */
-          $todayHour = gmdate("H") + 3; // +3 для москвы
+          $todayTime = gmdate("H") + (gmdate("i") / 60) + 3; // +3 для москвы
           $today = date("Y-m-d");
           $time = $reservedTimesEnd[$i] + $interval * $j;
           if( $time + $serviceTime <= $reservedTimesStart[$i + 1]) {
-            if($date == $today && $time < $todayHour + 0.25) {
+            if($date == $today && $time <= $todayTime) {
               continue;
             } else {
               array_push($timeLine, $time);
