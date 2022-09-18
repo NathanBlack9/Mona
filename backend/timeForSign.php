@@ -31,8 +31,8 @@
 
     $mysqli = new mysqli("localhost", "root", "", "mona");
 
-    $arrTimeStart = $mysqli->query("SELECT time FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
-    $arrTimeEnd = $mysqli->query("SELECT time_end FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
+    $arrTimeStart = $mysqli->query("select time FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
+    $arrTimeEnd = $mysqli->query("select time_end FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
 
     $reservedTimesStart = [];
     $reservedTimesEnd = [];
@@ -93,18 +93,19 @@
   $mysqli = new mysqli("localhost", "root", "", "mona");
   
   if(isset($_GET['date']) && isset($_GET['master']) && isset($_GET['serviceName']) ) {
-    $date = $_GET['date'];
-    $master = $_GET['master'];
-    $serviceName = $_GET['serviceName'];
+    $date = $mysqli->real_escape_string($_GET['date']);
+    $master = $mysqli->real_escape_string($_GET['master']);
+    $serviceName = $mysqli->real_escape_string($_GET['serviceName']);
   
-    $time = $mysqli->query("SELECT time FROM services WHERE services_name like '%{$serviceName}%'");
+    $time = $mysqli->query("select time FROM services WHERE services_name like '%$serviceName%'");
     $time = $time->fetch_array(MYSQLI_ASSOC);
+    $time = $mysqli->real_escape_string($time['time']);
   
-    $masterId = $mysqli->query("SELECT id FROM masters WHERE last_name like '%{$master}%'");
+    $masterId = $mysqli->query("select id FROM masters WHERE last_name like '%$master%'");
     $masterId = $masterId->fetch_array(MYSQLI_ASSOC);
     $masterId = intval($masterId['id']);
   
-    print_r(json_encode(getFreeSignTime($date, $masterId, $time['time'])));
+    print_r(json_encode(getFreeSignTime($date, $masterId, $time)));
   
   } else  {
     echo json_encode('Ошибка!!!');

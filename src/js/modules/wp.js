@@ -100,8 +100,7 @@ $('.wpcf7-form').on('submit', function (event) {
         console.log('ERROR SIGN wp.js');
       }
     });
-
-    location.href = '/sign/';
+    
   } else {
     event.preventDefault();
     event.stopPropagation();

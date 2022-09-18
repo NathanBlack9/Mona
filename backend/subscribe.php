@@ -6,8 +6,9 @@
     $object = json_decode($_POST['subscribeEmail'], true); 
   
     $mysqli = new mysqli("localhost", "root", "", "mona");
+    $email = $mysqli->real_escape_string($object['email']);
   
-    $queryInsert = $mysqli->query("INSERT INTO alert(email) VALUES ('{$object['email']}');");
+    $queryInsert = $mysqli->query("insert INTO alert(email) VALUES ('$email');");
   
     if (!$queryInsert) {
       echo false;

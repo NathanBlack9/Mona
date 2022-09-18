@@ -7,13 +7,20 @@
     $object = json_decode($_POST['newReviewData'], true); 
   
     $mysqli = new mysqli("localhost", "root", "", "mona");
-  
-    $marterId = $mysqli->query("SELECT id FROM masters where last_name = '{$object['master']}';");
+
+    $master = $mysqli->real_escape_string($object['master']);
+    $name = $mysqli->real_escape_string($object['name']);
+    $rating = $mysqli->real_escape_string($object['rating']);
+    $reviewText = $mysqli->real_escape_string($object['text']);
+
+    $marterId = $mysqli->query("select id FROM masters where last_name = '$master';");
     $marterId = $marterId->fetch_array(MYSQLI_ASSOC);
-    $masterId = intval($marterId['id']);
-  
-    $serviceId = $mysqli->query("INSERT into reviews (master_id, name, rating, text) values ({$masterId}, '{$object['name']}', {$object['rating']}, '{$object['text']}');");
-      
+    $masterId = $mysqli->real_escape_string(intval($marterId['id']));
+
+    $serviceId = $mysqli->query("insert into reviews (master_id, name, rating, text) values ($masterId, '$name', $rating, '$reviewText');");
+    
+    $mysqli -> close();
+
     print_r('Добавлен новый отзыв');
   } else {
     echo json_encode('Ошибка!!!');
