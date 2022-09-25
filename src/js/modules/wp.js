@@ -77,12 +77,10 @@ $('.wpcf7-form').on('submit', function (event) {
 
   if ($error == 0) { //Если форма прошла валидацию 
     $.each($(this).serializeArray(), function (index) { 
-      // if(index > 5) {
-        let name = this.name;
-        let value = this.value;
+      let name = this.name;
+      let value = this.value;
 
-        $signFormData[`${name}`] = value;
-      // }
+      $signFormData[`${name}`] = value;
     });
     console.log($signFormData);
     console.log('=================');
@@ -91,6 +89,9 @@ $('.wpcf7-form').on('submit', function (event) {
     $.ajax({
       url: WPJS.siteUrl + '/backend/sign.php',
       type: 'GET',
+      beforeSend: function() {
+        $('body').addClass('loading');
+      },
       data: `databaseData=${JSON.stringify($signFormData)}&serviceName=${$('.js-type-select').val()}`,
       success: function(data){
         console.log('SUCCESS SIGN wp.js');

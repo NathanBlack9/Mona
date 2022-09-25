@@ -299,6 +299,14 @@
     $.ajax({
       url: '<?php echo get_template_directory_uri(); ?>/backend/signMasterInfo.php',
       type: 'GET',
+      beforeSend: function() {
+        $('body').addClass('loading');
+      },
+      complete: function() {
+        setTimeout(() => {
+          $('body').removeClass('loading');
+        }, 250);
+      },
       data: `service=${$optionVal}`,
       success: function(data){
         let $response = JSON.parse(data);
@@ -339,6 +347,14 @@
       $.ajax({
         url: '<?php echo get_template_directory_uri(); ?>/backend/timeForSign.php',
         type: 'GET',
+        beforeSend: function() {
+          $('body').addClass('loading');
+        },
+        complete: function() {
+          setTimeout(() => {
+            $('body').removeClass('loading');
+          }, 250);
+        },
         data: `date=${$dateInput.val()}&master=${$('.js-masters-select').val()}&serviceName=${$('.js-type-select').val()}`, <?php // Отправляем дату, фамилию мастера и точный сервис ?>
         success: function(data){
 

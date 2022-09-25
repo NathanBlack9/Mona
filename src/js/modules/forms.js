@@ -60,6 +60,32 @@ $(document).ready(function () {
     }
   }
 
+  function showRemainingSigns(response, table) {
+
+    response.forEach(element => {
+      let $minutes;
+
+      if( (element.time % 1) != 0 ) {
+        $minutes = (element.time % 1) * 60;
+      } else {
+        $minutes = '00';
+      }
+
+      table.find('tr:last')
+      .after(`<tr>
+                <td>${element.id}</td>
+                <td>${element.name}</td>
+                <td>${element.phone}</td>
+                <td>${element.date}, ${Math.trunc(element.time)}:${$minutes}</td>
+                <td> 
+                  <a class="js-delete-sign" href="/" data-id="${element.id}">Удалить
+                    <img src="${WPJS.siteUrl}/build/img/close.svg" alt="" width="14" height="14">
+                  </a>
+                </td>
+              </tr>`);
+    });
+  }
+
   $('.customOptions').selectric({
     optionsItemBuilder: function(itemData, element, index) {
       return element.val().length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
@@ -115,6 +141,14 @@ $(document).ready(function () {
         url: WPJS.siteUrl + '/backend/review.php',
         type: 'POST',
         data: `newReviewData=${JSON.stringify($reviewsFormData)}`,
+        beforeSend: function() {
+          $('body').addClass('loading');
+        },
+        complete: function() {
+          setTimeout(() => {
+            $('body').removeClass('loading');
+          }, 250);
+        },
         success: function(data){
           console.log(data);
 
@@ -164,6 +198,14 @@ $(document).ready(function () {
         url: WPJS.siteUrl + '/backend/subscribe.php',
         type: 'POST',
         data: `subscribeEmail=${JSON.stringify($subscribeFormData)}`,
+        beforeSend: function() {
+          $('body').addClass('loading');
+        },
+        complete: function() {
+          setTimeout(() => {
+            $('body').removeClass('loading');
+          }, 250);
+        },
         success: function(data){
           if(data) {
             $form.remove();
@@ -205,29 +247,24 @@ $(document).ready(function () {
         url: WPJS.siteUrl + '/backend/unsign.php',
         type: 'GET',
         data: `allSigns=${JSON.stringify($unsignData)}`,
+        beforeSend: function() {
+          $('body').addClass('loading');
+        },
+        complete: function() {
+          setTimeout(() => {
+            $('body').removeClass('loading');
+          }, 250);
+        },
         success: function(data){
           let $response = JSON.parse(data);
-          const $tableSection = $('.js-insign-table');
+          const $tableSection = $('.js-unsign-table');
           const $warning = $('.js-unsign-warning');
 
           if($response.length > 0) {
             const $table = $tableSection.find('table');
             $table.find('tr:not(:first)').remove();
   
-            $response.forEach(element => {
-              $table.find('tr:last')
-              .after(`<tr>
-                        <td>${element.id}</td>
-                        <td>${element.name}</td>
-                        <td>${element.phone}</td>
-                        <td>${element.date}, ${Math.trunc(element.time)}:${(element.time % 1)*60}</td>
-                        <td> 
-                          <a class="js-delete-sign" href="/" data-id="${element.id}">Удалить
-                            <img src="${WPJS.siteUrl}/build/img/close.svg" alt="" width="14" height="14">
-                          </a>
-                        </td>
-                      </tr>`);
-            });
+            showRemainingSigns($response, $table);
 
             $tableSection.fadeIn();
             $warning.fadeOut();
@@ -272,33 +309,26 @@ $(document).ready(function () {
             url: WPJS.siteUrl + '/backend/unsign.php',
             type: 'GET',
             data: `unsign=${$id}&unsignData=${JSON.stringify($unsignData)}`,
+            beforeSend: function() {
+              $('body').addClass('loading');
+            },
+            complete: function() {
+              setTimeout(() => {
+                $('body').removeClass('loading');
+              }, 250);
+            },
             success: function(response){
               let $response = JSON.parse(response);
-              const $tableSection = $('.js-insign-table');
+              const $tableSection = $('.js-unsign-table');
+              e.preventDefault();
+
 
               if($response.length > 0) {
                 const $table = $tableSection.find('table');
                 $table.find('tr:not(:first)').remove();
       
-                $response.forEach(element => {
-                  $table.find('tr:last')
-                  .after(`<tr>
-                            <td>${element.id}</td>
-                            <td>${element.name}</td>
-                            <td>${element.phone}</td>
-                            <td>${element.date}, ${Math.trunc(element.time)}:${(element.time % 1)*60}</td>
-                            <td> 
-                              <a class="js-delete-sign" href="/" data-id="${element.id}">Удалить
-                                <img src="${WPJS.siteUrl}/build/img/close.svg" alt="" width="14" height="14">
-                              </a>
-                            </td>
-                          </tr>`);
-                });
+                showRemainingSigns($response, $table);
 
-                // $.alert({
-                //   title: 'Ваша запись отменена!',
-                //   content: 'Спасибо, что заботитесь о других посетителях!',
-                // });
               } 
             },
             error: function(){
@@ -306,9 +336,7 @@ $(document).ready(function () {
             }
           });
         },
-        Отмена: function () {
-          // alert('1');
-        },
+        Отмена: () => { return },
       }
     });
 

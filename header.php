@@ -12,7 +12,7 @@
 ?>
 
 <body>
-
+  <span class="loader"><span class="loader-inner"></span></span>
   <section class="global-container">
 
     <header class="header header-main">

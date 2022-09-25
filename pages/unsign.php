@@ -33,7 +33,7 @@
         <button type="submit" class="btn pink--btn">Отправить</button>
       </form>
       <div class="unsign-page__warning content js-unsign-warning" style="display: none;">У вас нет записей.<br>Проверьте введенные данные!</div>
-      <div class="unsign__table js-insign-table" style="display: none;">
+      <div class="unsign__table js-unsign-table" style="display: none;">
         <table>
           <tr>
             <th>№</th>

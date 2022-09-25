@@ -1,9 +1,9 @@
 @import './variables';
+@import 'components/mixins';
 @import 'base/fonts';
 @import 'base/resets';
 @import 'base/typography';
 @import 'components/layout';
-@import 'components/mixins';
 @import 'components/buttons';
 @import 'components/menu';
 @import 'components/reviews';
@@ -12,6 +12,7 @@
 @import 'components/breadcrumbs';
 @import 'components/sorting';
 @import 'components/progress';
+@import 'components/mouseloader';
 @import './overrides';
 
 @import './header';
