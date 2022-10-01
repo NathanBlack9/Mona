@@ -16,6 +16,18 @@ function get_services_name_from_db() {
 }
 /* ------------------------ */ 
 
+/* Превращаю массив мастеров в ассоц. массив для галерей */
+function get_masters_from_db() {
+  global $wpdb; 
+  $masters = $wpdb->get_results('SELECT last_name from masters', 'ARRAY_A');
+
+  for ($i=0; $i < count($masters); $i++) { 
+    $anotherMasters["{$masters[$i]['last_name']}"] = "{$masters[$i]['last_name']}";
+  }
+  return $anotherMasters;
+}
+/* ------------------------ */ 
+
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
@@ -76,6 +88,7 @@ Container::make( 'theme_options', 'Menu' ) //'Меню'
   ) );
   
 
+
 Container::make( 'theme_options', 'Contacts' )
   ->set_icon('dashicons-phone')
   ->add_fields(array(
@@ -86,6 +99,8 @@ Container::make( 'theme_options', 'Contacts' )
     Field::make( 'text', 'vk', 'Ссылка на ВК' )->set_width(30)->set_default_value('https://vk.com/'),
     Field::make( 'text', 'tg', 'Ссылка на Telegram' )->set_width(30),
   ) );
+
+
 
 Container::make( 'theme_options', 'Media')
   ->set_icon('dashicons-images-alt2')
@@ -103,13 +118,16 @@ Container::make( 'theme_options', 'Media')
     Field::make( 'media_gallery', 'certificates', 'Сертификаты')->set_classes('main-menu')->help_text('Множественный выбор с зажатым Ctrl.<br> Имя мастера писать в ПОДПИСИ!!!')
   ));
 
-  
-//   ->add_tab('Блок марок автомобилей', [
-//     Field::make( 'text', 'mark_title', 'Заголовок' ),
-//     Field::make( 'media_gallery', 'mark_gallery', 'Изображения марок автомобилей') //Лого марок машин  
-//   ])
-//   ->add_tab('Блок ограниченного предложения', [
-//     Field::make( 'text', 'limited_title', 'Заголовок' ),
-//     Field::make( 'text', 'btn_title2', 'Текст кнопки обратного звонка' ),
-//     Field::make( 'media_gallery', 'limited_gallery', 'Изображения для слайдера'), //Изображения для слайдера
-//   ] )
+Container::make( 'theme_options', 'Закрыть день')
+  ->set_icon('dashicons-calendar-alt')
+  ->add_fields(array(
+    Field::make( 'complex', 'closed_dates', 'Выберите мастера и дату когда нужно закрыть день')->set_classes('main-menu js-dont-close-complex')->setup_labels( $employees_labels )
+    ->add_fields('element', array( 
+      Field::make( 'select', 'master', 'Выберите фамилию мастера' )
+        ->add_options('get_masters_from_db')->set_width(50),
+      Field::make( 'date', 'closed_dates', 'Выберите дату' )
+      ->set_storage_format( 'Y-m-d' )
+      ->set_width(50)->set_required( true )
+    ) )->set_header_template('Закрытый день')
+  ));
+
