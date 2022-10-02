@@ -118,7 +118,7 @@ Container::make( 'theme_options', 'Media')
     Field::make( 'media_gallery', 'certificates', 'Сертификаты')->set_classes('main-menu')->help_text('Множественный выбор с зажатым Ctrl.<br> Имя мастера писать в ПОДПИСИ!!!')
   ));
 
-Container::make( 'theme_options', 'Закрыть день')
+Container::make( 'theme_options', 'Close the day')
   ->set_icon('dashicons-calendar-alt')
   ->add_fields(array(
     Field::make( 'complex', 'closed_dates', 'Выберите мастера и дату когда нужно закрыть день')->set_classes('main-menu js-dont-close-complex')->setup_labels( $employees_labels )

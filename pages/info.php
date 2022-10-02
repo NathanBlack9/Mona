@@ -17,7 +17,7 @@ Template Name: info
     ?>
     <div class="info__inner">
       <h1 class="info__title h1"><?php the_title(); ?></h1>
-      <div class="text-container">
+      <div class="text-container content">
         <?php the_content(); ?>
       </div>
     </div>

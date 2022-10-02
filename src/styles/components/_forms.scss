@@ -91,6 +91,19 @@ div.inp {
   }
 }
 
+.form__hint {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: $black;
+  text-align: left;
+  display: none;
+
+  .inp.required.show--hint & {
+    display: block !important;
+  }
+}
+
 .selectric-customOptions .ico {
   display: inline-block;
   vertical-align: middle;

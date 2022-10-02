@@ -276,10 +276,10 @@
         data: `date=${$dateInput.val()}&master=${$('.js-masters-select').val()}&serviceName=${$('.js-type-select').val()}`, <?php // Отправляем дату, фамилию мастера и точный сервис ?>
         success: function(data){
 
-          $('.js-time-block').removeClass('--hidden');
-
+          
           var $response = JSON.parse(data);
           console.log($response);
+          
 
           $('.wpcf7-list-item').first().find('input').prop('checked', false).removeAttr("checked");
           var $timeEl = $('.wpcf7-list-item').first().clone(); // копируем один чеквокс времени
@@ -287,22 +287,28 @@
           $('.js-sign-radio').empty(); // очищаем временные чекбоксы 
           $('.js-sign-radio').append($timeEl);
 
-          for (let i = 0; i < $response.length; i++) {
-            $timeEl = $timeEl.clone();
-            let $input = $timeEl.find('input');
-            $timeEl.find('.wpcf7-list-item-label').text($response[i]);
-            $input.val($response[i]).prop('checked', false).removeAttr("checked");
-            $timeEl.removeClass('first').removeClass('last');
-            
-            if( i == 0 ) {
-              $timeEl.addClass('first');
+          if($response.length) { // Если хоть одно время есть 
+            $('.js-time-block').removeClass('--hidden').removeClass('show--hint');
+  
+            for (let i = 0; i < $response.length; i++) {
+              $timeEl = $timeEl.clone();
+              let $input = $timeEl.find('input');
+              $timeEl.find('.wpcf7-list-item-label').text($response[i]);
+              $input.val($response[i]).prop('checked', false).removeAttr("checked");
+              $timeEl.removeClass('first').removeClass('last');
+              
+              if( i == 0 ) {
+                $timeEl.addClass('first');
+              }
+  
+              if( i == $response.length - 1 ) {
+                $timeEl.addClass('last')
+              }
+  
+              $('.js-sign-radio').append($timeEl); 
             }
-
-            if( i == $response.length - 1 ) {
-              $timeEl.addClass('last')
-            }
-
-            $('.js-sign-radio').append($timeEl); 
+          } else { // Если времени на этот день уже нет
+            $('.js-time-block').removeClass('--hidden').addClass('show--hint');
           }
         },
         error: function(){
@@ -319,6 +325,7 @@
 <script>
   $('.js-masters-select').on('selectric-refresh selectric-before-init', function(event, element, selectric) {
     let $masterNameFromSelect = $(this).val();
+
 
     $('#sign-form__date').datepicker( "option", "beforeShowDay", (date) => {
       // Даты которые выводятся на календаре

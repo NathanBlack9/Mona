@@ -102,8 +102,8 @@ a {
 
   a,
   p > a {
-    color: $link-pink;
-    // text-decoration: underline;
+    color: $link-pink !important;
+    text-decoration: none !important;
     font-weight: 400;
     @include Underline($link-pink, 1px);
   }
