@@ -17,7 +17,7 @@
 
 <?php get_template_part( 'header__lite' ); ?>
 
-  <section class="intro">
+  <section class="intro js-inview">
     <div class="wrapper">
       <div class="intro__inner">
         <h1 class="intro__title">Студия маникюра <span>Mona<span></h1>
@@ -27,7 +27,7 @@
     </div>
   </section>
 
-  <section class="services">
+  <section class="services js-inview">
     <div class="wrapper">
       <div class="services__title h1">Наши услуги</div>
       <div class="services__inner">
@@ -65,7 +65,7 @@
     </div>
   </section>
 
-  <section class="about">
+  <section class="about js-inview">
     <div class="wrapper">
       <div class="about__inner">
         <div class="about__title h1 only-mobile">О нас</div>
@@ -96,7 +96,7 @@
     </div>
   </section>
 
-  <section class="features">
+  <section class="features js-inview">
     <div class="wrapper">
       <div class="features__title h1">Почему нам доверяют</div>
       <div class="features__inner">
@@ -131,7 +131,7 @@
     </div>
   </section>
 
-  <div class="certificates">
+  <div class="certificates js-inview">
     <div class="wrapper">
       <div class="certificates__title h1">Сертификаты</div>
       <div class="certificates__text">Наши мастера имеют высокую квалификацию и&nbsp;регулярно повышают свой уровень, посещая различные мастер-классы, о&nbsp;чем свидетельствуют наши сертификаты.</br>
@@ -160,7 +160,7 @@
     </div>
   </div>
 
-  <section class="reviews">
+  <section class="reviews js-inview">
     <div class="wrapper">
       <div class="reviews__title h1">Отзывы</div>
       <div class="reviews__inner js-review-sort">
@@ -195,7 +195,7 @@
     </div>
   </section>
 
-  <section class="subscribe">
+  <section class="subscribe js-inview">
     <div class="wrapper">
       <div class="subscribe__inner">
         <div class="h1 subscribe__title">Подписаться</div>

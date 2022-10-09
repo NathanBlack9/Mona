@@ -20,3 +20,7 @@
     transform-origin: left;
   }
 }
+
+@mixin animTransition($speed: 800ms) {
+  transition: all $speed ease;
+}

@@ -8,12 +8,12 @@ $(document).on('click.scroll-to', '.js-scroll-to', function (e) {
 
   if ($elem_to_scroll == '#!' || $elem_to_scroll == '#') return;
 
-  let offseta = $($elem_to_scroll).offset().top;
+  let offset = $($elem_to_scroll).offset().top;
 
   // $(window).scrollTo($elem_to_scroll, { duration: speed, offset: offset });
 
   $('html, body').animate({
-    scrollTop: offseta - 150
+    scrollTop: offset - 150
   }, speed, 'linear');
 });
 
@@ -73,3 +73,24 @@ new ScrollMagic.Scene({ triggerElement: "#lashes" })
   // .addIndicators()
   .offset(150)
   .addTo(controller);
+
+
+
+// Homepage animations
+
+$(() => {
+  $('.js-inview').each(function inviewHandler() {
+    $(this).bind('inview', (event, isInView, visiblePartX, visiblePartY) => {
+    // $(this).bind('inview', (event, isInView) => {
+      if (
+        ($(this).hasClass('js-inview-top') && isInView)
+        || (!$(window).width() > 480 ? visiblePartY === 'center' || visiblePartY === 'bottom' : isInView)
+        // isInView
+      ) {
+        $(this).addClass('inview').unbind('inview');
+        $(this).trigger('inviewTriggered');
+      }
+      $(window).trigger('inviewTriggered');
+    });
+  });
+});
