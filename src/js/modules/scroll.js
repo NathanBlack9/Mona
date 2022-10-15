@@ -18,6 +18,7 @@ $(document).on('click.scroll-to', '.js-scroll-to', function (e) {
 });
 
 
+// aside на странице цен 
 $(function () {
 
   let $nav = $('.js-navigation');
@@ -26,14 +27,10 @@ $(function () {
     $maxH = $(document).innerHeight(),
     $finishH = $('.payment').innerHeight() + $('.footer').innerHeight();
 
-  // console.log($('.description').offset().top);
-  // console.log($maxH);
-
   // фиксирование навигации
   $(window).on('scroll load resize', function () {
 
     let $scrollPos = $(window).scrollTop();
-
 
     if ($scrollPos > ($maxH - $height)) {
       $nav.removeClass('fixed');
@@ -77,7 +74,6 @@ new ScrollMagic.Scene({ triggerElement: "#lashes" })
 
 
 // Homepage animations
-
 $(() => {
   $('.js-inview').each(function inviewHandler() {
     $(this).bind('inview', (event, isInView, visiblePartX, visiblePartY) => {

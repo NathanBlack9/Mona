@@ -2,7 +2,7 @@
 
   $mysqli = new mysqli("localhost", "root", "", "mona");
 
-  if(isset($_GET['databaseData']) && isset($_GET['serviceName']) ) {
+  if(isset($_GET['databaseData']) && isset($_GET['serviceName']) ) { // Заполнение БД записью
   
     $object = json_decode($_GET['databaseData'], true); 
     $serviceName = $mysqli->real_escape_string($_GET['serviceName']);
@@ -38,6 +38,15 @@
   
     print_r('ГОТОВО!!!');
 
+  } else if ( isset($_GET['optionVal']) ) { // Проверяем выбранную услугу на стр sign
+    
+    $serviceName = $mysqli->real_escape_string($_GET['optionVal']);
+
+    $services_info = $mysqli->query("select id, master_id, category_id, time, services_name FROM services WHERE time <> 0 and category_id = (select id from service_categories where name like '%$serviceName%' )");
+    $services_info = $services_info->fetch_all(MYSQLI_ASSOC);
+
+    print_r(json_encode($services_info));
+    
   } else {
     echo json_encode('Ошибка!!!');
   }

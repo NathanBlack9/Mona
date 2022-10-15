@@ -73,8 +73,7 @@
             <ul>
               <li class="footer__payment-visa" style="width: 60px;"></li>
               <li class="footer__payment-master" style="width: 36px;"></li>
-              <li class="footer__payment-cash" style="width: 25px;"></li>
-              <span>Наличные</span>
+              <li class="footer__payment-cash" style="width: 25px;" title="Наличные"><span>Наличные</span></li>
             </ul>
           </div>
         </div>

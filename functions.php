@@ -1,26 +1,12 @@
 <?php
-
-// add_action( 'after_setup_theme', 'crb_load' );
-// function crb_load() {
-// 	require_once( 'includes/carbon-fields/vendor/autoload.php' );
-// 	\Carbon_Fields\Carbon_Fields::boot();
-// };
+//Отключаем лишнее подключаем нужное
+include('resetWP.php');
 
 add_action('carbon_fields_register_fields', 'register_carbon_fields');
 function register_carbon_fields() {
   require_once( 'includes/carbon-fields-options/theme-options.php' );
   require_once( 'includes/carbon-fields-options/post-meta.php' );
 }
-
-
-// add_action('init', 'create_global_variable');
-// function create_global_variable() {
-//     global $blago;
-//     $blago = [
-//       'phone' => carbon_get_theme_option('site_phone'),
-//       'phone_digits' => carbon_get_theme_option('site_phone_digits'),
-//     ];
-// }
 
 add_filter( 'body_class', function( $classes ) {  
   

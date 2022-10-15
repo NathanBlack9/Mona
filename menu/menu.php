@@ -5,7 +5,7 @@
   $menu = carbon_get_theme_option('header_menu');
 ?>
 
-<menu class="menu js-menu">
+<div class="menu js-menu">
   <div class="wrapper">
     <div class="menu__inner">
       <ul>
@@ -41,4 +41,4 @@
       <a href="<?php echo home_url(); ?>/sign/" class="menu__sign-btn btn not-desktop">Записаться онлайн</a>
     </div>
   </div>
-</menu>
+</div>

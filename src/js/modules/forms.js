@@ -135,7 +135,7 @@ $(document).ready(function () {
   
         $reviewsFormData[`${name}`] = value;
       });
-      console.log($reviewsFormData);
+      // console.log($reviewsFormData);
 
       $.ajax({
         url: WPJS.siteUrl + '/backend/review.php',
@@ -150,7 +150,7 @@ $(document).ready(function () {
           }, 250);
         },
         success: function(data){
-          console.log(data);
+          // console.log(data);
 
           $form.fadeOut();
           $('.js-review-form-success').fadeIn();
@@ -343,6 +343,16 @@ $(document).ready(function () {
   })
   /* -------------------------------- */ 
 
-  $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
+  // Звезды отзывов
+  $('.js-reviews-rating').each(function() {
+    const $this = $(this);
+    const $rating = $this.data('rating');
+    const $block = $this.find('.reviews__rating');
 
+    for (let i = 0; i <= $rating; i++) {
+      $block.find(`li:nth-child(${ i })`).addClass('active');
+    }
+  })
+  
+  $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
 });

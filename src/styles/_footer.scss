@@ -302,6 +302,14 @@
 
         span {
           margin-bottom: 0;
+          position: absolute;
+          left: calc(100% + 10px);
+          top: 50%;
+          transform: translateY(-50%);
+
+          @media only screen and (max-width: 1500px) and (min-width: 1025px) {
+            display: none;
+          }
         }
 
         @for $i from 1 through $payments-length {
@@ -324,6 +332,7 @@
           font-weight: 400;
           font-size: 12px;
           position: relative;
+          cursor: default;
 
           &::before {
             content: '';

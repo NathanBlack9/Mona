@@ -20,7 +20,7 @@
   <section class="intro js-inview">
     <div class="wrapper">
       <div class="intro__inner">
-        <h1 class="intro__title">Студия маникюра <span>Mona<span></h1>
+        <h1 class="intro__title">Студия маникюра <span>Mona</span></h1>
         <h2 class="intro__subtitle">маленький уголок заботы о себе</h2>
         <a href="<?php echo home_url(); ?>/services/" class="intro__btn btn">Наши услуги</a>
       </div>
@@ -134,7 +134,7 @@
   <div class="certificates js-inview">
     <div class="wrapper">
       <div class="certificates__title h1">Сертификаты</div>
-      <div class="certificates__text">Наши мастера имеют высокую квалификацию и&nbsp;регулярно повышают свой уровень, посещая различные мастер-классы, о&nbsp;чем свидетельствуют наши сертификаты.</br>
+      <div class="certificates__text">Наши мастера имеют высокую квалификацию и&nbsp;регулярно повышают свой уровень, посещая различные мастер-классы, о&nbsp;чем свидетельствуют наши сертификаты.<br>
       Кроме того, наши мастера&nbsp;&mdash; регулярные участники всероссийских и&nbsp;международных конкурсов красоты.
       </div>
       <div class="certificates__inner">
@@ -200,7 +200,7 @@
       <div class="subscribe__inner">
         <div class="h1 subscribe__title">Подписаться</div>
         <div class="subscribe__subtitle">Будьте в курсе всех самых свежих новостей и акций</div>
-        <form action="" class="subscription__form js-subscribe-form form">
+        <form action="/backend/subscribe.php" method="POST" class="subscription__form js-subscribe-form form">
           <div class="inp required">
             <input type="text" name="email" class="subscribe__inp js-input-email" placeholder="info@studiomona.ru">
             <div class="form__error" style="display: none;">Поле должно содержать E-Mail в формате example@site.com</div>
