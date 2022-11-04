@@ -65,34 +65,34 @@ body {
   }
 }
 
-.services__item {
+.homepage .services__item {
   opacity: 0;
   transform: translateX(50%);
   @include animTransition;
+}
 
-  .inview & {
-    transform: translateX(0);
-    opacity: 1;
+.inview .homepage .services__item {
+  transform: translateX(0);
+  opacity: 1;
 
-    &:nth-child(1) {
-      transition-delay: 200ms;
-    }
+  &:nth-child(1) {
+    transition-delay: 200ms;
+  }
 
-    &:nth-child(2) {
-      transition-delay: 400ms;
-    }
+  &:nth-child(2) {
+    transition-delay: 400ms;
+  }
 
-    &:nth-child(3) {
-      transition-delay: 600ms;
-    }
+  &:nth-child(3) {
+    transition-delay: 600ms;
+  }
 
-    &:nth-child(4) {
-      transition-delay: 800ms;
-    }
+  &:nth-child(4) {
+    transition-delay: 800ms;
+  }
 
-    &:nth-child(5) {
-      transition-delay: 1000ms;
-    }
+  &:nth-child(5) {
+    transition-delay: 1000ms;
   }
 }
 
