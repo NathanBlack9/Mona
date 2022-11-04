@@ -1,0 +1,117 @@
+.unsign-page {
+  min-height: 700px;
+
+  .unsign__inner {
+    position: relative;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media #{$handheld} {
+      flex-direction: column;
+    }
+  }
+
+  .unsign-form {
+    width: 400px;
+
+    @media only screen and (max-width: 1280px) {
+      width: auto;
+    }
+
+    @media #{$handheld} {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+  }
+
+  .unsign__table {
+
+    @media #{$handheld} {
+      width: 100%;
+      margin-bottom: 35px;
+    }
+
+    @media #{$mobile} {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+
+    table {
+      border-collapse: collapse;
+      border: 2px solid $pink;
+
+      @media #{$handheld} {
+        width: 100%;
+      }
+
+      th {
+        padding: 20px 40px;
+        background-color: $pink;
+        font-weight: 700;
+        font-size: 16px;  
+        color: $white;
+
+        @media #{$small-notebook} {
+          padding: 20px 20px;
+        }
+
+        + th {
+          border-left: 1px solid $pink;
+        }
+
+        &:last-child {
+          background-color: $white;
+          color: $black;
+          font-weight: 900;
+        }
+      }
+
+      tr {
+
+        + tr {
+          border-top: 1px solid $pink;
+        }
+      }
+
+      td {
+        padding: 15px 30px;
+        font-size: 14px;
+        color: $black;
+        text-align: center;
+
+        @media #{$small-notebook} {
+          padding: 15px 20px;
+        }
+        
+        > a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: $black;
+          text-decoration: underline;
+
+          img {
+            margin-left: 5px;
+          }
+        }
+
+        + td {
+          border-left: 1px solid $pink;
+        }
+      }
+    }
+  }
+
+  .unsign-page__warning {
+    position: absolute;
+    right: 50%;
+    top: 0;
+
+    @media #{$handheld} {
+      right: auto;
+      top: 100%;
+    }
+  }
+}

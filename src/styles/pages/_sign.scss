@@ -1,0 +1,193 @@
+.sign-page {
+
+  .sign__inner {
+    position: relative;
+    margin: 50px 0 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @media #{$small-mobile} {
+      margin: 30px 0 75px;
+    }
+  }
+
+  .sign__content {
+    max-width: 780px;
+  }
+
+  .sign-form {
+    max-width: 410px;
+    margin-left: 150px;
+
+    @media #{$small-mobile} {
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    div.inp {
+      margin-bottom: 30px;
+      transition: all 150ms ease;
+
+      &.--hidden {
+        transition: all 150ms ease;
+        opacity: 0;
+        pointer-events: none;
+        height: 0;
+      }
+    }
+    
+    .h3 {
+      margin-bottom: 15px;      
+    }
+
+    .btn {
+      @media #{$small-mobile} {
+        width: 100%;
+      }
+    }
+  }
+
+  .wpcf7-response-output {
+    max-width: 410px !important;
+    margin-left: 150px !important;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+    padding: 1em 1.5em !important;
+
+    @media #{$small-mobile} {
+      margin-left: 0 !important;
+      max-width: 100% !important;
+    }
+  }
+
+  .sign-form__date-input {
+    display: none;
+  }
+
+  .wpcf7-list-item {
+    margin-left: 0 !important;
+
+    &.active label {
+      background-color: $pink;
+      color: $white;
+    }
+
+    &.first.last:first-child {
+      display: none;
+    }
+  }
+
+  .sign-form__time .wpcf7-form-control {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 12px;
+    justify-content: space-between;
+  }
+
+  .sign-form__time {
+    
+    div.radio {
+      input {
+        display: none;
+      }
+
+      label {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;  
+        padding: 10px 0;
+        // width: 105px;
+        border: 2px solid $pink;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1;
+        color: $black;
+        transition: all 150ms ease;
+
+        @media #{$small-mobile} {
+          font-size: 12px;
+        }
+
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+
+        &:hover {
+          background-color: rgba($pink, 0.7);
+        }
+      }
+    }
+  }
+
+  .checkbox .wpcf7-form-control-wrap {
+    display: none;
+  }
+
+  .sign-form__checkbox {
+    display: none;
+  }
+
+  .sign__master {
+    max-width: 600px;
+
+    @media #{$small-notebook} {
+      max-width: 420px;
+    }
+
+    @media #{$handheld} {
+      display: none !important;
+    }
+
+    &-img {
+      max-height: 400px;
+      max-width: 430px;
+      object-fit: cover;
+
+      @media #{$small-notebook} {
+        max-height: 270px;
+      }
+    }
+
+    &-name {
+      margin: 25px 0 10px;
+    }
+
+    &-desc {
+      margin-bottom: 25px;
+      font-weight: 400;
+      font-size: 14px;
+      max-width: 50%;
+    }
+
+    &-btn {
+      font-weight: 400;
+      font-size: 14px;
+      color: $black;
+      display: inline-block;
+    }
+  }
+
+  .sign-progress {
+    @media #{$small-mobile} {
+      display: none;
+    }
+  }
+
+  .selectric .label {
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .sign__success-btn {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 400;
+    color: $black;
+  }
+}

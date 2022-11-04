@@ -1,0 +1,125 @@
+.inp {
+  outline: none !important;
+  border: 0;
+}
+
+input.inp, 
+textarea.inp {
+  border: 1px solid $pink;
+  box-shadow: 6px 8px 4px rgba($pink, 0.25);
+  font-weight: 400;
+  font-size: 16px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+textarea.inp {
+  padding-top: 10px;
+}
+
+input.inp {
+  height: 40px;
+}
+
+div.inp {
+  margin-bottom: 25px;
+}
+
+.checkbox {
+  cursor: pointer;
+  padding-left: 33px;
+  position: relative;
+  display: block;
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba($black, 50%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 17px; height: 17px;
+    border: 1px solid $pink;
+    transition: all 100ms ease;
+    background: $white url('build/img/check.png') no-repeat 50%;
+    background-size: 11px;
+  }
+
+  &.active {
+    &::before {
+      background-color: $pink;
+    }
+  }
+
+  br {
+    display: none;
+  }
+  
+  a {
+    color: $black;
+    font-weight: normal;
+    text-decoration: underline;
+  }
+}
+
+.inp-label {
+  font-weight: 400;
+  font-size: 14px;
+  color: $black;
+  margin-bottom: 7px;
+
+  @media #{$small-mobile} {
+    font-size: 12px;
+  }
+
+  .required {
+    color: $red;
+  }
+}
+
+.form__error {
+  font-size: 12px;
+  margin: 10px 0;
+  color: $red;
+  text-align: left;
+  display: none;
+
+  .inp.required.error &,
+  .error > & {
+    display: block !important;
+  }
+}
+
+.form__hint {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: $black;
+  text-align: left;
+  display: none;
+
+  .inp.required.show--hint & {
+    display: block !important;
+  }
+}
+
+.selectric-customOptions .ico {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  height: 30px;
+  width: 30px;
+  margin: 0 6px 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+}
+
+.selectric-customOptions {
+  @for $i from 1 through $masters-length {
+    .ico-#{nth($masters, $i)} {
+      background-image: url('build/img/master-ico-#{nth($masters, $i)}.png');
+    }
+  }
+}

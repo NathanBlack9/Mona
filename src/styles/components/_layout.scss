@@ -1,0 +1,43 @@
+.global-container {
+  min-height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  max-width: 1684px;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1684px) {
+    margin: 0 30px;
+  }
+
+  @media #{$small-mobile} {
+    margin: 0 20px;
+  }
+}
+
+.only-mobile {
+  @media #{$not-mobile} {
+    display: none !important;
+  }
+}
+
+.not-mobile {
+  @media #{$mobile} {
+    display: none !important;
+  }
+}
+
+.only-desktop {
+  @media #{$handheld} {
+    display: none !important;
+  }
+}
+
+.not-desktop {
+  @media #{$only-desktop} {
+    display: none !important;
+  }
+}
+

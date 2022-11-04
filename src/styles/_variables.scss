@@ -1,0 +1,38 @@
+$black       :#343434;
+$white       :#fff;
+$dark        :#000;
+$red         :#E6313B;
+$pink        :#FFC0CB; 
+$link-pink   :#DB7093; 
+$blue        :#2271B1;
+// #EDC9BD
+
+/* Arrays for loop's */
+
+$messengers: "wh", "vb", "tg";
+$messengers-length: length($messengers);
+
+$socials: "inst", "vk";
+$socials-length: length($socials);
+
+$payments: "visa", "master", "cash";
+$payments-length: length($payments);
+
+$masters: "Аракелян", "Хачатрян", "Антонова";
+$masters-length: length($masters);
+
+/*media variables*/
+
+$notebook-and-less : 'only screen and (max-width: 1440px)';
+$small-notebook    : 'only screen and (max-width: 1366px)';
+$handheld          : 'only screen and (max-width: 1024px)';
+$small-handheld    : 'only screen and (max-width: 812px)';
+$portrait-tablet   : 'only screen and (max-width: 768px)';
+$mobile            : 'only screen and (max-width: 700px)';
+$small-mobile      : 'only screen and (max-width: 480px)';
+$mini-mobile       : 'only screen and (max-width: 375px)';
+
+
+$not-small-mobile  : 'only screen and (min-width: 481px)';
+$not-mobile        : 'only screen and (min-width: 701px)';
+$only-desktop      : 'only screen and (min-width: 1025px)';

@@ -1,0 +1,30 @@
+.DS_Store
+node_modules/
+dist/
+includes/carbon-fields
+npm-debug.log
+yarn-error.log
+package-lock.json
+.jshintrc
+desktop.ini
+templates_navigation.php
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+#misc
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# production
+/build
+
+# testing
+/coverage

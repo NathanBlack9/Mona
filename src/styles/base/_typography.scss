@@ -1,0 +1,131 @@
+.h1 {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 52px;
+  color: $black;
+  // margin-bottom: 70px;
+
+  @media #{$handheld} {
+    font-size: 38px;
+  }
+
+  @media #{$mobile} {
+    font-size: 28px;
+  }
+
+  @media #{$small-mobile} {
+    font-size: 18px;
+  }
+}
+
+.h2 {
+  font-weight: 800;
+  font-size: 43px;
+  color: $black;
+
+  @media #{$handheld} {
+    font-size: 28px;
+  }
+
+  @media #{$mobile} {
+    font-size: 18px;
+  }
+
+  @media #{$small-mobile} {
+    font-size: 16px;
+  }
+}
+
+.h3 {
+  font-weight: 700;
+  font-size: 22px;
+
+  @media #{$handheld} {
+    font-size: 19px;
+  }
+
+  @media #{$mobile} {
+    font-size: 16px;
+  }
+
+  @media #{$small-mobile} {
+    font-size: 15px;
+  }
+}
+
+p {
+  font-size: 12px;
+  font-weight: 100;
+  color: $black;
+
+  span {
+    color: $white;
+    font-weight: bold;
+  }
+}
+
+a {
+  font-weight: bold;
+  color: $white;
+  text-decoration: none;
+}
+
+.content {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6rem;
+  color: $black;
+
+  @media #{$small-handheld} {
+    font-size: 14px;
+  }
+
+  @media #{$small-mobile} {
+    font-size: 12px;
+    line-height: 1.2rem;
+  }
+
+  p {
+    font-weight: 400;
+    font-size: 18px;
+    color: $black;
+    margin-bottom: 0.3rem;
+
+    @media #{$small-handheld} {
+      font-size: 14px;
+    }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+    }
+  }
+
+  a,
+  p > a {
+    color: $link-pink !important;
+    text-decoration: none !important;
+    font-weight: 400;
+    @include Underline($link-pink, 1px);
+  }
+
+  ol,
+  ul {
+    padding-left: 50px;
+    margin-bottom: 1em;
+    font-weight: 400;
+    font-size: 18px;
+
+    @media #{$small-handheld} {
+      font-size: 14px;
+    }
+
+    @media #{$small-mobile} {
+      padding-left: 30px;
+      font-size: 12px;
+    }
+    
+    li::marker {
+      color: $pink;
+    }
+  }
+}

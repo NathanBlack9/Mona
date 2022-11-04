@@ -1,0 +1,238 @@
+.reviews {
+
+  .homepage & {
+    margin-bottom: 150px;
+
+    @media #{$small-mobile} {
+      margin-bottom: 60px;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &.reviews-page {
+    padding-bottom: 80px;
+
+    hr {
+      margin: 45px 0 60px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    .reviews__title {
+      margin-bottom: 0;
+    }
+
+    .reviews__inner {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-column-gap: 60px;
+      grid-row-gap: 50px;
+
+      @media only screen and (max-width: 1610px) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      @media #{$small-notebook} {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media #{$handheld} {
+        grid-column-gap: 20px;
+      }
+
+      @media only screen and (max-width: 900px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media #{$small-mobile} {
+        grid-template-columns: repeat(1, auto);
+      }
+    }
+
+    .reviews__content {
+      margin: 10px 0 40px;
+    }
+
+    .reviews-form {
+      max-width: 380px;
+
+      @media #{$small-mobile} {
+        max-width: 100%;
+      }
+
+      .btn[type="submit"] {
+        margin: 0 auto;
+      }
+
+      div.inp {
+        margin-bottom: 25px;
+      }
+    }
+
+    .selectric .label {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .reviews-form__rating .reviews__rating {
+      li {
+        cursor: pointer;
+        width: 33px;
+        height: 28px;
+      }
+    }
+  }
+
+  .textarea-symbol-counter {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: $pink;
+  }
+
+  .reviews__title {
+    margin-bottom: 30px;
+  }
+
+  .reviews__inner {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+
+    @media #{$small-notebook} {
+      grid-template-columns: repeat(3, auto);
+    }
+
+    @media #{$handheld} {
+      grid-column-gap: 30px;
+    }
+
+    @media #{$small-handheld} {
+      grid-column-gap: 0;
+      grid-template-columns: repeat(2, auto);
+    }
+
+    @media #{$mobile} {
+      grid-template-columns: repeat(1, auto);
+    }
+  }
+
+  .reviews__item {
+    display: flex;
+    flex-direction: column;
+
+    @media #{$small-notebook} {
+      margin-bottom: 70px;
+    }
+
+    @media #{$mobile} {
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid rgba($black, 0.5);
+    }
+  }
+
+  .reviews__name {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+
+    @media #{$small-mobile} {
+      font-size: 14px;
+    }
+  }
+
+  .reviews__job {
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 10px;
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  .reviews__btn {
+    font-weight: 400;
+    font-size: 18px;
+    color: $black;
+    padding: 13px 60px;
+    margin: 0 auto;
+    margin-top: 2em;
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+      padding: 10px 35px;
+      margin-top: 40px;
+    }
+  }
+
+  .reviews__rating {
+    width: 265px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+
+    li {
+      list-style-type: none;
+      padding: 0;
+      display: block;
+      width: 21px;
+      height: 18px;
+
+      &:not(:first-child) {
+        margin-left: 5px;
+      }
+
+      &:before {
+        content: '';
+        background: url('build/img/star-passive.svg') no-repeat 50%/cover;
+        display: block;
+        width: 100%;
+        height: 100%;
+        transition: all 100ms linear;
+      }
+
+      &.active,
+      &.active-fixed {
+        &::before {
+          background: url('build/img/star-active.svg') no-repeat 50%/cover;
+        }
+      }
+    }
+  }
+
+  .reviews__text {
+    max-width: 280px;
+    font-weight: 400;
+    font-size: 14px;
+    position: relative;
+
+    @media #{$mobile} {
+      max-width: 100%;
+    }
+
+    @media #{$small-mobile} {
+      font-size: 12px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 75px;
+      border-top: 1px solid $black;
+    }
+  }
+}
