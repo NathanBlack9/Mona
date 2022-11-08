@@ -3,18 +3,18 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
-  &::-webkit-scrollbar {
-    // width: 6px;
-    width: 0;
-    background-color: $white;
-    box-shadow: inset -1px 0px 0px $white;
-  }
+// html, body {
+//   &::-webkit-scrollbar {
+//     // width: 6px;
+//     width: 0;
+//     background-color: $white;
+//     box-shadow: inset -1px 0px 0px $white;
+//   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: $pink;
-  }
-}
+//   &::-webkit-scrollbar-thumb {
+//     background-color: $pink;
+//   }
+// }
 
 body {
   font-family: 'Overpass', sans-serif;
