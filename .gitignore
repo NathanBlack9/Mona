@@ -24,8 +24,5 @@ templates_navigation.php
 .env.test.local
 .env.production.local
 
-# production
-/build
-
 # testing
 /coverage

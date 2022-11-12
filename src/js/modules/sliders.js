@@ -70,7 +70,7 @@ $(".js-slideshow").each(function () {
         },
       },
       {
-        breakpoint: 480 + 1,
+        breakpoint: 540 + 1,
         settings: {
           slidesToShow: 1,
           arrows: false,
