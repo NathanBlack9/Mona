@@ -5,6 +5,10 @@
     position: relative;
     margin-top: 50px;
     display: block;
+
+    @media #{$mobile} {
+      margin-top: 0;
+    }
   }
 
   ymaps[class$="-ground-pane"] {

@@ -96,7 +96,9 @@ $(document).ready(function () {
   });
 
   // $('select:not(.not-default-select)').selectric();
-  $('select').selectric();
+  $('select').selectric({
+    nativeOnMobile: false,
+  });
 
 
   $('.js-sign-radio').click(function() {

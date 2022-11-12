@@ -36,6 +36,12 @@
       &::after {
         content: 'Назад';
         font-size: 12px;
+        height: auto;
+        width: auto;
+        background: none;
+        top: -0.25em;
+        left: 15px;
+        transform: translateY(-50%);
       }
 
       &::before {
