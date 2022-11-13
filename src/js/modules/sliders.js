@@ -63,15 +63,6 @@ $(".js-slideshow").each(function () {
       {
         breakpoint: 700 + 1,
         settings: {
-          slidesToShow: 1.5,
-          arrows: false,
-          dots: true,
-          adaptiveHeight: true,
-        },
-      },
-      {
-        breakpoint: 540 + 1,
-        settings: {
           slidesToShow: 1,
           arrows: false,
           dots: true,
