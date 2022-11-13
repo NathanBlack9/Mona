@@ -119,7 +119,7 @@ div.inp {
 .selectric-customOptions {
   @for $i from 1 through $masters-length {
     .ico-#{nth($masters, $i)} {
-      background-image: url('build/img/master-ico-#{nth($masters, $i)}.png');
+      background-image: url('build/img/master-ico-#{nth($masters, $i)}.jpg');
     }
   }
 }
