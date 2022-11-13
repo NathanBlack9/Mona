@@ -1,6 +1,6 @@
 <?php
 
-  $mysqli = new mysqli("localhost", "root", "", "mona");
+  $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
 
   if(isset($_GET['unsign']) && isset($_GET['unsignData'])){// Удаление записи и вывод всех оставшихся записей
     
