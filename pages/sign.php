@@ -100,7 +100,10 @@
       <?php } ?>      
   });
 
-  $(()=> {$('.js-services-select').trigger('selectric-change')});
+  $(()=> {
+    $('.js-services-select').trigger('selectric-change');
+    $('.ui-datepicker-today').click();
+  });
 
 </script>
 <?php 

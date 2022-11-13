@@ -75,7 +75,7 @@
 
             <?php if($aboutGallery) { ?>
               <?php foreach($aboutGallery as $item) { ?>
-                <img data-lazy="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="О нас" class="about__slider-item">
+                <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" data-lazy="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="О нас" class="about__slider-item">
               <?php } ?>
             <?php } ?>
           </div>
