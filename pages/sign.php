@@ -49,7 +49,7 @@
       <section class="sign__master js-sign-master" style="display: none;">
         <img src="" alt="" class="sign__master-img">
         <div class="sign__master-name h3"></div>
-        <div class="sign__master-desc"></div>
+        <?php /* <div class="sign__master-desc"></div> */ ?>
         <a href="#" class="sign__master-btn btn pink--btn" target="_blank">Посмотреть отзывы</a>
       </section>
     </div>

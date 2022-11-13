@@ -160,40 +160,42 @@
     </div>
   </div>
 
-  <section class="reviews js-inview">
-    <div class="wrapper">
-      <div class="reviews__title h1">Отзывы</div>
-      <div class="reviews__inner js-review-sort">
-        <?php $counter = 0; ?>
-        <?php foreach($reviews as $item) { 
-          if ($counter >= 4) break;
-          if($item->rating >= 4 && $item->view == 1) {
+  <?php if($reviews) {?>
+    <section class="reviews js-inview">
+      <div class="wrapper">
+        <div class="reviews__title h1">Отзывы</div>
+        <div class="reviews__inner js-review-sort">
+          <?php $counter = 0; ?>
+          <?php foreach($reviews as $item) { 
+            if ($counter >= 4) break;
+            if($item->rating >= 4 && $item->view == 1) {
 
-            $master = defineMaster($item->master_id); 
-          ?>
-            <?php foreach($master as $y) { ?>
-              <div class="reviews__item js-reviews-rating" data-rating="<?php echo $item->rating; ?>" data-id="<?php echo $item->id; ?>">
-                <div class="reviews__name"><?php echo $item->name; ?></div>
-                <div class="reviews__job">
-                  <span>мастер</span>
-                  <?php echo $y->last_name .' '.$y->first_name ?>
+              $master = defineMaster($item->master_id); 
+            ?>
+              <?php foreach($master as $y) { ?>
+                <div class="reviews__item js-reviews-rating" data-rating="<?php echo $item->rating; ?>" data-id="<?php echo $item->id; ?>">
+                  <div class="reviews__name"><?php echo $item->name; ?></div>
+                  <div class="reviews__job">
+                    <span>мастер</span>
+                    <?php echo $y->last_name .' '.$y->first_name ?>
+                  </div>
+                  <ul class="reviews__rating">
+                    <?php $i = 1 ?>
+                    <?php while ($i <= 5) { ?>
+                      <li></li>
+                    <?php $i++; } ?>
+                  </ul>
+                  <div class="reviews__text"><?php echo $item->text; ?></div>
                 </div>
-                <ul class="reviews__rating">
-                  <?php $i = 1 ?>
-                  <?php while ($i <= 5) { ?>
-                    <li></li>
-                  <?php $i++; } ?>
-                </ul>
-                <div class="reviews__text"><?php echo $item->text; ?></div>
-              </div>
-            <?php } ?>
-            
-          <?php $counter++; } ?>
-        <?php } ?>
+              <?php } ?>
+              
+            <?php $counter++; } ?>
+          <?php } ?>
+        </div>
+        <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="reviews__btn btn pink--btn">Смотреть все</a>
       </div>
-      <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="reviews__btn btn pink--btn">Смотреть все</a>
-    </div>
-  </section>
+    </section>
+  <?php } ?>
 
   <section class="subscribe js-inview">
     <div class="wrapper">

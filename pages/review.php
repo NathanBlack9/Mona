@@ -28,47 +28,48 @@
     <h1 class="h1 reviews__title"><?php the_title(); ?></h1>
     <div class="reviews__content content"><?php the_content(); ?></div>
 
-    <div class="sorting">
-      <div class="sorting__controls js-sorting not-mobile">
-        <a href="#" class="sorting__btn active" data-sort="all">Все</a>
-        <?php foreach($masters as $item) { ?>
-          <a href="#" class="sorting__btn" data-sort="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></a>
-        <?php } ?>
-      </div>
-      <div class="only-mobile">
-        <select name="" id="" class="sorting__select js-sorting-select">
-          <option value="all">Все</option>
+    <?php if($reviews) {?>
+      <div class="sorting">
+        <div class="sorting__controls js-sorting not-mobile">
+          <a href="#" class="sorting__btn active" data-sort="all">Все</a>
           <?php foreach($masters as $item) { ?>
-            <option value="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></option>
+            <a href="#" class="sorting__btn" data-sort="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></a>
           <?php } ?>
-        </select>
+        </div>
+        <div class="only-mobile">
+          <select name="" id="" class="sorting__select js-sorting-select">
+            <option value="all">Все</option>
+            <?php foreach($masters as $item) { ?>
+              <option value="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></option>
+            <?php } ?>
+          </select>
+        </div>
       </div>
-    </div>
 
-    <div class="reviews__inner js-sorting-content js-review-sort">
-      <?php foreach($reviews as $item) { ?>
-        <?php if ($item->view != 0) { // Если включен View в базе ?>
-          <?php $master = defineMaster($item->master_id); ?>
-          <?php foreach($master as $y) { ?>
-            <div class="reviews__item js-reviews-rating" data-id="<?php echo $item->id; ?>" data-rating="<?php echo $item->rating; ?>" data-sort="<?php echo $y->last_name; ?>">
-              <div class="reviews__name"><?php echo $item->name; ?></div>
-              <div class="reviews__job">
-                <span>мастер</span>
-                <?php echo $y->last_name .' '.$y->first_name ?>
+      <div class="reviews__inner js-sorting-content js-review-sort">
+        <?php foreach($reviews as $item) { ?>
+          <?php if ($item->view != 0) { // Если включен View в базе ?>
+            <?php $master = defineMaster($item->master_id); ?>
+            <?php foreach($master as $y) { ?>
+              <div class="reviews__item js-reviews-rating" data-id="<?php echo $item->id; ?>" data-rating="<?php echo $item->rating; ?>" data-sort="<?php echo $y->last_name; ?>">
+                <div class="reviews__name"><?php echo $item->name; ?></div>
+                <div class="reviews__job">
+                  <span>мастер</span>
+                  <?php echo $y->last_name .' '.$y->first_name ?>
+                </div>
+                <ul class="reviews__rating">
+                  <?php $i = 1 ?>
+                  <?php while ($i <= 5) { ?>
+                    <li></li>
+                  <?php $i++; } ?>
+                </ul>
+                <div class="reviews__text"><?php echo $item->text; ?></div>
               </div>
-              <ul class="reviews__rating">
-                <?php $i = 1 ?>
-                <?php while ($i <= 5) { ?>
-                  <li></li>
-                <?php $i++; } ?>
-              </ul>
-              <div class="reviews__text"><?php echo $item->text; ?></div>
-            </div>
+            <?php } ?>
           <?php } ?>
         <?php } ?>
-      <?php } ?>
-    </div>
-
+      </div>
+    <?php } ?>
     <hr>
 
     <h2 class="h2">Оставьте свой отзыв</h2>

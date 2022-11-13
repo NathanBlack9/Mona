@@ -177,7 +177,7 @@ $('.js-services-select').on('selectric-change', function(event, element, selectr
       const $masterBlock = $('.js-sign-master');
 
       $masterBlock.find('.sign__master-name').text(`Мастер ${$response[0].last_name} ${$response[0].first_name}`);
-      $masterBlock.find('.sign__master-desc').text(`${$response[0].about}`);
+      // $masterBlock.find('.sign__master-desc').text(`${$response[0].about}`);
       $masterBlock.find('.sign__master-img').attr('src', WPJS.siteUrl + `${$response[0].img}`);
       $masterBlock.find('.sign__master-btn').attr('href', WPJS.siteUrl + `/reviews?master=${$response[0].last_name}`);
       
