@@ -135,15 +135,16 @@
   flex-direction: column;
 
   .master__img {
-    height: 310px;
+    height: 400px;
     object-fit: cover;
 
     @media #{$small-handheld} {
-      height: 220px;
+      height: 320px;
     }
 
     @media #{$small-mobile} {
       height: 295px;
+      object-position: 0 -20px;
     }
   }
 

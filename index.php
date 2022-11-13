@@ -75,7 +75,7 @@
 
             <?php if($aboutGallery) { ?>
               <?php foreach($aboutGallery as $item) { ?>
-                <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="О нас" class="about__slider-item">
+                <img data-lazy="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="О нас" class="about__slider-item">
               <?php } ?>
             <?php } ?>
           </div>
@@ -140,19 +140,19 @@
       <div class="certificates__inner">
         <div class="certificates__slider js-slideshow slider">
           <a href="<?php echo get_template_directory_uri(); ?>/build/img/cert.jpg" data-fancybox="certificates" class="slider-item">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/cert.jpg" alt="" >
+            <img data-lazy="<?php echo get_template_directory_uri(); ?>/build/img/cert.jpg" alt="" >
           </a>
           <a href="<?php echo get_template_directory_uri(); ?>/build/img/aaaasda.jpg" data-fancybox="certificates" class="slider-item">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/aaaasda.jpg" alt="" >
+            <img data-lazy="<?php echo get_template_directory_uri(); ?>/build/img/aaaasda.jpg" alt="" >
           </a>
           <a href="<?php echo get_template_directory_uri(); ?>/build/img/asd.jpg" data-fancybox="certificates" class="slider-item">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/asd.jpg" alt="" >
+            <img data-lazy="<?php echo get_template_directory_uri(); ?>/build/img/asd.jpg" alt="" >
           </a>
           <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" data-fancybox="certificates" class="slider-item">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" alt="" >
+            <img data-lazy="<?php echo get_template_directory_uri(); ?>/build/img/certificate2.jpg" alt="" >
           </a>
           <a href="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" data-fancybox="certificates" class="slider-item">
-            <img src="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
+            <img data-lazy="<?php echo get_template_directory_uri(); ?>/build/img/certificate.jpg" alt="" >
           </a>
         </div>
         <a href="<?php echo get_template_directory_uri(); ?>/certificates/" class="certificates__btn btn pink--btn">Смотреть все</a>

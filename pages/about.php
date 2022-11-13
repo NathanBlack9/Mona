@@ -39,7 +39,7 @@
           
           <?php foreach($gallery as $item) { ?>
             <a href="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" data-fancybox="about_slider" class="slider-item">
-              <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="О нас">
+              <img data-lazy="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="О нас">
             </a>
           <?php } ?>
         </div>
@@ -106,7 +106,9 @@
                   }
                 } ?>
               </div>
-              <div class="master__desc"><?php echo $item->about; ?></div>
+              <?php if($item->about) { ?>
+                <div class="master__desc"><?php echo $item->about; ?></div>
+              <?php } ?>
             </div>
         <?php } ?>
       </div>

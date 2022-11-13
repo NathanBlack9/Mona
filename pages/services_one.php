@@ -36,7 +36,7 @@ Template Name: services_one
           <div class="service__slider js-fade-slider">
             <?php foreach($gallery as $item) { ?>
               
-              <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="" class="service__slider-item" />
+              <img data-lazy="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="" class="service__slider-item" />
             <?php } ?>
           </div>
           <?php if ( count($gallery) > 1 ) { ?>
@@ -65,7 +65,9 @@ Template Name: services_one
         <div class="master"> 
           <img src="<?php echo get_template_directory_uri() . $item->img; ?>" alt="<?php echo $item->last_name ?>" class="master__img">
           <div class="master__name"><?php echo $item->last_name ." ". $item->first_name ." ". $item->mid_name?></div>
-          <div class="master__desc"><?php echo $item->about; ?></div>
+          <?php if($item->about) { ?>
+            <div class="master__desc"><?php echo $item->about; ?></div>
+          <?php } ?>
         </div>
       <?php } ?>
     </div>

@@ -20,6 +20,7 @@ $('.js-fade-slider').each(function() {
     nextArrow: $slider.next().find(".js-fade-slider-next"),
     fade: true,
     cssEase: 'ease',
+    lazyLoad: 'progressive',
     responsive: [
       {
         breakpoint: 700 + 1,
@@ -51,6 +52,7 @@ $(".js-slideshow").each(function () {
     speed: 500,
     touchThreshold: 100,
     infinite: false,
+    lazyLoad: 'ondemand',
     dots: false,
     arrows: true,
     responsive: [

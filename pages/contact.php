@@ -80,7 +80,7 @@
       <div class="contacts-slider slider js-slideshow">
         <?php foreach($gallery as $item) { ?>
           <a href="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" data-fancybox="contact" class="slider-item">
-            <img src="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="" >
+            <img data-lazy="<?php echo wp_get_attachment_image_url($item, 'full'); ?>" alt="" >
           </a>
         <?php } ?>
       </div>
