@@ -37,8 +37,8 @@
     $reservedTimesStart = [];
     $reservedTimesEnd = [];
     $timeLine = [];
-    $closedTime = 21;
-    $openTime = 8;
+    $closedTime = 20;
+    $openTime = 9;
     $interval = 0.25; // 15 минут
     // $serviceTime = 1.5;
     // $reservedTimesStart = [$openTime, 14.25, 15, 17.25, 19, $closedTime];
