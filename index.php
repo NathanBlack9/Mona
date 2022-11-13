@@ -160,7 +160,7 @@
     </div>
   </div>
 
-  <?php if($reviews) {?>
+  <?php /*?>
     <section class="reviews js-inview">
       <div class="wrapper">
         <div class="reviews__title h1">Отзывы</div>
@@ -195,7 +195,7 @@
         <a href="<?php echo get_template_directory_uri(); ?>/reviews/" class="reviews__btn btn pink--btn">Смотреть все</a>
       </div>
     </section>
-  <?php } ?>
+  <?php */ ?>
 
   <section class="subscribe js-inview">
     <div class="wrapper">

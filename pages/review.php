@@ -6,7 +6,7 @@
 
 <?php 
   $masters = $wpdb->get_results("SELECT * from masters;");
-  $reviews = $wpdb->get_results("SELECT * from reviews;");
+  $reviews = $wpdb->get_results("SELECT * from reviews where view == 1 order by Id DESC;");
 
   function defineMaster( $param ) {
     global $wpdb;
