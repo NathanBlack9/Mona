@@ -101,6 +101,20 @@ $('.wpcf7-form').on('submit', function (event) {
         console.log('ERROR SIGN sign.js');
       }
     });
+
+    $.ajax({
+      url: 'https://script.google.com/macros/s/AKfycbz5vRP1Qj7ZfnQDrWLCrmneXF8mTOs0HweAyPdGLP64eaWTKY-j_TiW9cuYUDKTzK_-/exec',
+      type: 'POST',
+      data: $signFormData,
+      success: function(data){
+        // console.log('Success to mail');
+        // console.log(data);
+      },
+      error: function(er){
+        // console.log(er, "EMAIL ERRORRRR");
+        // console.log(er);
+      }
+    });
     
   } else {
     event.preventDefault();
