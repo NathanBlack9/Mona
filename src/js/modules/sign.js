@@ -103,7 +103,7 @@ $('.wpcf7-form').on('submit', function (event) {
     });
 
     $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbz5vRP1Qj7ZfnQDrWLCrmneXF8mTOs0HweAyPdGLP64eaWTKY-j_TiW9cuYUDKTzK_-/exec',
+      url: 'https://script.google.com/macros/s/AKfycbwTaB2FdKGUJynP6xqpyHZkPvrenG67nNz7xjKRq5ZqtOBvg9pONOWJIB7MLle4ppN5/exec',
       type: 'POST',
       data: $signFormData,
       success: function(data){
@@ -111,10 +111,12 @@ $('.wpcf7-form').on('submit', function (event) {
         // console.log(data);
       },
       error: function(er){
-        // console.log(er, "EMAIL ERRORRRR");
+        console.log(er, "EMAIL ERRORRRR");
         // console.log(er);
       }
     });
+    event.preventDefault();
+    event.stopPropagation();
     
   } else {
     event.preventDefault();

@@ -9,7 +9,7 @@ const concat = require('gulp-concat');
 const cleanDest = require('gulp-clean-dest');
 
 
-gulp.task('compressJs', function() {
+gulp.task('js', function() {
   return gulp.src(['src/js/modules/*.js','src/js/*.js'])
     .pipe(cleanDest('build/js/'))  
     .pipe(concat('common-min.js'))
