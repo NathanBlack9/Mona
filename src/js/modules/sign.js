@@ -115,8 +115,6 @@ $('.wpcf7-form').on('submit', function (event) {
         // console.log(er);
       }
     });
-    event.preventDefault();
-    event.stopPropagation();
     
   } else {
     event.preventDefault();
