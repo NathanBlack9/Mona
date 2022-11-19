@@ -103,7 +103,7 @@ $('.wpcf7-form').on('submit', function (event) {
     });
 
     $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbwTaB2FdKGUJynP6xqpyHZkPvrenG67nNz7xjKRq5ZqtOBvg9pONOWJIB7MLle4ppN5/exec',
+      url: 'https://script.google.com/macros/s/AKfycbwQ3Rcg5YE8h9oWTyAataV6bFZ_DKfFkSdgzX06Zg6x5m3REpUn-Ui2xBkapwSpsDtF/exec',
       type: 'POST',
       data: $signFormData,
       success: function(data){
