@@ -45,7 +45,7 @@
   
     $queryI = $mysqli->query("insert INTO sign (service_id, master_id, date, time, name, phone, email) VALUES ($serviceId, $masterId, '$date', '$time', '$name', '$phone', '$email');");
     
-    /* ----------- */
+    /* ----------- Email to */
     try {
       $mail->isSMTP();                 
       $mail->Host = 'smtp.timeweb.ru'; 

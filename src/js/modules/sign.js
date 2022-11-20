@@ -102,16 +102,16 @@ $('.wpcf7-form').on('submit', function (event) {
       }
     });
 
+    /* google sheets */
     $.ajax({
       url: 'https://script.google.com/macros/s/AKfycbwQ3Rcg5YE8h9oWTyAataV6bFZ_DKfFkSdgzX06Zg6x5m3REpUn-Ui2xBkapwSpsDtF/exec',
       type: 'POST',
       data: $signFormData,
       success: function(data){
-        // console.log('Success to mail');
         // console.log(data);
       },
       error: function(er){
-        console.log(er, "EMAIL ERRORRRR");
+        console.log(er, "sheets error");
         // console.log(er);
       }
     });
