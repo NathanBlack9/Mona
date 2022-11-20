@@ -9,7 +9,8 @@
   $mail = new PHPMailer(true);
   $mail->CharSet = 'utf-8';
 
-  $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+  // $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+  $mysqli = new mysqli("localhost", "root", "", "mona");
 
   if(isset($_GET['databaseData']) && isset($_GET['serviceName']) ) { // Заполнение БД записью
   
@@ -19,7 +20,8 @@
     $services_info = $mysqli->query("select id, category_id, time FROM services WHERE services_name like '%$serviceName%'");
     $services_info = $services_info->fetch_array(MYSQLI_ASSOC);
   
-    $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+    // $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+    $mysqli = new mysqli("localhost", "root", "", "mona");
 
     $serviceId = $mysqli->real_escape_string(intval($services_info['id']));
     $categoryId = $mysqli->real_escape_string(intval($services_info['category_id']));
@@ -61,7 +63,8 @@
       $mail->isHTML(true);  
       
       $mail->Subject = 'Новая онлайн запись!';
-      $mail->Body    = '<p>Процедура: '.$object['services'].';</p>
+      $mail->Body    = '<h1>Новая запись!</h1></br>
+                        <p>Процедура: '.$object['services'].';</p>
                         <p>Тип процедуры: '.$serviceName.';</p>
                         <p>Мастер: '.$master.';</p>
                         <p>Имя клиента: '.$name.';</p>

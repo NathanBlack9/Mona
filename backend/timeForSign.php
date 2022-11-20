@@ -29,7 +29,8 @@
   /* Получается свободное время мастер с ид $masterId, с временем выполнения услуги $serviceTime и в дату $date */
   function getFreeSignTime( $date, $masterId, $serviceTime ) {
 
-    $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+    // $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+    $mysqli = new mysqli("localhost", "root", "", "mona");
 
     $arrTimeStart = $mysqli->query("select time FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
     $arrTimeEnd = $mysqli->query("select time_end FROM sign where date = '{$date}' and master_id = {$masterId} order by time_end;");
@@ -90,7 +91,8 @@
 
   /* -------------------- */
 
-  $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+  // $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+  $mysqli = new mysqli("localhost", "root", "", "mona");
   
   if(isset($_GET['date']) && isset($_GET['master']) && isset($_GET['serviceName']) ) {
     $date = $mysqli->real_escape_string($_GET['date']);

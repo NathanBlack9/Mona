@@ -1,6 +1,7 @@
 <?php 
 
 $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+// $mysqli = new mysqli("localhost", "root", "", "mona");
 
 if(isset($_GET['service'] ) ) {
   

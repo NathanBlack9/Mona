@@ -102,7 +102,10 @@
 
   $(()=> {
     $('.js-services-select').trigger('selectric-change');
-    $('.ui-datepicker-today').click();
+    setTimeout(() => {
+      $('.ui-datepicker-today').click();
+      $('#sign-form__date *').removeAttr("title");
+    }, 300);
   });
 
 </script>

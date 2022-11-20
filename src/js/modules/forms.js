@@ -275,8 +275,8 @@ $(document).ready(function () {
             $warning.fadeIn();
           }
         },
-        error: function(){
-          console.log('ERROR');
+        error: function(er){
+          console.log('ERROR:' + er);
         }
       });
 
@@ -320,21 +320,11 @@ $(document).ready(function () {
               }, 250);
             },
             success: function(response){
-              let $response = JSON.parse(response);
-              const $tableSection = $('.js-unsign-table');
-              e.preventDefault();
-
-
-              if($response.length > 0) {
-                const $table = $tableSection.find('table');
-                $table.find('tr:not(:first)').remove();
-      
-                showRemainingSigns($response, $table);
-
-              } 
+              // let $response = JSON.parse(response);
+              $form.trigger('submit');
             },
-            error: function(){
-              console.log('ERROR');
+            error: function(error){
+              console.log('er:' + error);
             }
           });
         },

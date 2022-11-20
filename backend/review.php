@@ -1,12 +1,14 @@
 <?php
 
   $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+// $mysqli = new mysqli("localhost", "root", "", "mona");
 
   if(isset($_POST['newReviewData'])) {
   
     $object = json_decode($_POST['newReviewData'], true); 
   
     $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+// $mysqli = new mysqli("localhost", "root", "", "mona");
 
     $master = $mysqli->real_escape_string($object['master']);
     $name = $mysqli->real_escape_string($object['name']);

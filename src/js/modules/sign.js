@@ -238,8 +238,8 @@ $(() => {
         data: `date=${$dateInput.val()}&master=${$('.js-masters-select').val()}&serviceName=${$('.js-type-select').val()}`, // Отправляем дату, фамилию мастера и точный сервис
         success: function(data){
           
+          console.log(data);
           var $response = JSON.parse(data);
-          // console.log($response);
 
           $('.wpcf7-list-item').first().find('input').prop('checked', false).removeAttr("checked");
           var $timeEl = $('.wpcf7-list-item').first().clone(); // копируем один чеквокс времени
@@ -277,9 +277,5 @@ $(() => {
       });
     },
   });
-
-  setTimeout(() => {
-    $('#sign-form__date *').removeAttr("title");
-  }, 1000);
 })
 /* ------------------ */
