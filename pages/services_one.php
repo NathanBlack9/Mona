@@ -10,7 +10,7 @@ Template Name: services_one
 
   $gallery = carbon_get_post_meta( $page_ID, 'one_gallery' );
 
-  $masters = $wpdb->get_results("SELECT * from masters where id in (select master_id from services where category_id in(select id from service_categories where name = '{$title}') );");
+  $masters = $wpdb->get_results("SELECT * from masters where id in (select master_id from connecting where services_id in(select id from services where category_id in (select id from service_categories where name = '{$title}')));");
 
 ?>
 

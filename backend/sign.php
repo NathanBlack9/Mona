@@ -88,7 +88,8 @@
     
     $serviceName = $mysqli->real_escape_string($_GET['optionVal']);
 
-    $services_info = $mysqli->query("select id, master_id, category_id, time, services_name FROM services WHERE time <> 0 and category_id = (select id from service_categories where name like '%$serviceName%' )");
+    // $services_info = $mysqli->query("select id, master_id, category_id, time, services_name FROM services WHERE time <> 0 and category_id = (select id from service_categories where name like '%$serviceName%' )");
+    $services_info = $mysqli->query("select services_name FROM services WHERE time <> 0 and category_id = (select id from service_categories where name like '%$serviceName%' )");
     $services_info = $services_info->fetch_all(MYSQLI_ASSOC);
 
     print_r(json_encode($services_info));

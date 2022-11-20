@@ -13,7 +13,7 @@
 
   function getServices( $param ) {
     global $wpdb;
-    return $services = $wpdb->get_results("SELECT name FROM service_categories where id in (select category_id from services where master_id in (select id from masters where id = {$param}));");
+    return $services = $wpdb->get_results("SELECT name FROM service_categories where id in (select category_id from services where id in (select services_id from connecting where master_id in (select id from masters where id = {$param})));");
   }
 ?>
 
@@ -93,7 +93,7 @@
 
             <div class="master"> 
               <img src="<?php echo get_template_directory_uri() . $item->img; ?>" alt="<?php echo $item->last_name ?>" class="master__img">
-              <div class="master__name"><?php echo $item->last_name ." ". $item->first_name ." ". $item->mid_name?></div>
+              <div class="master__name"><?php echo $item->last_name ." ". $item->first_name ."<br>". $item->mid_name?></div>
               <div class="master__service">
                 Услуги: 
                 <?php foreach($element as $val ) {
