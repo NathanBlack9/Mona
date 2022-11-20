@@ -205,6 +205,77 @@ $('.js-services-select').on('selectric-change', function(event, element, selectr
   });
 });
 
+$('.js-masters-select').on('selectric-change', function(event, element, selectric) {
+  const $this = $(this);
+  const $optionVal = $('.js-services-select').val();
+  const $typeSelect = $('.js-type-select');
+  const $mastersSelect = $this;
+
+  $('.js-time-block').addClass('--hidden');
+  $typeSelect.empty();
+  // $mastersSelect.empty();
+
+  $.ajax({ // Отправляем выбранную услугу чтобы получить данные для услуг
+    url: WPJS.siteUrl + '/backend/sign.php',
+    type: 'GET',
+    beforeSend: function() {
+      $('body').addClass('loading');
+    },
+    complete: function() {
+      setTimeout(() => {
+        $('body').removeClass('loading');
+      }, 250);
+    },
+    data: `serv=${$optionVal}&master=${$mastersSelect.val()}`,
+    success: function(data){
+      let $response = JSON.parse(data);
+
+      for (let i = 0; i < $response.length; i++) {
+        $typeSelect.append($('<option>', {
+          value: `${$response[i].services_name}`,
+          text: `${$response[i].services_name}`,
+        }));
+      }
+
+      $typeSelect.selectric('refresh');
+
+    },
+    error: function(){
+      console.log('ererere');
+    }
+  });
+
+  $.ajax({ // Отправляем выбранную услугу чтобы получить данные о мастерах
+    url: WPJS.siteUrl + '/backend/signMasterInfo.php',
+    type: 'GET',
+    beforeSend: function() {
+      $('body').addClass('loading');
+    },
+    complete: function() {
+      setTimeout(() => {
+        $('body').removeClass('loading');
+      }, 250);
+    },
+    data: `service=${$optionVal}`,
+    success: function(data){
+      let $response = JSON.parse(data);
+
+      // Заполняем aside с инфой о мастере
+      const $masterBlock = $('.js-sign-master');
+
+      $masterBlock.find('.sign__master-name').text(`Мастер ${$response[0].last_name} ${$response[0].first_name}`);
+      // $masterBlock.find('.sign__master-desc').text(`${$response[0].about}`);
+      $masterBlock.find('.sign__master-img').attr('src', WPJS.siteUrl + `${$response[0].img}`);
+      $masterBlock.find('.sign__master-btn').attr('href', WPJS.siteUrl + `/reviews?master=${$response[0].last_name}`);
+      
+      $masterBlock.fadeIn();
+    },
+    error: function(){
+      console.log('ERROR');
+    }
+  });
+});
+
 $('.js-type-select').on('selectric-change', () => {
   $('.js-time-block').addClass('--hidden');
 });
@@ -216,12 +287,11 @@ $(() => {
   // инициализировать только при $(document).ready() !!!
   $('#sign-form__date').datepicker({
     minDate: 0,
-    maxDate: 60,
+    maxDate: '2022-12-31',
     dateFormat: "yy-mm-dd",
     onSelect: function( date, element ) {
 
       $dateInput.val(date);
-      // console.log($dateInput.val());
       
       // Отправляет значение даты из календаря и получается свободное время в этот день
       $.ajax({
@@ -238,7 +308,6 @@ $(() => {
         data: `date=${$dateInput.val()}&master=${$('.js-masters-select').val()}&serviceName=${$('.js-type-select').val()}`, // Отправляем дату, фамилию мастера и точный сервис
         success: function(data){
           
-          console.log(data);
           var $response = JSON.parse(data);
 
           $('.wpcf7-list-item').first().find('input').prop('checked', false).removeAttr("checked");

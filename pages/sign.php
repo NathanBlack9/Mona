@@ -113,9 +113,8 @@
   $closedDates = carbon_get_theme_option('closed_dates');
 ?>
 <script>
-  $('.js-masters-select').on('selectric-refresh selectric-before-init', function(event, element, selectric) {
+  $('.js-masters-select').on('selectric-refresh selectric-change selectric-before-init', function(event, element, selectric) {
     let $masterNameFromSelect = $(this).val();
-
 
     $('#sign-form__date').datepicker( "option", "beforeShowDay", (date) => {
       <?php // Даты которые выводятся на календаре ?>
