@@ -22,42 +22,42 @@
     $signs = $mysqli->query("select id, name, phone, date, time FROM sign where name like '%$name%' and phone like '%$phone%';");
     $signs = $signs->fetch_all(MYSQLI_ASSOC);
 
-    // Отправлям удаленную запись на почту
-    $dataForEmailAfterDelete = $mysqli->query("select masters.last_name as master, service_categories.name as service, services.services_name as service_type, sign.date, sign.time, sign.name, sign.phone, sign.email from sign INNER JOIN masters ON masters.id = sign.master_id INNER JOIN services ON services.id = sign.service_id INNER JOIN service_categories ON service_categories.id = services.category_id where sign.id = $id;"); 
-    $dataForEmailAfterDelete = $dataForEmailAfterDelete->fetch_array(MYSQLI_ASSOC);
+    // // Отправлям удаленную запись на почту
+    // $dataForEmailAfterDelete = $mysqli->query("select masters.last_name as master, service_categories.name as service, services.services_name as service_type, sign.date, sign.time, sign.name, sign.phone, sign.email from sign INNER JOIN masters ON masters.id = sign.master_id INNER JOIN services ON services.id = sign.service_id INNER JOIN service_categories ON service_categories.id = services.category_id where sign.id = $id;"); 
+    // $dataForEmailAfterDelete = $dataForEmailAfterDelete->fetch_array(MYSQLI_ASSOC);
 
-    /* ----------- Email to */
-    try {
-      $mail->isSMTP();                 
-      $mail->Host = 'smtp.timeweb.ru'; 
-      $mail->SMTPAuth = true; 
-      $mail->Username = 'info@studiomona.ru'; // Ваш логин от почты с которой будут отправляться письма
-      $mail->Password = '2ia9sa/0dw5v'; // Ваш пароль от почты с которой будут отправляться письма
-      // $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
-      $mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
+    // /* ----------- Email to */
+    // try {
+    //   $mail->isSMTP();                 
+    //   $mail->Host = 'smtp.timeweb.ru'; 
+    //   $mail->SMTPAuth = true; 
+    //   $mail->Username = 'info@studiomona.ru'; // Ваш логин от почты с которой будут отправляться письма
+    //   $mail->Password = '2ia9sa/0dw5v'; // Ваш пароль от почты с которой будут отправляться письма
+    //   // $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
+    //   $mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
       
-      $mail->setFrom('info@studiomona.ru'); // от кого будет уходить письмо?
-      $mail->addAddress('info@studiomona.ru'); // Кому будет уходить письмо 
+    //   $mail->setFrom('info@studiomona.ru'); // от кого будет уходить письмо?
+    //   $mail->addAddress('info@studiomona.ru'); // Кому будет уходить письмо 
       
-      $mail->isHTML(true);  
+    //   $mail->isHTML(true);  
       
-      $mail->Subject = 'Отмена записи!';
-      $mail->Body    = '<p>Процедура: '.$dataForEmailAfterDelete['service'].';</p>
-                        <p>Тип процедуры: '.$dataForEmailAfterDelete['service_type'].';</p>
-                        <p>Мастер: '.$dataForEmailAfterDelete['master'].';</p>
-                        <p>Имя клиента: '.$dataForEmailAfterDelete['name'].';</p>
-                        <p>Дата записи: '.$dataForEmailAfterDelete['date'].';</p>
-                        <p>Время записи: '.$dataForEmailAfterDelete['time'].';</p>
-                        <p>Телефон: '.$dataForEmailAfterDelete['phone'].';</p>
-                        <p>Почта: '.$dataForEmailAfterDelete['email'].';</p>';
-      $mail->send();
+    //   $mail->Subject = 'Отмена записи!';
+    //   $mail->Body    = '<p>Процедура: '.$dataForEmailAfterDelete['service'].';</p>
+    //                     <p>Тип процедуры: '.$dataForEmailAfterDelete['service_type'].';</p>
+    //                     <p>Мастер: '.$dataForEmailAfterDelete['master'].';</p>
+    //                     <p>Имя клиента: '.$dataForEmailAfterDelete['name'].';</p>
+    //                     <p>Дата записи: '.$dataForEmailAfterDelete['date'].';</p>
+    //                     <p>Время записи: '.$dataForEmailAfterDelete['time'].';</p>
+    //                     <p>Телефон: '.$dataForEmailAfterDelete['phone'].';</p>
+    //                     <p>Почта: '.$dataForEmailAfterDelete['email'].';</p>';
+    //   $mail->send();
       
-    } catch (phpmailerException $e) {
-      echo $e->errorMessage();
-    } catch (Exception $e) {
-      echo $e->getMessage();
-    }
-    /* ----------- */
+    // } catch (phpmailerException $e) {
+    //   echo $e->errorMessage();
+    // } catch (Exception $e) {
+    //   echo $e->getMessage();
+    // }
+    // /* ----------- */
 
     print_r(json_encode($signs));
 
