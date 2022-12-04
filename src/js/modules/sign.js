@@ -104,7 +104,8 @@ $('.wpcf7-form').on('submit', function (event) {
 
     /* google sheets */
     $.ajax({
-      url: 'https://script.google.com/macros/s/AKfycbwQ3Rcg5YE8h9oWTyAataV6bFZ_DKfFkSdgzX06Zg6x5m3REpUn-Ui2xBkapwSpsDtF/exec',
+      redirect: "follow",
+      url: 'https://script.google.com/macros/s/AKfycbz_KUQFXWWd5EkC9yEOBPcwPcBaKuVekSnvqQpeDOz7eSbAX7aqUGboFjfEpNotLinn/exec',
       type: 'POST',
       data: $signFormData,
       success: function(data){
