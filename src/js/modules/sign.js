@@ -82,8 +82,8 @@ $('.wpcf7-form').on('submit', function (event) {
 
       $signFormData[`${name}`] = value;
     });
-    console.log($signFormData);
-    console.log('=================');
+    // console.log($signFormData);
+    // console.log('=================');
 
     // Отправляет инфу формы для заполнения личной базы
     $.ajax({
@@ -116,8 +116,6 @@ $('.wpcf7-form').on('submit', function (event) {
         // console.log(er);
       }
     });
-    event.preventDefault();
-    event.stopPropagation();
     
   } else {
     event.preventDefault();
