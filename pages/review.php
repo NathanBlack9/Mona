@@ -80,7 +80,7 @@
         <input type="text" name="name" class="inp" id="reviews-form__name">
         <label for="reviews-form__name" class="form__error">Это поле обяательно для заполнения.</label>
       </div>
-      <div class="inp required">
+      <div class="inp">
         <div class="inp-label">Мастер <span class="required">*</span></div>
         <select name="master" id="reviews-form__master" class="reviews-form__select customOptions">
           <?php foreach($masters as $item) { ?>
