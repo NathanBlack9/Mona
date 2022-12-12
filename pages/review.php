@@ -6,7 +6,7 @@
 
 <?php 
   $masters = $wpdb->get_results("SELECT * from masters;");
-  $reviews = $wpdb->get_results("SELECT * from reviews where view == 1 order by Id DESC;");
+  $reviews = $wpdb->get_results("SELECT * from reviews where view = 1 order by Id DESC;");
 
   function defineMaster( $param ) {
     global $wpdb;
@@ -101,8 +101,8 @@
       </div>
       <div class="inp">
         <div class="inp-label">Текст отзыва</div>
-        <textarea name="text" id="reviews-form__desc" rows="5" maxlength="120" class="inp js-textarea-counter" placeholder="Мастер молодец!"></textarea>
-        <div class="textarea-symbol-counter"><span>0</span> / 120</div>
+        <textarea name="text" id="reviews-form__desc" rows="5" maxlength="250" class="inp js-textarea-counter" placeholder="Мастер молодец!"></textarea>
+        <div class="textarea-symbol-counter"><span>0</span> / 250</div>
         <label for="reviews-form__desc" class="form__error">Оцените работу мастера.</label>
       </div>
 
