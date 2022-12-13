@@ -5,7 +5,7 @@
 ?>
 
 <?php 
-  $discounts = $wpdb->get_results('SELECT * FROM discount;');
+  $discounts = $wpdb->get_results('SELECT * FROM discount order by id DESC;');
 
   // $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
   // $discounts = $mysqli->query("SELECT * FROM discount;"); // Только для BACKEND, где не работает WP

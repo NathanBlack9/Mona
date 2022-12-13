@@ -58,7 +58,7 @@
                         <dd><?php echo $value->money ?></dd>
                         <div class="price-hint hint">
                           <div class="hint-text">
-                            Скидка в честь открытия <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
+                            Знакомство с мастерами <br><a href="<?php echo get_template_directory_uri(); ?>/discounts/">Читать подробнее</a>
                           </div>
                         </div>
                       </dl>

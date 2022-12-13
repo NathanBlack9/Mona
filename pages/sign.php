@@ -90,14 +90,6 @@
             text: '<?php echo $item->services_name; ?>'
         }));
       <?php } ?>
-
-      <?php $master = defineMaster($manicure[0]->category_id);?> 
-      <?php foreach($master as $item) { ?>
-        $mastersSelect.append($('<option>', {
-            value: '<?php echo $item->last_name; ?>',
-            text: '<?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?>'
-        }));
-      <?php } ?>      
   });
 
   $(()=> {

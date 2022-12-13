@@ -33,7 +33,7 @@
         <div class="sorting__controls js-sorting not-mobile">
           <a href="#" class="sorting__btn active" data-sort="all">Все</a>
           <?php foreach($masters as $item) { ?>
-            <a href="#" class="sorting__btn" data-sort="<?php echo $item->last_name; ?>"><?php echo $item->last_name .' '.mb_substr($item->first_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></a>
+            <a href="#" class="sorting__btn" data-sort="<?php echo $item->last_name; ?>"><?php echo $item->first_name .' '.mb_substr($item->last_name, 0, 1). '.' .mb_substr($item->mid_name, 0, 1).'.' ?></a>
           <?php } ?>
         </div>
         <div class="only-mobile">

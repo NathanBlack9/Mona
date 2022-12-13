@@ -184,7 +184,7 @@ $('.js-services-select').on('selectric-change', function(event, element, selectr
       for (let j = 0; j < $response.length; j++) {
         $mastersSelect.append($('<option>', {
           value: `${$response[j].last_name}`,
-          text: `${$response[j].last_name} ${$response[j].first_name[0]}. ${$response[j].mid_name[0]}.` ,
+          text: `${$response[j].first_name} ${$response[j].last_name[0]}. ${$response[j].mid_name[0]}.` ,
         }));
       } 
 
