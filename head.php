@@ -21,6 +21,6 @@
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/jquery-ui.min.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/build/styles/vendor/jquery-confirm.min.css">
 
-  
+  <meta name="yandex-verification" content="8f99225d1e8c9cdc" />
   <?php wp_head(); ?>
 </head>
