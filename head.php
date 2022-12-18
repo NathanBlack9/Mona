@@ -9,6 +9,7 @@
   <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/build/img/site.webmanifest">
   <link rel="mask-icon" href="<?php echo get_template_directory_uri(); ?>/build/img/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon.ico">
+  <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/build/img/favicon.svg" type="image/svg+xml">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/build/img/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
