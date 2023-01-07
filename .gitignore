@@ -9,6 +9,7 @@ package-lock.json
 .jshintrc
 desktop.ini
 templates_navigation.php
+backend/config.php
 
 # Editor directories and files
 .idea

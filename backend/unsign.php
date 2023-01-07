@@ -9,9 +9,13 @@
   require 'phpmailer/src/SMTP.php';
   $mail = new PHPMailer(true);
   $mail->CharSet = 'utf-8';
-
-  $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
-  // $mysqli = new mysqli("localhost", "root", "", "mona");
+  
+  $config = require "config.php";
+  if($config['type'] == 'dev') {
+    $mysqli = new mysqli("localhost", "root", "", "mona");
+  } else {
+    $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+  }
 
   if(isset($_GET['unsign']) && isset($_GET['unsignData'])){// Удаление записи и вывод всех оставшихся записей
     
@@ -39,37 +43,40 @@
 
 
     /* ----------- Email to */
-    try {
-      $mail->isSMTP();                 
-      $mail->Host = 'smtp.timeweb.ru'; 
-      $mail->SMTPAuth = true; 
-      $mail->Username = 'info@studiomona.ru'; // Ваш логин от почты с которой будут отправляться письма
-      $mail->Password = '2ia9sa/0dw5v'; // Ваш пароль от почты с которой будут отправляться письма
-      // $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
-      $mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
-      
-      $mail->setFrom('info@studiomona.ru'); // от кого будет уходить письмо?
-      $mail->addAddress('info@studiomona.ru'); // Кому будет уходить письмо 
-      
-      $mail->isHTML(true);  
-      
-      $mail->Subject = 'Отмена записи!';
-      $mail->Body    = '<h1>Отмена записи!</h1></br>
-                        <p>Процедура: '.$dataForEmailAfterDelete['service'].';</p>
-                        <p>Тип процедуры: '.$dataForEmailAfterDelete['service_type'].';</p>
-                        <p>Мастер: '.$dataForEmailAfterDelete['master'].';</p>
-                        <p>Имя клиента: '.$dataForEmailAfterDelete['name'].';</p>
-                        <p>Дата записи: '.$dataForEmailAfterDelete['date'].';</p>
-                        <p>Время записи: '.$dataForEmailAfterDelete['time'].';</p>
-                        <p>Телефон: '.$dataForEmailAfterDelete['phone'].';</p>
-                        <p>Почта: '.$dataForEmailAfterDelete['email'].';</p>';
-      $mail->send();
-      
-    } catch (phpmailerException $e) {
-      echo $e->errorMessage();
-    } catch (Exception $e) {
-      echo $e->getMessage();
+    if($config['type'] == 'prod') {
+      try {
+        $mail->isSMTP();                 
+        $mail->Host = 'smtp.timeweb.ru'; 
+        $mail->SMTPAuth = true; 
+        $mail->Username = 'info@studiomona.ru'; // Ваш логин от почты с которой будут отправляться письма
+        $mail->Password = '2ia9sa/0dw5v'; // Ваш пароль от почты с которой будут отправляться письма
+        // $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
+        
+        $mail->setFrom('info@studiomona.ru'); // от кого будет уходить письмо?
+        $mail->addAddress('info@studiomona.ru'); // Кому будет уходить письмо 
+        
+        $mail->isHTML(true);  
+        
+        $mail->Subject = 'Отмена записи!';
+        $mail->Body    = '<h1>Отмена записи!</h1></br>
+                          <p>Процедура: '.$dataForEmailAfterDelete['service'].';</p>
+                          <p>Тип процедуры: '.$dataForEmailAfterDelete['service_type'].';</p>
+                          <p>Мастер: '.$dataForEmailAfterDelete['master'].';</p>
+                          <p>Имя клиента: '.$dataForEmailAfterDelete['name'].';</p>
+                          <p>Дата записи: '.$dataForEmailAfterDelete['date'].';</p>
+                          <p>Время записи: '.$dataForEmailAfterDelete['time'].';</p>
+                          <p>Телефон: '.$dataForEmailAfterDelete['phone'].';</p>
+                          <p>Почта: '.$dataForEmailAfterDelete['email'].';</p>';
+        $mail->send();
+        
+      } catch (phpmailerException $e) {
+        echo $e->errorMessage();
+      } catch (Exception $e) {
+        echo $e->getMessage();
+      }
     }
+
     /* ----------- */
 
     print_r(json_encode($signs));

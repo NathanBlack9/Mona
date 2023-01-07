@@ -93,11 +93,35 @@ $(document).ready(function () {
     labelBuilder: function(itemData) {
       return itemData.value.length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
     },
+    onOpen: function() {                                                
+      var wrp = this.closest('.selectric-wrapper');
+      var fixer = wrp.getElementsByClassName('selectric-items')[0];                
+      fixer.style.display='none';
+      fixer.offsetHeight; // no need to store this anywhere, the reference is enough
+      fixer.style.display='block';
+    },
+    onClose: function(){
+      var wrp = this.closest('.selectric-wrapper');
+      var fixer = wrp.getElementsByClassName('selectric-items')[0];
+      fixer.style.display='none';
+    },
   });
 
   // $('select:not(.not-default-select)').selectric();
   $('select').selectric({
     nativeOnMobile: false,
+    onOpen: function() {                                                
+      var wrp = this.closest('.selectric-wrapper');
+      var fixer = wrp.getElementsByClassName('selectric-items')[0];                
+      fixer.style.display='none';
+      fixer.offsetHeight; // no need to store this anywhere, the reference is enough
+      fixer.style.display='block';
+    },
+    onClose: function(){
+      var wrp = this.closest('.selectric-wrapper');
+      var fixer = wrp.getElementsByClassName('selectric-items')[0];
+      fixer.style.display='none';
+    },
   });
 
 

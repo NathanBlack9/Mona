@@ -1,13 +1,20 @@
 <?php
 
+$config = require "config.php";
+if($config['type'] == 'dev') {
+  $mysqli = new mysqli("localhost", "root", "", "mona");
+} else {
   $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
-  // $mysqli = new mysqli("localhost", "root", "", "mona");
-
+}
   if(isset($_POST['subscribeEmail'])){
     $object = json_decode($_POST['subscribeEmail'], true); 
   
-    $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
-    // $mysqli = new mysqli("localhost", "root", "", "mona");
+    $config = require "config.php";
+    if($config['type'] == 'dev') {
+      $mysqli = new mysqli("localhost", "root", "", "mona");
+    } else {
+      $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+    }
 
     $email = $mysqli->real_escape_string($object['email']);
   

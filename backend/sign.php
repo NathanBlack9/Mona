@@ -9,8 +9,12 @@
   $mail = new PHPMailer(true);
   $mail->CharSet = 'utf-8';
 
-  $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
-  // $mysqli = new mysqli("localhost", "root", "", "mona");
+  $config = require "config.php";
+  if($config['type'] == 'dev') {
+    $mysqli = new mysqli("localhost", "root", "", "mona");
+  } else {
+    $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+  }
 
   if(isset($_GET['databaseData']) && isset($_GET['serviceName']) ) { // Заполнение БД записью
   
@@ -20,8 +24,12 @@
     $services_info = $mysqli->query("select id, category_id, time FROM services WHERE services_name like '%$serviceName%'");
     $services_info = $services_info->fetch_array(MYSQLI_ASSOC);
   
-    $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
-    // $mysqli = new mysqli("localhost", "root", "", "mona");
+    $config = require "config.php";
+    if($config['type'] == 'dev') {
+      $mysqli = new mysqli("localhost", "root", "", "mona");
+    } else {
+      $mysqli = new mysqli("localhost", "cx88992_mona", "gx7wkWp4", "cx88992_mona");
+    }
 
     $serviceId = $mysqli->real_escape_string(intval($services_info['id']));
     $categoryId = $mysqli->real_escape_string(intval($services_info['category_id']));
@@ -48,37 +56,39 @@
     $queryI = $mysqli->query("insert INTO sign (service_id, master_id, date, time, name, phone, email) VALUES ($serviceId, $masterId, '$date', '$time', '$name', '$phone', '$email');");
     
     /* ----------- Email to */
-    try {
-      $mail->isSMTP();                 
-      $mail->Host = 'smtp.timeweb.ru'; 
-      $mail->SMTPAuth = true; 
-      $mail->Username = 'info@studiomona.ru'; // Ваш логин от почты с которой будут отправляться письма
-      $mail->Password = '2ia9sa/0dw5v'; // Ваш пароль от почты с которой будут отправляться письма
-      // $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
-      $mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
-      
-      $mail->setFrom('info@studiomona.ru'); // от кого будет уходить письмо?
-      $mail->addAddress('info@studiomona.ru'); // Кому будет уходить письмо 
-      
-      $mail->isHTML(true);  
-      
-      $mail->Subject = 'Новая онлайн запись!';
-      $mail->Body    = '<h1>Новая запись!</h1></br>
-                        <p>Процедура: '.$object['services'].';</p>
-                        <p>Тип процедуры: '.$serviceName.';</p>
-                        <p>Мастер: '.$master.';</p>
-                        <p>Имя клиента: '.$name.';</p>
-                        <p>Дата записи: '.$date.';</p>
-                        <p>Время записи: '.$object['time'].';</p>
-                        <p>Телефон: '.$phone.';</p>
-                        <p>Почта: '.$email.';</p>';
-      $mail->AltBody = '';
-      $mail->send();
-      
-    } catch (phpmailerException $e) {
-      echo $e->errorMessage();
-    } catch (Exception $e) {
-      echo $e->getMessage();
+    if($config['type'] == 'prod') {
+      try {
+        $mail->isSMTP();                 
+        $mail->Host = 'smtp.timeweb.ru'; 
+        $mail->SMTPAuth = true; 
+        $mail->Username = 'info@studiomona.ru'; // Ваш логин от почты с которой будут отправляться письма
+        $mail->Password = '2ia9sa/0dw5v'; // Ваш пароль от почты с которой будут отправляться письма
+        // $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 25; // TCP port to connect to / этот порт может отличаться у других провайдеров
+        
+        $mail->setFrom('info@studiomona.ru'); // от кого будет уходить письмо?
+        $mail->addAddress('info@studiomona.ru'); // Кому будет уходить письмо 
+        
+        $mail->isHTML(true);  
+        
+        $mail->Subject = 'Новая онлайн запись!';
+        $mail->Body    = '<h1>Новая запись!</h1></br>
+                          <p>Процедура: '.$object['services'].';</p>
+                          <p>Тип процедуры: '.$serviceName.';</p>
+                          <p>Мастер: '.$master.';</p>
+                          <p>Имя клиента: '.$name.';</p>
+                          <p>Дата записи: '.$date.';</p>
+                          <p>Время записи: '.$object['time'].';</p>
+                          <p>Телефон: '.$phone.';</p>
+                          <p>Почта: '.$email.';</p>';
+        $mail->AltBody = '';
+        $mail->send();
+        
+      } catch (phpmailerException $e) {
+        echo $e->errorMessage();
+      } catch (Exception $e) {
+        echo $e->getMessage();
+      }
     }
     /* ----------- */
 
