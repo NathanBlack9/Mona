@@ -264,7 +264,6 @@ $('.js-masters-select').on('selectric-change', function(event, element, selectri
       // Заполняем aside с инфой о мастере
       const $masterBlock = $('.js-sign-master');
 
-      console.log('заполняем мастера этим:', $response);
       $masterBlock.find('.sign__master-name').text(`Мастер ${$response[0].last_name} ${$response[0].first_name}`);
       // $masterBlock.find('.sign__master-desc').text(`${$response[0].about}`);
       $masterBlock.find('.sign__master-img').attr('src', WPJS.siteUrl + `${$response[0].img}`);
