@@ -41,7 +41,7 @@ function formValidate(form) {
       formRemoveError(radioArray[j]);
     }
 
-    return $error - radioArray.length + 1; 
+    return $error - radioArray.length + 1;
 
   } else {
     return $error;
@@ -68,15 +68,15 @@ function formValidate(form) {
   }
 }
 
-$('.wpcf7-form').on('submit', function (event) {  
+$('.wpcf7-form').on('submit', function (event) {
   let $signFormData = {};
   let $form = $(this);
   let $error = formValidate($form);
 
   console.log('Ошибок формы:', $error);
 
-  if ($error == 0) { //Если форма прошла валидацию 
-    $.each($(this).serializeArray(), function (index) { 
+  if ($error == 0) { //Если форма прошла валидацию
+    $.each($(this).serializeArray(), function (index) {
       let name = this.name;
       let value = this.value;
 
@@ -116,7 +116,7 @@ $('.wpcf7-form').on('submit', function (event) {
         // console.log(er);
       }
     });
-    
+
   } else {
     event.preventDefault();
     event.stopPropagation();
@@ -165,7 +165,7 @@ $('.js-services-select').on('selectric-change', function(event, element, selectr
       console.log('ererere');
     }
   });
-  
+
   $.ajax({ // Отправляем выбранную услугу чтобы получить данные о мастерах
     url: WPJS.siteUrl + '/backend/signMasterInfo.php',
     type: 'GET',
@@ -180,13 +180,13 @@ $('.js-services-select').on('selectric-change', function(event, element, selectr
     data: `service=${$optionVal}`,
     success: function(data){
       let $response = JSON.parse(data);
-      
+
       for (let j = 0; j < $response.length; j++) {
         $mastersSelect.append($('<option>', {
           value: `${$response[j].last_name}`,
           text: `${$response[j].first_name} ${$response[j].last_name[0]}. ${$response[j].mid_name[0]}.` ,
         }));
-      } 
+      }
 
       // Заполняем aside с инфой о мастере
       const $masterBlock = $('.js-sign-master');
@@ -195,9 +195,9 @@ $('.js-services-select').on('selectric-change', function(event, element, selectr
       // $masterBlock.find('.sign__master-desc').text(`${$response[0].about}`);
       $masterBlock.find('.sign__master-img').attr('src', WPJS.siteUrl + `${$response[0].img}`);
       $masterBlock.find('.sign__master-btn').attr('href', WPJS.siteUrl + `/reviews?master=${$response[0].last_name}`);
-      
+
       $masterBlock.fadeIn();
-      $mastersSelect.selectric('refresh');      
+      $mastersSelect.selectric('refresh');
 
     },
     error: function(){
@@ -268,7 +268,7 @@ $('.js-masters-select').on('selectric-change', function(event, element, selectri
       // $masterBlock.find('.sign__master-desc').text(`${$response[0].about}`);
       $masterBlock.find('.sign__master-img').attr('src', WPJS.siteUrl + `${$response[0].img}`);
       $masterBlock.find('.sign__master-btn').attr('href', WPJS.siteUrl + `/reviews?master=${$response[0].last_name}`);
-      
+
       $masterBlock.fadeIn();
     },
     error: function(){
@@ -288,12 +288,12 @@ $(() => {
   // инициализировать только при $(document).ready() !!!
   $('#sign-form__date').datepicker({
     minDate: 0,
-    maxDate: '2023-04-30',
+    maxDate: '2023-05-31',
     dateFormat: "yy-mm-dd",
     onSelect: function( date, element ) {
 
       $dateInput.val(date);
-      
+
       // Отправляет значение даты из календаря и получается свободное время в этот день
       $.ajax({
         url: WPJS.siteUrl + '/backend/timeForSign.php',
@@ -308,16 +308,16 @@ $(() => {
         },
         data: `date=${$dateInput.val()}&master=${$('.js-masters-select').val()}&serviceName=${$('.js-type-select').val()}`, // Отправляем дату, фамилию мастера и точный сервис
         success: function(data){
-          
+
           var $response = JSON.parse(data);
 
           $('.wpcf7-list-item').first().find('input').prop('checked', false).removeAttr("checked");
           var $timeEl = $('.wpcf7-list-item').first().clone(); // копируем один чеквокс времени
 
-          $('.js-sign-radio').empty(); // очищаем временные чекбоксы 
+          $('.js-sign-radio').empty(); // очищаем временные чекбоксы
           $('.js-sign-radio').append($timeEl);
 
-          if($response.length) { // Если хоть одно время есть 
+          if($response.length) { // Если хоть одно время есть
             $('.js-time-block').removeClass('--hidden').removeClass('show--hint');
 
             for (let i = 0; i < $response.length; i++) {
@@ -326,7 +326,7 @@ $(() => {
               $timeEl.find('.wpcf7-list-item-label').text($response[i]);
               $input.val($response[i]).prop('checked', false).removeAttr("checked");
               $timeEl.removeClass('first').removeClass('last');
-              
+
               if( i == 0 ) {
                 $timeEl.addClass('first');
               }
@@ -335,7 +335,7 @@ $(() => {
                 $timeEl.addClass('last')
               }
 
-              $('.js-sign-radio').append($timeEl); 
+              $('.js-sign-radio').append($timeEl);
             }
           } else { // Если времени на этот день уже нет
             $('.js-time-block').removeClass('--hidden').addClass('show--hint');
