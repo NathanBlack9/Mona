@@ -1,4 +1,4 @@
-<?php 
+<?php
   $inst = carbon_get_theme_option('inst');
   $vk = carbon_get_theme_option('vk');
 
@@ -77,19 +77,19 @@
             </ul>
           </div>
         </div>
-        <div class="footer__copyright">© studiomona.ru 2022</div>
+        <div class="footer__copyright">© studiomona.ru <?php echo date("Y"); ?></div>
       </div>
     </div>
   </footer>
 
   <div class="go-top__btn js-go-top-btn"></div>
-  
+
   <?php //get_template_part( 'templates_navigation' ); ?>
 
   <script>
     var WPJS = {};
     WPJS.siteUrl = '<?php echo get_template_directory_uri(); ?>';
-  </script>    
+  </script>
 
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery-3.6.0.min.js"></script>
   <script src="<?php echo get_template_directory_uri(); ?>/build/js/vendor/jquery.selectric.min.js"></script>
