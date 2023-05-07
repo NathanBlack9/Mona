@@ -4,10 +4,14 @@
 */
 ?>
 
-<?php 
+<?php
   $categories = $wpdb->get_results("SELECT * from service_categories;");
 
-  $manicure = $wpdb->get_results("SELECT id, services_name, category_id FROM services WHERE category_id = 1 and time <> 0;");
+  /**
+   * id = 5 - Это "Маникюр, Гель-лак (однотонное покрытие)"
+   * Его выводим первым, дальше поочередно
+   */
+  $manicure = $wpdb->get_results("SELECT id, services_name, category_id FROM services WHERE category_id = 1 and time <> 0 order by FIELD(id, 5) DESC;");
 
   function defineMaster( $param ) {
     global $wpdb;
@@ -31,8 +35,8 @@
 
     <div class="sign__content content">
       <p>Записаться онлайн к нашим мастерам очень просто - выберите удобную для вас дату, время и оставьте нам свои контакты для обратной связи. Перед оформлением записи просим вас ознакомится с нашими <a href="<?php echo get_template_directory_uri(); ?>/rules/" target="_blank">правилами записи</a>.</p>
- 
-      <p>Посмотреть свои записи или отменить уже созданную запись можно <a href="<?php echo get_template_directory_uri(); ?>/unsign/">здесь</a>.</p> 
+
+      <p>Посмотреть свои записи или отменить уже созданную запись можно <a href="<?php echo get_template_directory_uri(); ?>/unsign/">здесь</a>.</p>
       <?php // <p>Если вы записывались к мастеру не через сайт, то такую запись можно отменить только по телефону +79509150858.</p> ?>
     </div>
 
@@ -44,7 +48,7 @@
         <div class="progress-point">4</div>
       </div>
 
-      <?php the_content(); // sign form?> 
+      <?php the_content(); // sign form?>
 
       <section class="sign__master js-sign-master" style="display: none;">
         <img src="" alt="" class="sign__master-img">
@@ -86,8 +90,8 @@
     <?php $arr = $manicure;
       foreach($arr as $item) { ?>
         $typeSelect.append($('<option>', {
-            value: '<?php echo $item->services_name; ?>',
-            text: '<?php echo $item->services_name; ?>'
+          value: '<?php echo $item->services_name; ?>',
+          text: '<?php echo $item->services_name; ?>'
         }));
       <?php } ?>
   });
@@ -96,12 +100,11 @@
     $('.js-services-select').trigger('selectric-change');
     setTimeout(() => {
       $('.ui-datepicker-today').click();
-      $('#sign-form__date *').removeAttr("title");
     }, 300);
   });
 
 </script>
-<?php 
+<?php
   $closedDates = carbon_get_theme_option('closed_dates');
 ?>
 <script>
@@ -114,18 +117,18 @@
       <?php // Даты которые НЕ нужно выводить/закрытые дни мастеров ?>
       let $closedDates = [];
 
-      <?php foreach( $closedDates as $item ) { ?> 
+      <?php foreach( $closedDates as $item ) { ?>
         if( $masterNameFromSelect == '<?php echo $item['master'] ?>' ) {
           $closedDates.push('<?php echo $item['closed_dates'] ?>');
         }
       <?php } ?>
-  
+
       for (let i = 0; i < $closedDates.length; i++) {
         if ($date == $closedDates[i]) {
           return false;
         }
       }
-      
+
       return 'normal';
     });
 
