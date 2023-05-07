@@ -110,7 +110,7 @@ $('.wpcf7-form').on('submit', function (event) {
       }
     });
 
-    /* google sheets
+    /* google sheets */
     $.ajax({
       redirect: "follow",
       url: 'https://script.google.com/macros/s/AKfycbz_KUQFXWWd5EkC9yEOBPcwPcBaKuVekSnvqQpeDOz7eSbAX7aqUGboFjfEpNotLinn/exec',
@@ -123,7 +123,7 @@ $('.wpcf7-form').on('submit', function (event) {
         console.log(er, "sheets error");
         // console.log(er);
       }
-    });*/
+    });
   } else {
     event.preventDefault();
     event.stopPropagation();
