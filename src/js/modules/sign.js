@@ -105,7 +105,7 @@ $('.wpcf7-form').on('submit', function (event) {
       },
       error: function(){
         alert('Ошибка записи! Обновите страницу и попробуйте записаться снова!');
-        window.location.href = "/404";
+        location.reload();
         console.log('ERROR SIGN sign.js');
       }
     });
