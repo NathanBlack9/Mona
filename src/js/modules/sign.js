@@ -93,16 +93,24 @@ $('.wpcf7-form').on('submit', function (event) {
         $('body').addClass('loading');
       },
       data: `databaseData=${JSON.stringify($signFormData)}&serviceName=${$('.js-type-select').val()}`,
-      success: function(data){
-        console.log('SUCCESS SIGN sign.js');
-        // console.log(data);
+      success: function(response){
+        let result = JSON.parse(response);
+
+        if (result['status'] === 'ok') {
+          alert("Запись принята!");
+        } else {
+          alert("Ошибка записи! Обновите страницу и попробуйте записаться снова!");
+          location.reload();
+        }
       },
       error: function(){
+        alert('Ошибка записи! Обновите страницу и попробуйте записаться снова!');
+        window.location.href = "/404";
         console.log('ERROR SIGN sign.js');
       }
     });
 
-    /* google sheets */
+    /* google sheets
     $.ajax({
       redirect: "follow",
       url: 'https://script.google.com/macros/s/AKfycbz_KUQFXWWd5EkC9yEOBPcwPcBaKuVekSnvqQpeDOz7eSbAX7aqUGboFjfEpNotLinn/exec',
@@ -115,8 +123,7 @@ $('.wpcf7-form').on('submit', function (event) {
         console.log(er, "sheets error");
         // console.log(er);
       }
-    });
-
+    });*/
   } else {
     event.preventDefault();
     event.stopPropagation();
