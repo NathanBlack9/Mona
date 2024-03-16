@@ -77,7 +77,7 @@ $(document).ready(function () {
                 <td>${element.name}</td>
                 <td>${element.phone}</td>
                 <td>${element.date}, ${Math.trunc(element.time)}:${$minutes}</td>
-                <td> 
+                <td>
                   <a class="js-delete-sign" href="/" data-id="${element.id}">Удалить
                     <img src="${WPJS.siteUrl}/build/img/close.svg" alt="" width="14" height="14">
                   </a>
@@ -93,9 +93,9 @@ $(document).ready(function () {
     labelBuilder: function(itemData) {
       return itemData.value.length ? '<span class="ico ico-' + itemData.value +  '"></span>' + itemData.text : itemData.text;
     },
-    onOpen: function() {                                                
+    onOpen: function() {
       var wrp = this.closest('.selectric-wrapper');
-      var fixer = wrp.getElementsByClassName('selectric-items')[0];                
+      var fixer = wrp.getElementsByClassName('selectric-items')[0];
       fixer.style.display='none';
       fixer.offsetHeight; // no need to store this anywhere, the reference is enough
       fixer.style.display='block';
@@ -110,9 +110,9 @@ $(document).ready(function () {
   // $('select:not(.not-default-select)').selectric();
   $('select').selectric({
     nativeOnMobile: false,
-    onOpen: function() {                                                
+    onOpen: function() {
       var wrp = this.closest('.selectric-wrapper');
-      var fixer = wrp.getElementsByClassName('selectric-items')[0];                
+      var fixer = wrp.getElementsByClassName('selectric-items')[0];
       fixer.style.display='none';
       fixer.offsetHeight; // no need to store this anywhere, the reference is enough
       fixer.style.display='block';
@@ -129,7 +129,7 @@ $(document).ready(function () {
     const $this = $(this);
     const $checkbox = $this.find('.wpcf7-list-item input[type="radio"]:checked');
     const $parent = $checkbox.parent().parent();
-    
+
     $parent.siblings().removeClass('active');
     $parent.addClass('active');
 
@@ -139,14 +139,14 @@ $(document).ready(function () {
     const $this = $(this);
     const $parent = $this.closest('.checkbox');
 
-    if( $this.is(":checked") ) { 
+    if( $this.is(":checked") ) {
       $parent.addClass('active');
     } else $parent.removeClass('active');
   });
 
   $('.js-review-form').on('submit', function (e) {
     e.preventDefault();
-  
+
     const $form = $(this);
 
     let $error = formValidate($form);
@@ -155,10 +155,10 @@ $(document).ready(function () {
     if ($error===0) {
       let $reviewsFormData = {};
 
-      $.each($form.serializeArray(), function (index) { 
+      $.each($form.serializeArray(), function (index) {
         let name = this.name;
         let value = this.value;
-  
+
         $reviewsFormData[`${name}`] = value;
       });
       // console.log($reviewsFormData);
@@ -196,15 +196,15 @@ $(document).ready(function () {
     const $textarea = $(this);
     const $count = $textarea.closest('div.inp').find('.textarea-symbol-counter span');
     const $textlength = $textarea.val().length;
-  
+
     $count.text($textlength);
   });
 
-  /* ----- Подписаться на рассылку ----- */ 
+  /* ----- Подписаться на рассылку ----- */
 
   $('.js-subscribe-form').on('submit', function (e) {
     e.preventDefault();
-  
+
     const $form = $(this);
 
     let $error = formValidate($form);
@@ -212,10 +212,10 @@ $(document).ready(function () {
     if ($error===0) {
       let $subscribeFormData = {};
 
-      $.each($form.serializeArray(), function (index) { 
+      $.each($form.serializeArray(), function (index) {
         let name = this.name;
         let value = this.value;
-  
+
         $subscribeFormData[`${name}`] = value;
       });
       // console.log($subscribeFormData); // Какой объект получился до отправки
@@ -252,8 +252,8 @@ $(document).ready(function () {
   });
   /* -------------------------------- */
 
-  /* ----- Удаление Записи ----- */ 
-  
+  /* ----- Удаление Записи ----- */
+
   $('.js-unsign-form').on('submit', function (e) {
     e.preventDefault();
     const $form = $(this);
@@ -262,10 +262,10 @@ $(document).ready(function () {
     if ($error===0) {
       let $unsignData = {};
 
-      $.each($form.serializeArray(), function () { 
+      $.each($form.serializeArray(), function () {
         let name = this.name;
         let value = this.value;
-  
+
         $unsignData[`${name}`] = value;
       });
 
@@ -289,7 +289,7 @@ $(document).ready(function () {
           if($response.length > 0) {
             const $table = $tableSection.find('table');
             $table.find('tr:not(:first)').remove();
-  
+
             showRemainingSigns($response, $table);
 
             $tableSection.fadeIn();
@@ -324,10 +324,10 @@ $(document).ready(function () {
           $form = $('.js-unsign-form');
           let $unsignData = {};
 
-          $.each($form.serializeArray(), function () { 
+          $.each($form.serializeArray(), function () {
             let name = this.name;
             let value = this.value;
-      
+
             $unsignData[`${name}`] = value;
           });
 
@@ -357,7 +357,7 @@ $(document).ready(function () {
     });
 
   })
-  /* -------------------------------- */ 
+  /* -------------------------------- */
 
   // Звезды отзывов
   $('.js-reviews-rating').each(function() {
@@ -369,6 +369,6 @@ $(document).ready(function () {
       $block.find(`li:nth-child(${ i })`).addClass('active');
     }
   })
-  
+
   $.datepicker.setDefaults( $.datepicker.regional[ "ru" ] );
 });

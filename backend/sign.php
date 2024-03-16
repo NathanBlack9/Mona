@@ -47,10 +47,13 @@
     $time = intval(mb_substr($object['time'], 0, 2)) + ( intval(mb_substr($object['time'], 3, 2)) / 60 );
     $time = $mysqli->real_escape_string($time);
 
-    if ($categoryId == 2) { // Если это педикюр - то добавляем мастеру по наращиванию
-      $queryI = $mysqli->query("insert INTO sign (service_id, master_id, date, time) VALUES ($serviceId, 2, '$date', '$time');");
-    } else if ($categoryId == 4) { // Если это наращивание - то добавляем мастеру по педикюру
-      $queryI = $mysqli->query("insert INTO sign (service_id, master_id, date, time) VALUES ($serviceId, 1, '$date', '$time');");
+    if($name != 'admin') {
+      if ($categoryId == 2) { // Если это педикюр - то добавляем мастеру по наращиванию
+        $queryI = $mysqli->query("insert INTO sign (service_id, master_id, date, time) VALUES ($serviceId, 2, '$date', '$time');");
+      } else if ($categoryId == 4) { // Если это наращивание - то добавляем мастеру по педикюру
+        $queryI = $mysqli->query("insert INTO sign (service_id, master_id, date, time) VALUES ($serviceId, 1, '$date', '$time');");
+        $queryI = $mysqli->query("insert INTO sign (service_id, master_id, date, time) VALUES ($serviceId, 5, '$date', '$time');");
+      }
     }
 
     /**
@@ -123,7 +126,11 @@
     $serviceName = $mysqli->real_escape_string($_GET['serv']);
     $masterName = $mysqli->real_escape_string($_GET['master']);
 
-    $sss = $mysqli->query("select services_name FROM services WHERE time <> 0 and id in (select services_id from connecting where master_id = (select id from masters where last_name like '%$masterName%')) and category_id = (select id from service_categories where name like '%$serviceName%');");
+    /**
+     * id = 5 - Это "Маникюр, Гель-лак (однотонное покрытие)"
+     * Его выводим первым, дальше поочередно
+     */
+    $sss = $mysqli->query("select services_name FROM services WHERE time <> 0 and id in (select services_id from connecting where master_id = (select id from masters where last_name like '%$masterName%')) and category_id = (select id from service_categories where name like '%$serviceName%') order by FIELD(id, 5) DESC;");
     $sss = $sss->fetch_all(MYSQLI_ASSOC);
 
     print_r(json_encode($sss));
