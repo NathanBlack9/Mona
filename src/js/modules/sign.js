@@ -294,7 +294,7 @@ $(() => {
   // инициализировать только при $(document).ready() !!!
   $('#sign-form__date').datepicker({
     minDate: 0,
-    maxDate: '2024-04-30',
+    maxDate: '2024-05-31',
     dateFormat: "yy-mm-dd",
     onSelect: function( date, element ) {
 
