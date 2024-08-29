@@ -126,13 +126,10 @@
       if( $masterNameFromSelect == 'Хачатрян' ) {
         $closedDates.push('2024-09-16');
       }
+      if( $masterNameFromSelect == 'Хачатрян' ) {
+        $closedDates.push('2024-08-31');
+      }
 
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-01');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-02');
-      }
       if( $masterNameFromSelect == 'Аракелян' ) {
         $closedDates.push('2024-09-03');
       }
