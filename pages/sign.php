@@ -127,6 +127,9 @@
         $closedDates.push('2024-09-16');
       }
       if( $masterNameFromSelect == 'Хачатрян' ) {
+        $closedDates.push('2024-09-02');
+      }
+      if( $masterNameFromSelect == 'Хачатрян' ) {
         $closedDates.push('2024-08-31');
       }
 
@@ -136,21 +139,7 @@
       if( $masterNameFromSelect == 'Аракелян' ) {
         $closedDates.push('2024-09-04');
       }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-05');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-06');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-07');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-08');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-09');
-      }
+      
       if( $masterNameFromSelect == 'Аракелян' ) {
         $closedDates.push('2024-09-10');
       }
@@ -158,62 +147,19 @@
         $closedDates.push('2024-09-11');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-12');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-13');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-14');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-15');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-16');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
         $closedDates.push('2024-09-17');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
         $closedDates.push('2024-09-18');
       }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-19');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-20');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-21');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-22');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-23');
-      }
+      
       if( $masterNameFromSelect == 'Аракелян' ) {
         $closedDates.push('2024-09-24');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
         $closedDates.push('2024-09-25');
       }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-26');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-27');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-28');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-29');
-      }
-      if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-09-30');
-      }
+
 
       if( $masterNameFromSelect == 'Каплина' ) {
         $closedDates.push('2024-09-01');
