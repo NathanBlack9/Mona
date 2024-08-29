@@ -124,139 +124,192 @@
       <?php } */ ?>
 
       if( $masterNameFromSelect == 'Хачатрян' ) {
-        $closedDates.push('2024-07-24');
-      }
-      if( $masterNameFromSelect == 'Хачатрян' ) {
-        $closedDates.push('2024-08-01');
-      }
-      if( $masterNameFromSelect == 'Хачатрян' ) {
-        $closedDates.push('2024-08-08');
+        $closedDates.push('2024-09-16');
       }
 
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-06');
+        $closedDates.push('2024-09-01');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-07');
+        $closedDates.push('2024-09-02');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-13');
+        $closedDates.push('2024-09-03');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-14');
+        $closedDates.push('2024-09-04');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-20');
+        $closedDates.push('2024-09-05');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-21');
+        $closedDates.push('2024-09-06');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-27');
+        $closedDates.push('2024-09-07');
       }
       if( $masterNameFromSelect == 'Аракелян' ) {
-        $closedDates.push('2024-08-28');
+        $closedDates.push('2024-09-08');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-09');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-10');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-11');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-12');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-13');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-14');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-15');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-16');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-17');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-18');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-19');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-20');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-21');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-22');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-23');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-24');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-25');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-26');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-27');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-28');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-29');
+      }
+      if( $masterNameFromSelect == 'Аракелян' ) {
+        $closedDates.push('2024-09-30');
       }
 
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-07-30');
+        $closedDates.push('2024-09-01');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-07-31');
+        $closedDates.push('2024-09-02');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-01');
+        $closedDates.push('2024-09-03');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-02');
+        $closedDates.push('2024-09-04');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-03');
+        $closedDates.push('2024-09-05');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-04');
+        $closedDates.push('2024-09-06');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-05');
+        $closedDates.push('2024-09-07');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-06');
+        $closedDates.push('2024-09-08');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-07');
+        $closedDates.push('2024-09-09');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-08');
+        $closedDates.push('2024-09-10');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-09');
+        $closedDates.push('2024-09-11');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-10');
+        $closedDates.push('2024-09-12');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-11');
+        $closedDates.push('2024-09-13');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-12');
+        $closedDates.push('2024-09-14');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-13');
+        $closedDates.push('2024-09-15');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-14');
+        $closedDates.push('2024-09-16');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-15');
+        $closedDates.push('2024-09-17');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-16');
+        $closedDates.push('2024-09-18');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-17');
+        $closedDates.push('2024-09-19');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-18');
+        $closedDates.push('2024-09-20');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-19');
+        $closedDates.push('2024-09-21');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-20');
+        $closedDates.push('2024-09-22');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-21');
+        $closedDates.push('2024-09-23');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-22');
+        $closedDates.push('2024-09-24');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-23');
+        $closedDates.push('2024-09-25');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-24');
+        $closedDates.push('2024-09-26');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-25');
+        $closedDates.push('2024-09-27');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-26');
+        $closedDates.push('2024-09-28');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-27');
+        $closedDates.push('2024-09-29');
       }
       if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-28');
+        $closedDates.push('2024-09-30');
       }
-      if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-29');
-      }
-      if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-30');
-      }
-      if( $masterNameFromSelect == 'Каплина' ) {
-        $closedDates.push('2024-08-31');
-      }
+
+
 
 
       for (let i = 0; i < $closedDates.length; i++) {
