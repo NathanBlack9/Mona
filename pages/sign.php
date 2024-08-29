@@ -308,6 +308,12 @@
       if( $masterNameFromSelect == 'Каплина' ) {
         $closedDates.push('2024-09-30');
       }
+      if( $masterNameFromSelect == 'Каплина' ) {
+        $closedDates.push('2024-08-30');
+      }
+      if( $masterNameFromSelect == 'Каплина' ) {
+        $closedDates.push('2024-08-31');
+      }
 
 
 
