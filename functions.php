@@ -136,3 +136,14 @@ function my_skip_mail($skip_mail, $contact_form) {
 	return $skip_mail;	
 }
 add_filter( 'wpcf7_skip_mail','my_skip_mail', PHP_INT_MAX, 2 );
+
+if (!function_exists('enqueue_regenerator_runtime_admin')) {
+    function enqueue_regenerator_runtime_admin() {
+        // Check if regenerator-runtime has already been enqueued
+        if (!wp_script_is('regenerator-runtime', 'enqueued')) {
+            wp_enqueue_script('regenerator-runtime');
+        }
+    }
+
+    add_action('admin_enqueue_scripts', 'enqueue_regenerator_runtime_admin');
+}
